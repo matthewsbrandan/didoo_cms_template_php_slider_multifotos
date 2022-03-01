@@ -16,6 +16,9 @@
   @isset($elements['service'])
     <link href="{{ asset('css/sections/service.css') }}" rel="stylesheet"/>
   @endisset
+  @isset($elements['text_divider'])
+    <link href="{{ asset('css/sections/text_divider.css') }}" rel="stylesheet"/>
+  @endisset
 @endsection
 @section('content')
 
@@ -56,6 +59,12 @@
   @isset($elements['service'])
     @include('sections.service',[
       'service' => $elements['service']
+    ])
+  @endisset
+
+  @isset($elements['text_divider'])
+    @include('sections.text_divider',[
+      'text_divider' => $elements['text_divider']
     ])
   @endisset
 @endsection
