@@ -19,6 +19,23 @@
   @isset($elements['text_divider'])
     <link href="{{ asset('css/sections/text_divider.css') }}" rel="stylesheet"/>
   @endisset
+  <!-- PRODUCTS SCSS -->
+  @isset($elements['testimonial'])
+    <link href="{{ asset('css/sections/testimonial.css') }}" rel="stylesheet"/>
+  @endisset
+  <!-- GALLERY SCSS -->
+  @isset($elements['video'])
+    <link href="{{ asset('css/sections/video.css') }}" rel="stylesheet"/>
+  @endisset
+  @isset($elements['schedule'])
+    <link href="{{ asset('css/sections/schedule.css') }}" rel="stylesheet"/>
+  @endisset
+  @isset($elements['faq'])
+    <link href="{{ asset('css/sections/faq.css') }}" rel="stylesheet"/>
+  @endisset
+  @isset($elements['download_catalog'])
+    <link href="{{ asset('css/sections/download_catalog.css') }}" rel="stylesheet"/>
+  @endisset
 @endsection
 @section('content')
 
@@ -65,6 +82,48 @@
   @isset($elements['text_divider'])
     @include('sections.text_divider',[
       'text_divider' => $elements['text_divider']
+    ])
+  @endisset
+
+  <!-- 
+ 
+    NOSSOS PRODUTOS
+
+   -->
+
+  @isset($elements['testimonial'])
+    @include('sections.testimonial',[
+      'testimonial' => $elements['testimonial']
+    ])
+  @endisset
+
+  <!-- 
+
+    GALERIA
+
+   -->
+
+  @isset($elements['video'])
+    @include('sections.video',[
+      'video' => $elements['video']
+    ])
+  @endisset
+
+  @isset($elements['schedule'])
+    @include('sections.schedule',[
+      'schedule' => $elements['schedule']
+    ])
+  @endisset
+
+  @isset($elements['faq'])
+    @include('sections.faq',[
+      'faq' => $elements['faq']
+    ])
+  @endisset
+  
+  @isset($elements['download_catalog'])
+    @include('sections.download_catalog',[
+      'download_catalog' => $elements['download_catalog']
     ])
   @endisset
 @endsection

@@ -1,0 +1,101 @@
+#testimonial {
+  min-height: 30rem;
+  padding: 3rem 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  position: relative;
+}
+
+#testimonial .content {
+  margin: auto;
+  width: 100%;
+  max-width: 950px;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  padding: 4rem 2rem;
+  border-radius: .6rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  z-index: 1;
+}
+
+#testimonial .content .container-clients {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 1rem;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  padding: 3rem 0;
+}
+
+#testimonial .content .container-clients .client {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  max-width: 14rem;
+}
+
+#testimonial .content .container-clients .client img {
+  margin-bottom: 1.5rem;
+  width: 8rem;
+  height: 8rem;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 50%;
+  -webkit-box-shadow: 0 0 20px #0022;
+          box-shadow: 0 0 20px #0022;
+}
+
+#testimonial .content .container-clients .client strong {
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  margin: 0;
+  text-align: center;
+}
+
+#testimonial .content .container-clients .client strong span {
+  font-weight: normal;
+}
+
+#testimonial .content .container-clients .client p {
+  margin: .5rem 0;
+  text-align: center;
+}
+
+#testimonial .content .btn {
+  min-width: 12rem;
+  max-width: 100%;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  font-size: 1rem;
+}
+/*# sourceMappingURL=testimonial.css.map */

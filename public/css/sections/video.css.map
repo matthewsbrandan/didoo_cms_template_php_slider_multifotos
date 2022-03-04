@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AACE,MADI,CACJ,MAAM,CAAA;EACJ,SAAS,EAAE,IAAI;EACf,UAAU,EAAE,KAAK;EACjB,UAAU,EAAE,KAAK;CAClB",
+    "sources": [
+        "video.scss"
+    ],
+    "names": [],
+    "file": "video.css"
+}
