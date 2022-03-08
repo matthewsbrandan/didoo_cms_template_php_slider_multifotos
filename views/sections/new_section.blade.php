@@ -8,6 +8,7 @@
     ">{!! $new_section->description !!}</p>
     <a
       href="{{ $new_section->button->link }}"
+      target="_blank"
       class="btn btn-primary btn-uppercase"
       style="
         {{ $new_section->button->background ? 'background: '.$new_section->button->background.';' : '' }}

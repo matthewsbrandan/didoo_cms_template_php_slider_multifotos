@@ -12,6 +12,7 @@
     <div class="group-buttons">
       <a
         href="{{ $product_list->button->link }}"
+        target="_blank"
         class="btn btn-primary btn-uppercase"
         style="
           {{ $product_list->button->background ? 'background: '.$product_list->button->background.';' : '' }}

@@ -10,6 +10,7 @@
 
     <a
       href="{{ $text_divider->button->link }}"
+      target="_blank"
       class="btn btn-primary btn-uppercase"
       style="
         {{ $text_divider->button->background ? 'background: '.$text_divider->button->background.';' : '' }}

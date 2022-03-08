@@ -8,6 +8,7 @@
       <p>{!! $who_we_are->description !!}</p>
       <a
         href="{{ $who_we_are->button->link }}"
+        target="_blank"
         class="btn btn-primary btn-uppercase"
         style="
           {{ $who_we_are->button->background ? 'background: '.$who_we_are->button->background.';' : '' }}

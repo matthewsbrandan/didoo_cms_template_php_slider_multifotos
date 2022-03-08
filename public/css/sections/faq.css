@@ -39,11 +39,16 @@
 #faq .content h2 {
   text-transform: uppercase;
   font-size: 2rem;
+  text-align: center;
   margin-top: 0;
 }
 
 #faq .content ul {
   width: 100%;
   text-align: left;
+}
+
+#faq .content ul li {
+  padding: .4rem;
 }
 /*# sourceMappingURL=faq.css.map */

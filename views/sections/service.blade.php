@@ -11,6 +11,7 @@
           <a
             href="{{ $item->button->link }}"
             class="btn btn-primary btn-uppercase"
+            target="_blank"
             style="
               {{ $item->button->background ? 'background: '.$item->button->background.';' : '' }}
               {{ $item->button->color ? 'color: '.$item->button->color.';' : '' }}

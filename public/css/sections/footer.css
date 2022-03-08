@@ -1,0 +1,79 @@
+#footer .content {
+  padding: 2rem 1.6rem 1rem;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 3fr 2fr 2fr;
+      grid-template-columns: 3fr 2fr 2fr;
+}
+
+#footer .content > div {
+  padding: 1rem .4rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+#footer .content > div a, #footer .content > div span, #footer .content > div p {
+  font-size: .9rem;
+}
+
+#footer .content > div strong {
+  font-size: 1.1rem;
+}
+
+#footer .content > div:nth-child(1) .logo {
+  max-height: 5rem;
+  max-width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+#footer .content > div:nth-child(1) p {
+  max-height: 24rem;
+}
+
+#footer .content > div:nth-child(2) strong {
+  margin-bottom: .8rem;
+}
+
+#footer .content > div:nth-child(2) ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+#footer .content > div:nth-child(2) ul li {
+  padding: .2rem 0;
+}
+
+#footer .content > div:nth-child(3) strong {
+  margin-bottom: .8rem;
+}
+
+#footer .content > div:nth-child(3) a {
+  padding: .2rem;
+}
+
+#footer .content > div:nth-child(3) .group-icons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  padding: 1rem 0;
+}
+
+@media (max-width: 800px) {
+  #footer .content {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+  }
+}
+/*# sourceMappingURL=footer.css.map */

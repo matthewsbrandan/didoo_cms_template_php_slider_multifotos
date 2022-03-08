@@ -1,0 +1,56 @@
+#cms_catalog:not(.loaded) {
+  display: none;
+}
+
+#cms_catalog .content h2 {
+  text-transform: uppercase;
+  font-size: 2rem;
+  text-align: center;
+  margin-top: 0;
+}
+
+#cms_catalog .content #container-products {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  overflow-x: auto;
+}
+
+#cms_catalog .content #container-products .content-product {
+  text-align: center;
+}
+
+#cms_catalog .content #container-products .content-product img {
+  width: 20rem;
+  height: 20rem;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -webkit-box-shadow: 0 0 20px #0002;
+          box-shadow: 0 0 20px #0002;
+  margin: .2rem .2rem 1.2rem;
+}
+
+#cms_catalog .content #container-products .content-product strong {
+  text-transform: uppercase;
+}
+
+#cms_catalog .content #container-products .content-product .price {
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin-top: .4rem;
+}
+
+#cms_catalog .content #container-products .content-product .price small {
+  font-size: .8rem;
+}
+
+#cms_catalog .content .btn {
+  min-width: 12rem;
+  max-width: 100%;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  font-size: 1rem;
+  margin: 1rem auto;
+}
+/*# sourceMappingURL=cms_catalog.css.map */

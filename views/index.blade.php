@@ -19,7 +19,9 @@
   @isset($elements['text_divider'])
     <link href="{{ asset('css/sections/text_divider.css') }}" rel="stylesheet"/>
   @endisset
-  <!-- PRODUCTS SCSS -->
+  @isset($elements['cms_catalog'])
+    <link href="{{ asset('css/sections/cms_catalog.css') }}" rel="stylesheet"/>
+  @endisset
   @isset($elements['testimonial'])
     <link href="{{ asset('css/sections/testimonial.css') }}" rel="stylesheet"/>
   @endisset
@@ -36,6 +38,10 @@
   @isset($elements['download_catalog'])
     <link href="{{ asset('css/sections/download_catalog.css') }}" rel="stylesheet"/>
   @endisset
+  @isset($elements['video_depoiments'])
+    <link href="{{ asset('css/sections/video_depoiments.css') }}" rel="stylesheet"/>
+  @endisset
+  <link href="{{ asset('css/sections/footer.css') }}" rel="stylesheet"/>
 @endsection
 @section('content')
 
@@ -85,11 +91,11 @@
     ])
   @endisset
 
-  <!-- 
- 
-    NOSSOS PRODUTOS
-
-   -->
+  @isset($elements['cms_catalog'])
+    @include('sections.cms_catalog',[
+      'cms_catalog' => $elements['cms_catalog']
+    ])
+  @endisset
 
   @isset($elements['testimonial'])
     @include('sections.testimonial',[
@@ -126,4 +132,79 @@
       'download_catalog' => $elements['download_catalog']
     ])
   @endisset
+
+  @isset($elements['video_depoiments'])
+    @include('sections.video_depoiments',[
+      'video_depoiments' => $elements['video_depoiments']
+    ])
+  @endisset
+
+  @include('sections.footer',[
+    'footer' => $elements['footer']
+  ])
+@endsection
+@section('scripts')
+  @if(
+    isset($elements['cms_catalog'])&& 
+    isset($elements['cms_catalog']->api_url) &&
+    isset($elements['cms_catalog']->origin)
+  )
+    <script>
+      function loadCatalog(){
+        let url = `{{ $elements['cms_catalog']->api_url }}/{{ $elements['cms_catalog']->take }}`;
+        $.ajax({
+          url,
+          headers: {"store-token": "vfZLdEgU2ZP5FSO_ov7jYNdoEe74TVa"},
+          method: "GET"
+        }).done(data => {
+          console.log(data);
+          if(data.result){
+            $('#container-products').html('');
+            let products = data.response.map(product => {
+              let name = product.name
+              try {
+                if (name.indexOf('"pt"') != -1 && JSON.parse(product.name)){
+                  name = JSON.parse(product.name).pt
+                }
+              } catch { name = product.name }
+              return {
+                id: product.id,
+                image: `{{ $elements['cms_catalog']->origin }}${product.logom}`,
+                name: name,
+                price: Number(product.price),
+              }
+            });
+
+            products.forEach(product => {
+              $('#container-products').append(
+                renderProduct(product)
+              );
+            });
+
+            $('#cms_catalog').addClass('loaded');
+          }
+        });
+      }
+      function renderProduct(product){
+        let price = (new Intl.NumberFormat('pt-BR', {
+          style: 'currency',
+          currency: 'BRL'
+        }).format(product.price)).replace('R$','');
+        let [integer, decimal] = price.split(',');
+
+        return `
+          <div class="content-product">
+            <img src="${product.image}" alt="${product.name}"/>
+            <strong>${product.name}</strong>
+            <p class="price">
+              <small>R$</small>${integer}<small>,${decimal}</small>
+              </p>
+          </div>
+        `;
+      }
+      $(function(){
+        loadCatalog();
+      });
+    </script>
+  @endif
 @endsection

@@ -15,6 +15,7 @@
         <a
           href="{{ $section_list->button->link }}"
           class="btn btn-primary btn-uppercase"
+          target="_blank"
           style="
             {{ $section_list->button->background ? 'background: '.$section_list->button->background.';' : '' }}
             {{ $section_list->button->color ? 'color: '.$section_list->button->color.';' : '' }}

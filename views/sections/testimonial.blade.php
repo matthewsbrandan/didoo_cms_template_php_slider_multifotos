@@ -14,6 +14,7 @@
     <div class="group-buttons">
       <a
         href="{{ $testimonial->button->link }}"
+        target="_blank"
         class="btn btn-primary btn-uppercase"
         style="
           {{ $testimonial->button->background ? 'background: '.$testimonial->button->background.';' : '' }}
