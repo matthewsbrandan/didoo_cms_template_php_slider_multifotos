@@ -2,10 +2,10 @@
 
 class Controller{
   protected $cms;
-  protected $page_slug;
+  protected $theme_slug;
 
-  public function __construct($cms, $page_slug){
+  public function __construct($cms, $theme_slug){
     $this->cms = $cms;
-    $this->page_slug = $page_slug;
+    $this->theme_slug = $theme_slug;
   }
 }

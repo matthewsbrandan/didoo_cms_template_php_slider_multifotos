@@ -1,6 +1,11 @@
 #main-header {
   -webkit-box-shadow: 0 0 20px #0022;
           box-shadow: 0 0 20px #0022;
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  right: 0;
 }
 
 #main-header .nav {
@@ -77,6 +82,9 @@
 }
 
 @media (max-width: 800px) {
+  #main-header .show {
+    bottom: 0;
+  }
   #main-header .nav .toggle-menu {
     display: inherit;
   }

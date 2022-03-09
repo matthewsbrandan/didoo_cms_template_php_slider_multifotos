@@ -18,26 +18,7 @@
     </div>
     <div>
       <strong>ACESSO RÁPIDO</strong>
-      <ul>
-        <li>
-          <a href="#servicos" onclick="toggleActiveMainMenu($(this).parent())">Serviços</a>
-        </li>
-        <li>
-          <a href="#sobre" onclick="toggleActiveMainMenu($(this).parent())">Sobre</a>
-        </li>
-        <li>
-          <a href="#produto" onclick="toggleActiveMainMenu($(this).parent())">Produto</a>
-        </li>
-        <li>
-          <a href="#galeria" onclick="toggleActiveMainMenu($(this).parent())">Galeria</a>
-        </li>
-        <li>
-          <a href="#contato" onclick="toggleActiveMainMenu($(this).parent())">Contato</a>
-        </li>
-        <li>
-          <a href="#agendar" onclick="toggleActiveMainMenu($(this).parent())">Agendar Horário</a>
-        </li>
-      </ul>
+      <ul>@include('layout.header-list')</ul>
     </div>
     @if(
       isset($footer->email) || 
@@ -47,7 +28,7 @@
       isset($footer->youtube) || 
       isset($footer->twitter)
     )
-      <div>
+      <div id="contato">
         <strong>FALE CONOSCO</strong>
         @isset($footer->whatsapp)
           <a href="tel: {{ $footer->whatsapp }}" target="_blank">{{ $footer->whatsapp }}</a>

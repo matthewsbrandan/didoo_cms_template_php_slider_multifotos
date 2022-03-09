@@ -33,6 +33,20 @@
 
       li{
         padding: .4rem;
+
+        strong{
+          display: flex;
+          align-items: center;
+          margin-left: -1.5rem;
+          
+          .icon-toggler{
+            font-size: 0;
+            svg{
+              transform: scale(0.65);
+              opacity: .8;
+            }
+          }
+        }
       }
     }
   }

@@ -21,7 +21,7 @@
   }
   function asset($path, $referer_cms = false){
     global $cms_url;
-    global $app_url;
+    $app_url = getenv('APP_URL');
 
     if($referer_cms) return $cms_url.$path;
     return $app_url."/"."public/".$path;
@@ -33,4 +33,10 @@
   function view($name, $params = []){
     global $blade;
     return $blade->make($name, $params);
+  }
+  function frac_url($url){
+    $frac_url = [...array_filter(explode("/",$url), function($frac){
+      return !!$frac;
+    })];
+    return $frac_url;
   }

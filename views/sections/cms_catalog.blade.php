@@ -1,5 +1,5 @@
 <section id="cms_catalog">
-  <div class="content">
+  <div class="content" id="produtos">
     <h2
       style="{{ $cms_catalog->text_color ? 'color: '.$cms_catalog->text_color.';' : '' }}"
     >{{ $cms_catalog->title }}</h2>

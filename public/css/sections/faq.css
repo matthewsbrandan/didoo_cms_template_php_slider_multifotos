@@ -51,4 +51,24 @@
 #faq .content ul li {
   padding: .4rem;
 }
+
+#faq .content ul li strong {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-left: -1.5rem;
+}
+
+#faq .content ul li strong .icon-toggler {
+  font-size: 0;
+}
+
+#faq .content ul li strong .icon-toggler svg {
+  -webkit-transform: scale(0.65);
+          transform: scale(0.65);
+  opacity: .8;
+}
 /*# sourceMappingURL=faq.css.map */

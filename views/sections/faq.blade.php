@@ -4,14 +4,23 @@
       {{ $faq->title }}
     </h2>
     <ul>
-      @foreach($faq->questions as $question)
+      @foreach($faq->questions as $i => $question)
         <li>
           <strong 
-            onclick="$(this).next().toggle('slow')"
+            onclick="$(this).next().toggle('slow'); toggleIconPlusMinus($(this).children('.icon-toggler'))"
             style="{{ $faq->text_color ? 'color: '.$faq->text_color.';' : '' }}"
-          >{{ $question->title }}</strong>
-          <p style="display: none; {{ $faq->answer_color ? 'color: '.$faq->answer_color.';' : '' }}"
-          >{{ $question->description }}</p>
+          >
+            @if($i === 0)
+              <span class="icon-toggler icon-minus">@include('utils.icons.minus')</span>
+            @else
+              <span class="icon-toggler icon-plus">@include('utils.icons.plus')</span>
+            @endif
+            {{ $question->title }}
+          </strong>
+          <p style="
+            {{ $i > 0 ? 'display: none; ':'' }}
+            {{ $faq->answer_color ? 'color: '.$faq->answer_color.';' : '' }}
+          ">{{ $question->description }}</p>
         </li>
       @endforeach
     </ul>

@@ -1,6 +1,12 @@
 #main-header{
   box-shadow: 0 0 20px #0022;
 
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  right: 0;
+
   .nav{
     display: flex;
     justify-content: space-between;
@@ -56,6 +62,7 @@
   }
 
   @media (max-width: 800px){
+    .show{ bottom: 0; }
     .nav{
       .toggle-menu{ display: inherit; }
       

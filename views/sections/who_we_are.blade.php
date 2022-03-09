@@ -1,5 +1,5 @@
 <section id="who_we_are">
-  <div class="content">
+  <div class="content" id="sobre">
     <img src="{{ $who_we_are->image }}" alt="{{ $who_we_are->title }}"/>
     <div>
       <h2 style="{{ $who_we_are->text_color ? 'color: '.$who_we_are->text_color.';' : '' }}">

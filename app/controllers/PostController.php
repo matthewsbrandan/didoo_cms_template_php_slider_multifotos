@@ -8,23 +8,23 @@ class PostController extends Controller{
 
     if($data->result){
       $posts = $data->response->posts;
-      return $this->view('blog.index',['posts' => $posts]);
+      return view('blog.index',['posts' => $posts]);
     }
-    return $this->view('error-404');
+    return view('error-404');
   }
 
-  public function show(){
+  public function show($slug){
     [$data, $err] = $this->cms->get("post/show/".$slug);
     if($data->result){
       $response = $data->response;
       
-      return $this->view('blog.show',[
+      return view('blog.show',[
         'post' => $response->post,
         'prevPost' => $response->prevPost,
         'nextPost' => $response->nextPost,
         'outhers' => $response->outhers
       ]);
     }
-    return $this->view('error-404');
+    return view('error-404');
   }
 }

@@ -9,7 +9,9 @@
   $app_url = getenv('APP_URL');
   $app_path = getenv('APP_PATH');
   $cms_url = getenv('CMS_URL');
-  $cms_page_slug = getenv('CMS_PAGE_SLUG');
+  $cms_theme_slug = getenv('CMS_THEME_SLUG');
+  $mode_dynamic_slug = (bool) getenv('MODE_DYNAMIC_SLUG');
+  $cms_page_slug = null;
 
   include_once __DIR__."/app/helpers.php";
   include_once __DIR__."/app/services/CmsService.php";
@@ -17,34 +19,51 @@
   $uri = str_replace($app_path, '', $_SERVER['REQUEST_URI']);
   $cms = new CmsService();
 
+  #region HANDLE MODE DYNAMIC SLUG
+  if($mode_dynamic_slug){
+    $frac_url = frac_url($uri);
+    if(count($frac_url) == 0){
+      echo view('error-404');
+      die;
+    }
+    $cms_page_slug = $frac_url[0];
+    $app_url = $app_url . "/" . $cms_page_slug;
+    array_shift($frac_url);
+    $uri = "/".implode('/',$frac_url);
+
+    $data = $cms->getPageToken($cms_page_slug);
+    if(!$data->result) echo view('error-500',[
+      'message' => $data->response
+    ]);
+  }
+  #endregion HANDLE MODE DYNAMIC SLUG
+
   include(__DIR__."/routes.php");
   
   function render($url){
     global $blade;
     global $cms;
-    global $cms_page_slug;
+    global $cms_theme_slug;
 
-    $frac_url = [...array_filter(explode("/",$url), function($frac){
-      return !!$frac;
-    })];
-
+    $frac_url = frac_url($url);
+    
     if(count($frac_url) == 0){
       include_once __DIR__."/app/controllers/HomeController.php";
-      $controller = new HomeController($cms, $cms_page_slug);
+      $controller = new HomeController($cms, $cms_theme_slug);
 
       return $controller->index();
     }
     else{
       if($frac_url[0] == 'blog'){
         include_once __DIR__."/app/controllers/PostController.php";
-        $controller = new PostController($cms, $cms_page_slug);
+        $controller = new PostController($cms, $cms_theme_slug);
 
         if(count($frac_url) == 1) return $controller->index();
         else if(count($frac_url) == 2) return $controller->show($frac_url[1]);
       }
     }
 
-    return $blade->make('error-404');
+    return view('error-404');
   }
 
   echo render($uri);

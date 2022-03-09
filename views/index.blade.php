@@ -144,12 +144,23 @@
   ])
 @endsection
 @section('scripts')
+  <script>
+    const icons = {
+      minus: `@include('utils.icons.minus')`,
+      plus: `@include('utils.icons.plus')`
+    }
+    function toggleIconPlusMinus(target){0
+      if(target.hasClass('icon-minus')) target.html(icons.plus);
+      else target.html(icons.minus);
+      target.toggleClass('icon-minus icon-plus');
+    }
+  </script>
   @if(
     isset($elements['cms_catalog'])&& 
     isset($elements['cms_catalog']->api_url) &&
     isset($elements['cms_catalog']->origin)
   )
-    <script>
+    <script>      
       function loadCatalog(){
         let url = `{{ $elements['cms_catalog']->api_url }}/{{ $elements['cms_catalog']->take }}`;
         $.ajax({
@@ -201,7 +212,7 @@
               </p>
           </div>
         `;
-      }
+      }      
       $(function(){
         loadCatalog();
       });
