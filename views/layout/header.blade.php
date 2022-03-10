@@ -23,11 +23,15 @@
         {{ $header->link_color ? 'color: '.$header->link_color.';': '' }}
       "
     >
-      @include('layout.header-list',[
-        'header_list_config' => (object)[
-          'schedule_type' => 'button'
-        ]
-      ])
+      @if(isset($header_config) && $header_config->back_to_home)
+        <li><a href="{{ route('home') }}">Voltar</a></li>
+      @else
+        @include('layout.header-list',[
+          'header_list_config' => (object)[
+            'schedule_type' => 'button'
+          ]
+        ])
+      @endif
     </ul>
   </nav>
   <script>

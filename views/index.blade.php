@@ -164,7 +164,7 @@
     isset($elements['cms_catalog']->origin)
   )
     <script>
-      // INICIALIZANDO VARIÁVEIS
+      // INTIALIZATION
       const cms_catalog = {
         api_url: `{{ $elements['cms_catalog']->api_url }}`,
         take: `{{ $elements['cms_catalog']->take }}`,
@@ -179,43 +179,14 @@
     isset($elements['cms_gallery']->slug)
   )
     <script>
+      // INTIALIZATION
       const cms_gallery = {
         slug: `{{ $elements['cms_gallery']->slug }}`,
         token: `{{ $cms_page_token }}`,
         take: <?php echo $elements['cms_gallery']->take ?? 'null'; ?>,
         url: `{{ route('api.gallery.show',['slug' => $elements['cms_gallery']->slug]) }}`
       };
-
-      function loadGallery(){
-        let url = cms_gallery.url;
-        $.ajax({
-          url,
-          headers: {"access-token": cms_gallery.token},
-          method: "GET"
-        }).done(data => {
-          console.log(data);
-          if(data.result){
-            $('#container-gallery').html('');
-
-            let images = data.response.images;
-            if(images.length === 0) $('#container-gallery').html(`
-              <p class="text-loading">Nenhuma imagem encontrada!</p>
-            `);
-            else images.forEach(image => {
-              $('#container-gallery').append(
-                renderImageFromGallery(image)
-              );
-            });
-          }
-        });
-      }
-      function renderImageFromGallery(image){
-        return `
-          <img src="${image.name}" alt="${image.alt}" class="gallery-image"/>
-        `;
-      }
-
-      $(function(){ loadGallery(); });
     </script>
+    <script src="{{ asset('js/cms_gallery.js') }}"></script>
   @endif
 @endsection

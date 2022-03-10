@@ -4,11 +4,12 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BLOG FEED | CMS</title>
+  <title>BLOG | {{ $page_config->title ?? 'CMS' }}</title>
   <!-- Fonts -->
-  <link rel="shortcut icon" href="{{ asset('favicon.png', true) }}" type="image/png">
+  <link rel="shortcut icon" href="{{ $page_config->icon ?? '' }}" type="image/png">
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
   <link href="{{ asset('assets/css/global.css', true) }}" rel="stylesheet"/>
+  <link href="{{ asset('css/header.css') }}" rel="stylesheet"/>
   <script type="text/javascript" src="{{ asset('assets/js/jquery.min.js', true) }}"></script>
   <style>
     main{
@@ -18,6 +19,7 @@
     h1{
       font-size: 3.2rem;
       margin-bottom: 1rem;
+      margin-top: 6rem;
     }
     .empty{
       color: var(--gray-500);
@@ -128,6 +130,14 @@
 </head>
 <body class="antialiased">
   <main>
+    @include('layout.header',[
+      'header' => isset($elements['navbar']) ? $elements['navbar'] : (object) [
+        'logo' => $page_config->icon
+      ],
+      'header_config' => (object)[
+        'back_to_home' => true
+      ]
+    ])
     <h1>BLOG FEED</h1>
     @if(count($posts) > 0)
     <div class="content-post post-main">
