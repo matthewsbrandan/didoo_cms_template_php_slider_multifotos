@@ -1,6 +1,7 @@
 <?php
   function route($route_name, $params = []){
     global $app_url;
+    global $cms_url;
     switch ($route_name){
       case 'home':            return $app_url; break;
       #region BLOG
@@ -17,6 +18,13 @@
       case 'api.postlead.like':   return ""; break;
       case 'api.postlead.store':  return ""; break;
       case 'api.postlead.login':  return ""; break;
+
+      case 'api.gallery.show':
+        $parsedParams = [$params['slug']];
+        if(isset($params['skip'])) $parsedParams[] = $params['skip'];
+
+        return $cms_url."api/gallery/show/".implode('/', $parsedParams);
+        break;
       #endregion API ROUTES
     }
     throw new Error("Route $route_name don't exists");

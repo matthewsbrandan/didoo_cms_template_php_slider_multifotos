@@ -1,5 +1,6 @@
 @extends('layout.app')
 @section('head')
+  <link href="{{ asset('css/header.css') }}" rel="stylesheet"/>
   <link href="{{ asset('css/sections/banner.css') }}" rel="stylesheet"/>
   @isset($elements['new_section'])
     <link href="{{ asset('css/sections/new_section.css') }}" rel="stylesheet"/>
@@ -25,7 +26,9 @@
   @isset($elements['testimonial'])
     <link href="{{ asset('css/sections/testimonial.css') }}" rel="stylesheet"/>
   @endisset
-  <!-- GALLERY SCSS -->
+  @isset($elements['cms_gallery'])
+    <link href="{{ asset('css/sections/cms_gallery.css') }}" rel="stylesheet"/>
+  @endisset
   @isset($elements['video'])
     <link href="{{ asset('css/sections/video.css') }}" rel="stylesheet"/>
   @endisset
@@ -103,11 +106,11 @@
     ])
   @endisset
 
-  <!-- 
-
-    GALERIA
-
-   -->
+  @isset($elements['cms_gallery'])
+    @include('sections.cms_gallery',[
+      'cms_gallery' => $elements['cms_gallery']
+    ])
+  @endisset
 
   @isset($elements['video'])
     @include('sections.video',[
@@ -160,62 +163,59 @@
     isset($elements['cms_catalog']->api_url) &&
     isset($elements['cms_catalog']->origin)
   )
-    <script>      
-      function loadCatalog(){
-        let url = `{{ $elements['cms_catalog']->api_url }}/{{ $elements['cms_catalog']->take }}`;
+    <script>
+      // INICIALIZANDO VARIÁVEIS
+      const cms_catalog = {
+        api_url: `{{ $elements['cms_catalog']->api_url }}`,
+        take: `{{ $elements['cms_catalog']->take }}`,
+        token: `{{ $elements['cms_catalog']->token }}`,
+        origin: `{{ $elements['cms_catalog']->origin }}`
+      };
+    </script>
+    <script src="{{ asset('js/cms_catalog.js') }}"></script>
+  @endif
+  @if(
+    isset($elements['cms_gallery']) &&
+    isset($elements['cms_gallery']->slug)
+  )
+    <script>
+      const cms_gallery = {
+        slug: `{{ $elements['cms_gallery']->slug }}`,
+        token: `{{ $cms_page_token }}`,
+        take: <?php echo $elements['cms_gallery']->take ?? 'null'; ?>,
+        url: `{{ route('api.gallery.show',['slug' => $elements['cms_gallery']->slug]) }}`
+      };
+
+      function loadGallery(){
+        let url = cms_gallery.url;
         $.ajax({
           url,
-          headers: {"store-token": "vfZLdEgU2ZP5FSO_ov7jYNdoEe74TVa"},
+          headers: {"access-token": cms_gallery.token},
           method: "GET"
         }).done(data => {
           console.log(data);
           if(data.result){
-            $('#container-products').html('');
-            let products = data.response.map(product => {
-              let name = product.name
-              try {
-                if (name.indexOf('"pt"') != -1 && JSON.parse(product.name)){
-                  name = JSON.parse(product.name).pt
-                }
-              } catch { name = product.name }
-              return {
-                id: product.id,
-                image: `{{ $elements['cms_catalog']->origin }}${product.logom}`,
-                name: name,
-                price: Number(product.price),
-              }
-            });
+            $('#container-gallery').html('');
 
-            products.forEach(product => {
-              $('#container-products').append(
-                renderProduct(product)
+            let images = data.response.images;
+            if(images.length === 0) $('#container-gallery').html(`
+              <p class="text-loading">Nenhuma imagem encontrada!</p>
+            `);
+            else images.forEach(image => {
+              $('#container-gallery').append(
+                renderImageFromGallery(image)
               );
             });
-
-            $('#cms_catalog').addClass('loaded');
           }
         });
       }
-      function renderProduct(product){
-        let price = (new Intl.NumberFormat('pt-BR', {
-          style: 'currency',
-          currency: 'BRL'
-        }).format(product.price)).replace('R$','');
-        let [integer, decimal] = price.split(',');
-
+      function renderImageFromGallery(image){
         return `
-          <div class="content-product">
-            <img src="${product.image}" alt="${product.name}"/>
-            <strong>${product.name}</strong>
-            <p class="price">
-              <small>R$</small>${integer}<small>,${decimal}</small>
-              </p>
-          </div>
+          <img src="${image.name}" alt="${image.alt}" class="gallery-image"/>
         `;
-      }      
-      $(function(){
-        loadCatalog();
-      });
+      }
+
+      $(function(){ loadGallery(); });
     </script>
   @endif
 @endsection

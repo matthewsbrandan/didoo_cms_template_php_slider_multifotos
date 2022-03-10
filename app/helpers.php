@@ -30,6 +30,11 @@
     if(preg_match( "/\/[a-z]*>/i",$content) != 0) return $content;
     return nl2br($content);
   }
+  function innerStyle($prop, $value = null, $default = null){
+    if($value) return "$prop: $value;";
+    else if($default) return "$prop: $default;";
+    return "";
+  }
   function view($name, $params = []){
     global $blade;
     return $blade->make($name, $params);

@@ -6,7 +6,6 @@ body{ margin:0; }
 body, input, textarea, button, a{
   font-family: Roboto, sans-serif;
 }
-body > main{ margin-top: 4.1rem; }
 :root{
   --gray-50: #f0f6ff;
   --gray-100: #e2e8f0;

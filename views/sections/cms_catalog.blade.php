@@ -4,14 +4,16 @@
       style="{{ $cms_catalog->text_color ? 'color: '.$cms_catalog->text_color.';' : '' }}"
     >{{ $cms_catalog->title }}</h2>
     <style>
-      #container-products strong{
+      #container-products strong, #container-products .text-loading{
         {{ $cms_catalog->text_color ? 'color: '.$cms_catalog->text_color.';' : '' }}
       }
       #container-products .price{
-        {{ $cms_catalog->text_color ? 'color: '.$cms_catalog->highlight_color.';' : '' }}
+        {{ $cms_catalog->highlight_color ? 'color: '.$cms_catalog->highlight_color.';' : '' }}
       }
     </style>
-    <div id="container-products"></div>
+    <div id="container-products">
+      <p class="text-loading">Carregando Produtos...</p>
+    </div>
     <a
       href="{{ $cms_catalog->button->link }}"
       target="_blank"

@@ -38,7 +38,9 @@ class CmsService{
     return [$response, $err];
   }
 
-  public function getPageToken($page_slug){
+  public function getPageToken($page_slug = null){
+    if(!$page_slug)  return $this->page_token;
+    
     [$data, $err] = $this->get("page/token/".$page_slug."/".getenv('CMS_THEME_SLUG'), false);
     
     if($err) return (object)[

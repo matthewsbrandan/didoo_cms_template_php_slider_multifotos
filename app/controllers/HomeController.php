@@ -33,9 +33,12 @@ class HomeController extends Controller{
 
     // EXCEPTIONS
     $parsedElements = $this->sectionExceptions($parsedElements);
+
+    // dd($parsedElements['cms_catalog']);
     return view('index',[
       'page_config' => $page_config,
       'elements' => $parsedElements,
+      'cms_page_token' => $this->cms->getPageToken()
     ]);
   }
   protected function sectionExceptions($elements){

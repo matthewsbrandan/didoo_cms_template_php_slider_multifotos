@@ -12,7 +12,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
   <meta name="description" content="{{ $page_config->metadescription ?? '' }}">
   <link href="{{ asset('css/global.css') }}" rel="stylesheet"/>
-  <link href="{{ asset('css/header.css') }}" rel="stylesheet"/>
   @yield('head')
 </head>
 <body class="antialiased">

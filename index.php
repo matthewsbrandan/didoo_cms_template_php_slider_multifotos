@@ -12,6 +12,7 @@
   $cms_theme_slug = getenv('CMS_THEME_SLUG');
   $mode_dynamic_slug = (bool) getenv('MODE_DYNAMIC_SLUG');
   $cms_page_slug = null;
+  $cms_page_token = $mode_dynamic_slug ? null : getenv('CMS_ACCESS_TOKEN');
 
   include_once __DIR__."/app/helpers.php";
   include_once __DIR__."/app/services/CmsService.php";
@@ -32,9 +33,12 @@
     $uri = "/".implode('/',$frac_url);
 
     $data = $cms->getPageToken($cms_page_slug);
-    if(!$data->result) echo view('error-500',[
-      'message' => $data->response
-    ]);
+    if(!$data->result){
+      echo view('error-500',[
+        'message' => $data->response
+      ]);
+      die;
+    }else $cms_page_token = $data->response;
   }
   #endregion HANDLE MODE DYNAMIC SLUG
 

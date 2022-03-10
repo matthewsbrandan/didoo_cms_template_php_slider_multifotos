@@ -1,7 +1,3 @@
-#cms_catalog:not(.loaded) {
-  display: none;
-}
-
 #cms_catalog .content h2 {
   text-transform: uppercase;
   font-size: 2rem;
@@ -25,8 +21,8 @@
   height: 20rem;
   -o-object-fit: cover;
      object-fit: cover;
-  -webkit-box-shadow: 0 0 20px #0002;
-          box-shadow: 0 0 20px #0002;
+  -webkit-box-shadow: 0 0 20px #0022;
+          box-shadow: 0 0 20px #0022;
   margin: .2rem .2rem 1.2rem;
 }
 
@@ -42,6 +38,23 @@
 
 #cms_catalog .content #container-products .content-product .price small {
   font-size: .8rem;
+}
+
+#cms_catalog .content #container-products .text-loading {
+  opacity: .7;
+  text-align: center;
+  width: 100%;
+  height: 14rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background: #0002;
 }
 
 #cms_catalog .content .btn {
