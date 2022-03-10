@@ -1,14 +1,17 @@
 <section id="schedule">
-  <div class="content">
+  <div class="content" id="agendar">
     <h2>{{ $schedule->title }}</h2>
     <p>{{ $schedule->subtitle }}</p>
-    <form>
+    <form id="form-schedule">
+      <div class="form-control" style="margin-bottom: 1rem; {{ $schedule->border_color ? 'border-color: '.$schedule->border_color.';' : '' }}">
+        <input type="text" name="name" id="schedule-name" placeholder="Nome" required/>
+      </div>
       <div class="form-grid">
         <div class="form-control" style="{{ $schedule->border_color ? 'border-color: '.$schedule->border_color.';' : '' }}">
-          <input type="text" name="name" id="schedule-name" placeholder="Nome" required/>
+          <input type="email" name="email" id="schedule-email" placeholder="Email" required/>
         </div>
         <div class="form-control" style="{{ $schedule->border_color ? 'border-color: '.$schedule->border_color.';' : '' }}">
-          <input type="email" name="email" id="schedule-email" placeholder="Email" required/>
+          <input type="text" name="whatsapp" id="schedule-whatsapp" placeholder="Whatsapp" required/>
         </div>
         <div class="form-control" style="{{ $schedule->border_color ? 'border-color: '.$schedule->border_color.';' : '' }}">
           <input type="date" name="date" id="schedule-date"/>

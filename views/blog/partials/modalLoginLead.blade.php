@@ -137,7 +137,7 @@
         <form onsubmit="return handleLeadSubmit(event)">
           <div id="login-lead-result"></div>
           <div class="form-group d-none" id="div-login-lead-name">
-            <img src="{{ asset('assets/icons/person.svg') }}" alt="Nome"/>
+            <img src="{{ asset('assets/icons/person.svg', true) }}" alt="Nome"/>
             <input
               type="text"
               id="login-lead-name"
@@ -147,7 +147,7 @@
             <span class="error-message">O nome é obrigatório</span>
           </div>
           <div class="form-group" id="div-login-lead-email">
-            <img src="{{ asset('assets/icons/mail_outline.svg') }}" alt="Email"/>
+            <img src="{{ asset('assets/icons/mail_outline.svg', true) }}" alt="Email"/>
             <input
               type="email"
               id="login-lead-email"

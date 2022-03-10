@@ -248,17 +248,17 @@
         @else <div></div> @endif
       </div>
       <div class="container-outher-posts">
-        @foreach($outhers as $index => $post)
+        @foreach($outhers as $index => $outher)
           <div class="content-post">
-            <img src="{{ $post->image }}" class="post-image" alt="{{ $post->title }}"/>
+            <img src="{{ $outher->image }}" class="post-image" alt="{{ $outher->title }}"/>
             <div class="post-info">
-              <a href="{{ route('blog.feed.show',['slug' => $post->slug]) }}">
-                <strong class="post-title">{{ $post->title }}</strong>
+              <a href="{{ route('blog.feed.show',['slug' => $outher->slug]) }}">
+                <strong class="post-title">{{ $outher->title }}</strong>
               </a>
               <time class="post-timestamp">
-                {{ $post->date_formatted }}
+                {{ $outher->date_formatted }}
               </time>
-              <p class="post-excerpt">{{ $post->excerpt }}</p>
+              <p class="post-excerpt">{{ $outher->excerpt }}</p>
             </div>
           </div>
         @endforeach

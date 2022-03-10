@@ -242,10 +242,9 @@
 </section>
 <script>
   // BEGIN:: API URLS
-  let tempCommentsApiUrl = "{!! route('api.comment.show',['post_id' => $post->id]) !!}";
-  const commentsApiUrl = tempCommentsApiUrl.substr(0, tempCommentsApiUrl.length - 2);
+  const commentsApiUrl = "{!! route('api.comment.show',['post_id' => $post->id]) !!}";
   let tempAnswersApiUrl = "{!! route('api.comment.answers',['post_id' => $post->id,'comment_id' => 0]) !!}";
-  const answersApiUrl = tempAnswersApiUrl.substr(0, tempAnswersApiUrl.length - 4);
+  const answersApiUrl = tempAnswersApiUrl.substr(0, tempAnswersApiUrl.length - 2);
   const likeApiUrl = "{{ route('api.postlead.like') }}";
   let tempDeleteCommentApiUrl = "{!! route('api.comment.delete',['post_id' => $post->id,'comment_id' => 0,'lead_id' => 0]) !!}";
   const deleteCommentApiUrl = tempDeleteCommentApiUrl.substr(0, tempDeleteCommentApiUrl.length - 4);

@@ -24,7 +24,9 @@
   if($mode_dynamic_slug){
     $frac_url = frac_url($uri);
     if(count($frac_url) == 0){
-      echo view('error-404');
+      echo view('welcome',[
+        'cms_url' => $cms_url
+      ]);
       die;
     }
     $cms_page_slug = $frac_url[0];

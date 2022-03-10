@@ -5,7 +5,6 @@ function loadGallery(){
     headers: {"access-token": cms_gallery.token},
     method: "GET"
   }).done(data => {
-    console.log(data);
     if(data.result){
       $('#container-gallery').html('');
 

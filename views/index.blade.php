@@ -189,4 +189,17 @@
     </script>
     <script src="{{ asset('js/cms_gallery.js') }}"></script>
   @endif
+  @isset($elements['schedule'])
+    <script>
+      // INITIALIZATION
+      const schedule = {
+        whatsapp: <?php echo isset($elements['footer']) && $elements['footer']->whatsapp ? $elements['footer']->whatsapp : 'null'; ?>,
+        page_id: `{{ $page_config->page_id }}`,
+        page_owner_id: `{{ $page_config->user_id }}`,
+        url: `{{ route('api.contact.send') }}`,
+        token: `{{ $cms_page_token }}`,
+      };
+    </script>
+    <script src="{{ asset('js/schedule.js') }}"></script>
+  @endif
 @endsection
