@@ -172,7 +172,9 @@
       </div>
       @endforeach
     </div>
+    @if(count($posts) > 0)
     <a href="javascript: morePosts();" id="more-posts">carregar mais...</a>
+    @endif
   </main>
   <script>
     // BEGIN:: API URLS
@@ -185,7 +187,11 @@
       let skip = $('.content-post').length;
       params = skip;
 
-      $.get(postsApiUrl + params).done(function(data){
+      $.ajax({
+        url: postsApiUrl + params,
+        headers: {"access-token": `{{ $cms_page_token }}`},
+        method: "GET"
+      }).done(function(data){
         if(data.result){
           if(data.response.posts.length === 0) $('#more-posts').remove();
           else data.response.posts.forEach(post => {

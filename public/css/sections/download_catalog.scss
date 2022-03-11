@@ -1,6 +1,7 @@
 #download_catalog{
   display: grid;
   grid-template-columns: auto calc(25rem + 4rem);
+  min-height: 100vh;
   
   > img{
     object-fit: cover;
@@ -28,7 +29,7 @@
   
       .form-control{
         border: 1px solid var(--primary-500);
-        margin: .2rem .4rem;
+        margin: .6rem .4rem;
   
         input{
           padding: 1rem;
@@ -48,6 +49,11 @@
     grid-template-columns: 1fr;
 
     > img{ display: none; }
-    .content{ justify-content: center; }
+    .content{
+      justify-content: center;
+      form{
+        .btn{ margin: 1rem auto; }
+      }
+    }
   }
 }

@@ -30,8 +30,8 @@
     if(preg_match( "/\/[a-z]*>/i",$content) != 0) return $content;
     return nl2br($content);
   }
-  function innerStyle($prop, $value = null, $default = null){
-    if($value) return "$prop: $value;";
+  function innerStyle($prop, $value = null, $default = null, $valeuFormatted = null){
+    if($value) return $valeuFormatted ? "$prop: $valeuFormatted;" : "$prop: $value;";
     else if($default) return "$prop: $default;";
     return "";
   }

@@ -34,7 +34,8 @@ class PostController extends Controller{
       return view('blog.index',[
         'posts' => $posts,
         'page_config' => $page_config,
-        'elements' => $parsedElements
+        'elements' => $parsedElements,
+        'cms_page_token' => $this->cms->getPageToken()
       ]);
     }
     return view('error-404');

@@ -3,6 +3,7 @@
   display: grid;
   -ms-grid-columns: auto calc(25rem + 4rem);
       grid-template-columns: auto calc(25rem + 4rem);
+  min-height: 100vh;
 }
 
 #download_catalog > img {
@@ -42,7 +43,7 @@
 
 #download_catalog .content form .form-control {
   border: 1px solid var(--primary-500);
-  margin: .2rem .4rem;
+  margin: .6rem .4rem;
 }
 
 #download_catalog .content form .form-control input {
@@ -68,6 +69,9 @@
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
+  }
+  #download_catalog .content form .btn {
+    margin: 1rem auto;
   }
 }
 /*# sourceMappingURL=download_catalog.css.map */

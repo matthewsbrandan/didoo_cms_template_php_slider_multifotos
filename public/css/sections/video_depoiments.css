@@ -30,15 +30,43 @@
   overflow-x: auto;
 }
 
-#video_depoiments .content .container-depoiments iframe {
-  width: 15rem;
-  height: 15rem;
-  margin: 0.6rem;
+#video_depoiments .content .container-depoiments .container-depoiment-item {
+  background: #0021;
+  min-width: 15rem;
+  min-height: 15rem;
+  background-size: cover;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   border-radius: 1rem;
-  background: #000000;
+  margin: 0.6rem;
 }
 
-#video_depoiments .content .container-depoiments iframe:first-child {
+#video_depoiments .content .container-depoiments .container-depoiment-item:first-child {
   margin-left: 0;
+}
+
+#video_depoiments .content .container-depoiments .container-depoiment-item .btn img {
+  width: 4rem;
+}
+
+#video_depoiments .content .container-depoiments .container-depoiment-item iframe {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  width: 100%;
+  height: 100%;
+  background: #000000;
+  border-radius: 1rem;
 }
 /*# sourceMappingURL=video_depoiments.css.map */

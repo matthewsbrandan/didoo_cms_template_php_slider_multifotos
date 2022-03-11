@@ -5,12 +5,21 @@
     <div class="container-depoiments">
       @foreach($video_depoiments->depoiments as $depoiment)
         @if(!in_array($depoiment->link,['#','']))
-          <iframe
-            src="{{ $depoiment->link }}"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen=""
-          ></iframe>
+          <div
+            class="container-depoiment-item"
+            style="{{ innerStyle('background-image', $depoiment->wallpaper, null, "url('".$depoiment->wallpaper."')") }}"
+          >
+            <button type="button" class="btn" onclick="$(this).hide('slow').next().attr('src','{{ $depoiment->link }}').show('slow');">
+              <img src="http://localhost:8000/galleries/1/tema-padrao-php/1646963337_10.png" alt="play"/>
+            </button>
+            <iframe
+              src=""
+              style="display: none;"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen=""
+            ></iframe>
+          </div>
         @endif
       @endforeach
     </div>

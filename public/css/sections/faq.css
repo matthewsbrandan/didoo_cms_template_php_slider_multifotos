@@ -46,6 +46,7 @@
 #faq .content ul {
   width: 100%;
   text-align: left;
+  list-style: none;
 }
 
 #faq .content ul li {

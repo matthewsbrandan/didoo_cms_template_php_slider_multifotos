@@ -3,6 +3,11 @@
     <h2 style="{{ $faq->text_color ? 'color: '.$faq->text_color.';' : '' }}">
       {{ $faq->title }}
     </h2>
+    <style>
+      .icon-toggler{
+        {{ innerStyle('color',$faq->answer_color) }}
+      }
+    </style>
     <ul>
       @foreach($faq->questions as $i => $question)
         <li>
