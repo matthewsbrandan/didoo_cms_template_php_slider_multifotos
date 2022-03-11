@@ -9,7 +9,7 @@
   <link rel="shortcut icon" href="{{ $page_config->icon ?? asset('favicon.png', true) }}" type="image/png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,800;1,400&display=swap" rel="stylesheet">
   <meta name="description" content="{{ $page_config->metadescription ?? '' }}">
   <link href="{{ asset('css/global.css') }}" rel="stylesheet"/>
   @yield('head')
@@ -18,7 +18,8 @@
   <main>
     @yield('content')
   </main>
-  <script type="text/javascript" src="{{ asset('assets/js/jquery.min.js', true) }}"></script>
+  <script type="text/javascript" src="{{ asset('js/jquery.min.js') }}"></script>
+  @include('utils.modalMessage')
   @yield('scripts')
 </body>
 </html>

@@ -57,7 +57,7 @@ async function handleShedule(event){
 
     if(data.result){
       handleSendToWhatsapp(phone,userMessage);
-      alert('Enviado com sucesso');
+      showMessage('Enviado com sucesso','Agendamento');
       handleClearFormContact();
     }else handleSendToWhatsapp(phone,userMessage, true);
   }catch(err){
@@ -66,10 +66,21 @@ async function handleShedule(event){
   }
 }
 function handleSendToWhatsapp(phone, text, confirm = false){
-  if(confirm && !window.confirm('Não foi possível armazenar sua mensagem. Deseja enviar mesmo assim?')) return;
-  
-  window.open(`https://api.whatsapp.com/send?phone=${phone}&text=${text}`);
-  return;
+  if(confirm) showMessage(`
+    <p>Não foi possível armazenar sua mensagem. Deseja enviar mesmo assim?</p>
+    <div style="display: flex; gap: 1rem; justify-content: center;">
+      <a
+        href="https://api.whatsapp.com/send?phone=${phone}&text=${text}"
+        class="btn btn-primary"
+      >Sim</a>
+      <button
+        type="button"
+        class="btn btn-gray"
+        onclick="$('#modalMessage').hide();"
+      >Não</button>
+    </div>
+  `,'Agendamento');
+  else window.open(`https://api.whatsapp.com/send?phone=${phone}&text=${text}`);  
 }
 function handleClearFormContact(){
   $('#schedule-name').val('');

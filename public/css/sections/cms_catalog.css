@@ -1,3 +1,7 @@
+#cms_catalog .content {
+  padding: 2rem 0;
+}
+
 #cms_catalog .content h2 {
   text-transform: uppercase;
   font-size: 2rem;
@@ -21,9 +25,10 @@
   height: 20rem;
   -o-object-fit: cover;
      object-fit: cover;
-  -webkit-box-shadow: 0 0 20px #0022;
-          box-shadow: 0 0 20px #0022;
+  -webkit-box-shadow: 0 0 20px #0021;
+          box-shadow: 0 0 20px #0021;
   margin: .2rem .2rem 1.2rem;
+  border-radius: .2rem;
 }
 
 #cms_catalog .content #container-products .content-product strong {

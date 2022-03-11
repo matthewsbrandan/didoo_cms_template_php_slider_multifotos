@@ -28,13 +28,13 @@ class HomeController extends Controller{
     
     // REQUIRED SECTIONS
     if(!$parsedElements['banner']) return view('error-500',[
-      'page_config' => $page_config
+      'page_config' => $page_config,
+      'message' => 'Preencha as informações principais da página'
     ]);
 
     // EXCEPTIONS
     $parsedElements = $this->sectionExceptions($parsedElements);
-
-    // dd($parsedElements['cms_catalog']);
+    
     return view('index',[
       'page_config' => $page_config,
       'elements' => $parsedElements,

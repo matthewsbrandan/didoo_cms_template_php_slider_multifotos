@@ -1,7 +1,7 @@
 <section id="download_catalog">
   <img src="{{ $download_catalog->image }}" alt="capa catalogo"/>
   <div class="content">
-    <form>
+    <form id="form-download-catalog">
       <h2>{{ $download_catalog->title }}</h2>
       <p>{{ $download_catalog->subtitle }}</p>
       <div class="form-control" style="{{ $download_catalog->border_color ? 'border-color: '.$download_catalog->border_color.';' : '' }}">

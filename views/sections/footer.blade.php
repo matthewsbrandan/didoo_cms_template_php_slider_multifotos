@@ -65,6 +65,41 @@
               ]])
             </a>
           @endisset
+          @isset($footer->tiktok)
+            <a href="{{$footer->tiktok}}" target="_blank">
+              @include('utils.icons.tiktok',['icons' => (object)[
+                'color' => 'currentColor'
+              ]])
+            </a>
+          @endisset
+          @isset($footer->pinterest)
+            <a href="{{$footer->pinterest}}" target="_blank">
+              @include('utils.icons.pinterest',['icons' => (object)[
+                'color' => 'currentColor'
+              ]])
+            </a>
+          @endisset
+          @isset($footer->linkedin)
+            <a href="{{$footer->linkedin}}" target="_blank">
+              @include('utils.icons.linkedin',['icons' => (object)[
+                'color' => 'currentColor'
+              ]])
+            </a>
+          @endisset
+          @isset($footer->behance)
+            <a href="{{$footer->behance}}" target="_blank">
+              @include('utils.icons.behance',['icons' => (object)[
+                'color' => 'currentColor'
+              ]])
+            </a>
+          @endisset
+          @isset($footer->google_business)
+            <a href="{{$footer->google_business}}" target="_blank">
+              @include('utils.icons.google_business',['icons' => (object)[
+                'color' => 'currentColor'
+              ]])
+            </a>
+          @endisset
         </div>
       </div>
     @endif

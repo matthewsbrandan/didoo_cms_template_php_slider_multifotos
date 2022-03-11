@@ -20,9 +20,13 @@
   @isset($elements['text_divider'])
     <link href="{{ asset('css/sections/text_divider.css') }}" rel="stylesheet"/>
   @endisset
-  @isset($elements['cms_catalog'])
+  @if(
+    isset($elements['cms_catalog']) && 
+    isset($elements['cms_catalog']->api_url) &&
+    isset($elements['cms_catalog']->origin)
+  )
     <link href="{{ asset('css/sections/cms_catalog.css') }}" rel="stylesheet"/>
-  @endisset
+  @endif
   @isset($elements['testimonial'])
     <link href="{{ asset('css/sections/testimonial.css') }}" rel="stylesheet"/>
   @endisset
@@ -45,9 +49,11 @@
     <link href="{{ asset('css/sections/video_depoiments.css') }}" rel="stylesheet"/>
   @endisset
   <link href="{{ asset('css/sections/footer.css') }}" rel="stylesheet"/>
+
+  @if(isset($elements['code']) && $elements['code']->head) {!! $elements['code']->head !!} @endif
 @endsection
 @section('content')
-
+  @if(isset($elements['code']) && $elements['code']->init_body) {!! $elements['code']->init_body !!} @endif
   @include('layout.header',[
     'header' => isset($elements['navbar']) ? $elements['navbar'] : (object) [
       'logo' => $page_config->icon
@@ -94,11 +100,15 @@
     ])
   @endisset
 
-  @isset($elements['cms_catalog'])
+  @if(
+    isset($elements['cms_catalog']) && 
+    isset($elements['cms_catalog']->api_url) &&
+    isset($elements['cms_catalog']->origin)
+  )
     @include('sections.cms_catalog',[
       'cms_catalog' => $elements['cms_catalog']
     ])
-  @endisset
+  @endif
 
   @isset($elements['testimonial'])
     @include('sections.testimonial',[
@@ -159,7 +169,7 @@
     }
   </script>
   @if(
-    isset($elements['cms_catalog'])&& 
+    isset($elements['cms_catalog']) && 
     isset($elements['cms_catalog']->api_url) &&
     isset($elements['cms_catalog']->origin)
   )
@@ -201,5 +211,22 @@
       };
     </script>
     <script src="{{ asset('js/schedule.js') }}"></script>
+  @endisset
+  @if(
+    isset($elements['download_catalog']) &&
+    isset($elements['download_catalog']->pdf_url)
+  )
+    <script>
+      // INITIALIZATION
+      const download_catalog = {
+        page_id: `{{ $page_config->page_id }}`,
+        page_owner_id: `{{ $page_config->user_id }}`,
+        url: `{{ route('api.contact.send') }}`,
+        token: `{{ $cms_page_token }}`,
+        pdf_catalog_url: `{{ $elements['download_catalog']->pdf_url }}`
+      };
+    </script>
+    <script src="{{ asset('js/download_catalog.js') }}"></script>
   @endif
+  @if(isset($elements['code']) && $elements['code']->final_body) {!! $elements['code']->final_body !!} @endif
 @endsection

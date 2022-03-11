@@ -11,9 +11,11 @@
         {{ $cms_catalog->highlight_color ? 'color: '.$cms_catalog->highlight_color.';' : '' }}
       }
     </style>
+    
     <div id="container-products">
       <p class="text-loading">Carregando Produtos...</p>
     </div>
+
     <a
       href="{{ $cms_catalog->button->link }}"
       target="_blank"

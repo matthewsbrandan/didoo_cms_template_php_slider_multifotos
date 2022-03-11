@@ -25,7 +25,7 @@ body, input, textarea, button, a{
 
   --orange-500: #fb6340;
 
-  --primary-500: #5E72E4;
+  --primary-500: #5e72e4;
 }
 button{ background-color:transparent }
 [hidden]{ display:none }

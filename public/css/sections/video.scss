@@ -1,8 +1,22 @@
 #video{
+  width: 100%;
+  min-height: 30rem;
+  max-height: 100vh;
+  background-size: cover;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
   iframe{
+    flex: 1;
     min-width: 100%;
-    min-height: 30rem;
-    max-height: 100vh;
+    height: 100%;
     background: #000000;
+  }
+
+  .btn img{
+    width: 4rem;
   }
 }

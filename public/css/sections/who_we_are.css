@@ -42,6 +42,7 @@
 
 #who_we_are .content > div {
   padding: 2rem;
+  padding-left: 4rem;
 }
 
 #who_we_are .content > div h2 {
@@ -63,6 +64,14 @@
   #who_we_are .content {
     -ms-grid-columns: (1fr)[1];
         grid-template-columns: repeat(1, 1fr);
+  }
+  #who_we_are .content > div {
+    padding-left: 2rem;
+    text-align: center;
+  }
+  #who_we_are .content .btn {
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 /*# sourceMappingURL=who_we_are.css.map */

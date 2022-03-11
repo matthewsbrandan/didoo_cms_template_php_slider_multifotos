@@ -48,6 +48,7 @@
   text-transform: uppercase;
   font-size: 2rem;
   margin-top: 0;
+  margin-bottom: .8rem;
 }
 
 #section_list .content > div ul {
@@ -57,7 +58,7 @@
 }
 
 #section_list .content > div ul li p {
-  margin: .4rem 0;
+  margin: .2rem 0;
   display: inline-block;
 }
 

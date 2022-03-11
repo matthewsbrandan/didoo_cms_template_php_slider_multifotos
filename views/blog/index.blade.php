@@ -10,7 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
   <link href="{{ asset('assets/css/global.css', true) }}" rel="stylesheet"/>
   <link href="{{ asset('css/header.css') }}" rel="stylesheet"/>
-  <script type="text/javascript" src="{{ asset('assets/js/jquery.min.js', true) }}"></script>
+  <script type="text/javascript" src="{{ asset('js/jquery.min.js') }}"></script>
   <style>
     main{
       max-width: 1200px;

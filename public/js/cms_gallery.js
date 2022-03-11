@@ -18,7 +18,11 @@ function loadGallery(){
         );
       });
     }
-  });
+  }).fail(err => {
+    $('#container-products').html(`
+      <p class="text-loading">Houve um erro ao carregar a galeria!</p>
+    `);
+  });;
 }
 function renderImageFromGallery(image){
   return `

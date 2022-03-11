@@ -31,6 +31,10 @@ function loadCatalog(){
         );
       });
     }
+  }).fail(err => {
+    $('#container-products').html(`
+      <p class="text-loading">Houve um erro ao carregar os produtos!</p>
+    `);
   });
 }
 function renderProduct(product){
