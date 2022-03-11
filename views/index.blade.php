@@ -157,6 +157,9 @@
   ])
 @endsection
 @section('scripts')
+  @if(isset($elements['jivochat']) && $elements['jivochat']->widget)
+    <script src="//code-sa1.jivosite.com/widget/{{ $elements['jivochat']->widget }}" async></script>
+  @endif
   <script>
     const icons = {
       minus: `@include('utils.icons.minus')`,

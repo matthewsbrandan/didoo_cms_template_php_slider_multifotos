@@ -18,7 +18,10 @@
     </div>
     <div>
       <strong>ACESSO RÁPIDO</strong>
-      <ul>@include('layout.header-list')</ul>
+      <ul>
+        @include('layout.header-list')
+        <li><a href="{{ route('privacy.policy') }}" target="_blank">Política de Privacidade</a></li>
+      </ul>
     </div>
     @if(
       isset($footer->email) || 

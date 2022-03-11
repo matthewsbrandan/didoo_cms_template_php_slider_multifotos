@@ -67,6 +67,12 @@
         if(count($frac_url) == 1) return $controller->index();
         else if(count($frac_url) == 2) return $controller->show($frac_url[1]);
       }
+      if($frac_url[0] == 'politica-privacidade'){
+        include_once __DIR__."/app/controllers/HomeController.php";
+        $controller = new HomeController($cms, $cms_theme_slug);
+
+        return $controller->policy();
+      }
     }
 
     return view('error-404');
