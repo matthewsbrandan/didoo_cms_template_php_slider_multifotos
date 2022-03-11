@@ -10,7 +10,7 @@
             style="{{ innerStyle('background-image', $depoiment->wallpaper, null, "url('".$depoiment->wallpaper."')") }}"
           >
             <button type="button" class="btn" onclick="$(this).hide('slow').next().attr('src','{{ $depoiment->link }}').show('slow');">
-              <img src="http://localhost:8000/galleries/1/tema-padrao-php/1646963337_10.png" alt="play"/>
+              <img src="{{ asset('images/seta2.png') }}" alt="play"/>
             </button>
             <iframe
               src=""

@@ -63,8 +63,12 @@
   max-width: 16rem;
 }
 
-#testimonial .content .container-clients .client img {
+#testimonial .content .container-clients .client .content-image {
+  position: relative;
   margin-bottom: 1.5rem;
+}
+
+#testimonial .content .container-clients .client .content-image img:not(.icon) {
   width: 8rem;
   height: 8rem;
   -o-object-fit: cover;
@@ -72,6 +76,15 @@
   border-radius: 50%;
   -webkit-box-shadow: 0 0 20px #0022;
           box-shadow: 0 0 20px #0022;
+}
+
+#testimonial .content .container-clients .client .content-image .icon {
+  position: absolute;
+  width: 2rem;
+  height: 2rem;
+  bottom: 0;
+  right: 0;
+  display: block;
 }
 
 #testimonial .content .container-clients .client strong {

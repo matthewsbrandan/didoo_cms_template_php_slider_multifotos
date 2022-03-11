@@ -34,15 +34,28 @@
         align-items: center;
         max-width: 16rem;
 
-        img{
+        .content-image{
+          position: relative;
           margin-bottom: 1.5rem;
-          width: 8rem;
-          height: 8rem;
-          object-fit: cover;
-          border-radius: 50%;
-          box-shadow: 0 0 20px #0022;
+
+          img:not(.icon){
+            width: 8rem;
+            height: 8rem;
+            object-fit: cover;
+            border-radius: 50%;
+            box-shadow: 0 0 20px #0022;
+          }
+          .icon{
+            position: absolute;
+            width: 2rem;
+            height: 2rem;
+            bottom: 0;
+            right: 0;
+            display: block;
+          }
         }
         
+
         strong{
           font-size: 1.2rem;
           text-transform: uppercase;

@@ -3,7 +3,10 @@
     <div class="container-clients">
       @foreach($testimonial->clients as $client)
         <div class="client">
-          <img src="{{ $client->image }}" alt="{{ $client->name }}"/>
+          <div class="content-image">
+            <img src="{{ $client->image }}" alt="{{ $client->name }}"/>
+            <img src="{{ asset('images/iconedepoimento.png') }}" alt="icone" class="icon"/>
+          </div>
           <strong style="{{ $testimonial->text_color ? 'color: '.$testimonial->text_color.';' : '' }}">
             {{ $client->name }}, <span>{{ $client->address }}</span>
           </strong>
