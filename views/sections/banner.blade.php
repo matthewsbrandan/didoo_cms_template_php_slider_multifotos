@@ -4,18 +4,18 @@
 >
   <div class="content">
     <hgroup>
-      <h1 style="
+      <h1 class="titulo" style="
         {{ $banner->title->color ? 'color: '.$banner->title->color.';' : '' }}
       ">{{ $banner->title->text }}</h1>
-      <strong style="
+      <strong class="subtitulo" style="
         {{ $banner->caption->color ? 'color: '.$banner->caption->color.';' : '' }}
       ">{{ $banner->caption->text }}</strong>
     </hgroup>
-    <p class="description" style="
+    <p class="texto description" style="
       {{ $banner->description->color ? 'color: '.$banner->description->color.';' : '' }}
     ">{!! $banner->description->text !!}</p>
     <button
-      class="btn btn-primary btn-uppercase"
+      class="botao btn btn-primary btn-uppercase"
       style="
         {{ $banner->button->background ? 'background: '.$banner->button->background.';' : '' }}
         {{ $banner->button->color ? 'color: '.$banner->button->color.';' : '' }}

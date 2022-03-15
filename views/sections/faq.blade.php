@@ -1,6 +1,6 @@
 <section id="faq">
   <div class="content" style="background: {{ $faq->background }}">
-    <h2 style="{{ $faq->text_color ? 'color: '.$faq->text_color.';' : '' }}">
+    <h2 class="titulo" style="{{ $faq->text_color ? 'color: '.$faq->text_color.';' : '' }}">
       {{ $faq->title }}
     </h2>
     <style>
@@ -22,7 +22,7 @@
             @endif
             {{ $question->title }}
           </strong>
-          <p style="
+          <p class="texto" style="
             {{ $i > 0 ? 'display: none; ':'' }}
             {{ $faq->answer_color ? 'color: '.$faq->answer_color.';' : '' }}
           ">{{ $question->description }}</p>

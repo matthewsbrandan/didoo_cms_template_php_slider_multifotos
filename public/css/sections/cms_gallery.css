@@ -19,12 +19,16 @@
   display: -ms-flexbox;
   display: flex;
   min-height: 15rem;
-  width: 100%;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   overflow-x: auto;
   padding-bottom: .4rem;
+  margin: auto;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  max-width: 100%;
 }
 
 #cms_gallery .content #container-gallery img {
@@ -44,6 +48,8 @@
   opacity: .7;
   text-align: center;
   width: 100%;
+  padding-left: 2rem;
+  padding-right: 2rem;
   height: 15rem;
   display: -webkit-box;
   display: -ms-flexbox;

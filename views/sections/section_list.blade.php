@@ -2,7 +2,7 @@
   <div class="content" style="background: {{ $section_list->background }}">
     <div>
       <div>
-        <h2 style="{{ $section_list->text_color ? 'color: '.$section_list->text_color.';' : '' }}">
+        <h2 class="titulo" style="{{ $section_list->text_color ? 'color: '.$section_list->text_color.';' : '' }}">
         {{ $section_list->title }}
         </h2>
         <ul style="{{ $section_list->text_color ? 'color: '.$section_list->text_color.';' : '' }}">
@@ -14,7 +14,7 @@
         </ul>
         <a
           href="{{ $section_list->button->link }}"
-          class="btn btn-primary btn-uppercase"
+          class="botao btn btn-primary btn-uppercase"
           target="_blank"
           style="
             {{ $section_list->button->background ? 'background: '.$section_list->button->background.';' : '' }}

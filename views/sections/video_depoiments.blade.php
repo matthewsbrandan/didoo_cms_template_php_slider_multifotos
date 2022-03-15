@@ -1,7 +1,7 @@
 <section id="video_depoiments">
   <div class="content">
-    <h2>{{ $video_depoiments->title }}</h2>
-    <p>{{ $video_depoiments->substitle }}</p>
+    <h2 class="titulo">{{ $video_depoiments->title }}</h2>
+    <p class="subtitulo">{{ $video_depoiments->substitle }}</p>
     <div class="container-depoiments">
       @foreach($video_depoiments->depoiments as $depoiment)
         @if(!in_array($depoiment->link,['#','']))
@@ -26,7 +26,7 @@
     <a
       href="{{ $video_depoiments->button->link }}"
       target="_blank"
-      class="btn btn-primary btn-uppercase"
+      class="botao btn btn-primary btn-uppercase"
       style="
         {{ $video_depoiments->button->background ? 'background: '.$video_depoiments->button->background.';' : '' }}
         {{ $video_depoiments->button->color ? 'color: '.$video_depoiments->button->color.';' : '' }}

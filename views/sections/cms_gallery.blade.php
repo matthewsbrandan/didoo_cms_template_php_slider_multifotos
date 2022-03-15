@@ -7,7 +7,7 @@
     <h2>{{ $cms_gallery->title }}</h2>
     <p>{{ $cms_gallery->subtitle }}</p>
     <div id="container-gallery">
-      <p class="text-loading">Carregando Galeria...</p>
+      <p class="text-loading texto">Carregando Galeria...</p>
     </div>
   </div>
 </section>

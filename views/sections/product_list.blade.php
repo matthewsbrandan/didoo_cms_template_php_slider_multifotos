@@ -5,7 +5,7 @@
         <div class="item">
           <img src="{{ $item->image }}" alt="{{ $item->title }}"/>
           <strong style="{{ $product_list->text_color ? 'color: '.$product_list->text_color.';' : '' }}">{{ $item->title }}</strong>
-          <p style="{{ $product_list->text_color ? 'color: '.$product_list->text_color.';' : '' }}">{{ $item->description }}</p>
+          <p class="texto" style="{{ $product_list->text_color ? 'color: '.$product_list->text_color.';' : '' }}">{{ $item->description }}</p>
         </div>
       @endforeach
     </div>
@@ -13,7 +13,7 @@
       <a
         href="{{ $product_list->button->link }}"
         target="_blank"
-        class="btn btn-primary btn-uppercase"
+        class="botao btn btn-primary btn-uppercase"
         style="
           {{ $product_list->button->background ? 'background: '.$product_list->button->background.';' : '' }}
           {{ $product_list->button->color ? 'color: '.$product_list->button->color.';' : '' }}

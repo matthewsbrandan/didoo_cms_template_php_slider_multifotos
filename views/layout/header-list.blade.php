@@ -31,7 +31,7 @@
     <a  
       href="#agendar"
       onclick="toggleActiveMainMenu()"
-      class="btn btn-primary"
+      class="botao btn btn-primary"
       style="
         {{ $header->button_background ? 'background: '.$header->button_background.';': '' }}
         {{ $header->button_color ? 'color: '.$header->button_color.';': '' }}

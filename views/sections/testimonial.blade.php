@@ -10,7 +10,7 @@
           <strong style="{{ $testimonial->text_color ? 'color: '.$testimonial->text_color.';' : '' }}">
             {{ $client->name }}, <span>{{ $client->address }}</span>
           </strong>
-          <p style="{{ $testimonial->text_color ? 'color: '.$testimonial->text_color.';' : '' }}">{{ $client->description }}</p>
+          <p class="texto" style="{{ $testimonial->text_color ? 'color: '.$testimonial->text_color.';' : '' }}">{{ $client->description }}</p>
         </div>
       @endforeach
     </div>
@@ -18,7 +18,7 @@
       <a
         href="{{ $testimonial->button->link }}"
         target="_blank"
-        class="btn btn-primary btn-uppercase"
+        class="botao btn btn-primary btn-uppercase"
         style="
           {{ $testimonial->button->background ? 'background: '.$testimonial->button->background.';' : '' }}
           {{ $testimonial->button->color ? 'color: '.$testimonial->button->color.';' : '' }}

@@ -1,6 +1,7 @@
 <section id="cms_catalog">
   <div class="content" id="produtos">
     <h2
+      class="titulo"
       style="{{ $cms_catalog->text_color ? 'color: '.$cms_catalog->text_color.';' : '' }}"
     >{{ $cms_catalog->title }}</h2>
     <style>
@@ -13,13 +14,13 @@
     </style>
     
     <div id="container-products">
-      <p class="text-loading">Carregando Produtos...</p>
+      <p class="text-loading texto">Carregando Produtos...</p>
     </div>
 
     <a
       href="{{ $cms_catalog->button->link }}"
       target="_blank"
-      class="btn btn-primary btn-uppercase"
+      class="botao btn btn-primary btn-uppercase"
       style="
         {{ $cms_catalog->button->background ? 'background: '.$cms_catalog->button->background.';' : '' }}
         {{ $cms_catalog->button->color ? 'color: '.$cms_catalog->button->color.';' : '' }}

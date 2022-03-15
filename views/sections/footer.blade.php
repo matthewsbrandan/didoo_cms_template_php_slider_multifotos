@@ -6,7 +6,7 @@
     <div>
       <img src="{{ $footer->logo }}" alt="logo" class="logo"/>
       <hr/>
-      <p>{{ $footer->address }}</p>
+      <p class="texto">{{ $footer->address }}</p>
     </div>
     <div>
       <strong>ACESSO RÁPIDO</strong>

@@ -26,7 +26,7 @@
 @section('content')
   <img src="{{ asset('favicon.png', true) }}" alt="Logo"/>
   <p>Conheça o nosso CMS e crie seu site.</p>
-  <a href="{{ $cms_url }}" class="btn btn-gray" target="_blank">
+  <a href="{{ $cms_url }}" class="botao btn btn-gray" target="_blank">
     Crie seu site
   </a>
 @endsection

@@ -1,7 +1,7 @@
 <section id="schedule">
   <div class="content" id="agendar">
-    <h2>{{ $schedule->title }}</h2>
-    <p>{{ $schedule->subtitle }}</p>
+    <h2 class="titulo">{{ $schedule->title }}</h2>
+    <p class="subtitulo">{{ $schedule->subtitle }}</p>
     <form id="form-schedule">
       <div class="form-control" style="margin-bottom: 1rem; {{ $schedule->border_color ? 'border-color: '.$schedule->border_color.';' : '' }}">
         <input type="text" name="name" id="schedule-name" placeholder="Nome" required/>
@@ -23,7 +23,7 @@
       <div class="form-control" style="{{ $schedule->border_color ? 'border-color: '.$schedule->border_color.';' : '' }}">
         <textarea rows="5" name="description" id="schedule-description" placeholder="Descrição"></textarea>
       </div>
-      <button type="submit" class="btn btn-primary btn-uppercase"
+      <button type="submit" class="botao btn btn-primary btn-uppercase"
         style="
           {{ $schedule->button->background ? 'background: '.$schedule->button->background.';' : '' }}
           {{ $schedule->button->color ? 'color: '.$schedule->button->color.';' : '' }}

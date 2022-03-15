@@ -17,10 +17,12 @@
     #container-gallery{
       display: flex;
       min-height: 15rem;
-      width: 100%;
       align-items: center;
       overflow-x: auto;
       padding-bottom: .4rem;
+      margin: auto;
+      width: fit-content;
+      max-width: 100%;
 
       img{
         width: 15rem;
@@ -38,6 +40,8 @@
       opacity: .7;
       text-align: center;
       width: 100%;
+      padding-left: 2rem;
+      padding-right: 2rem;
       height: 15rem;
       display: flex;
       align-items: center;
