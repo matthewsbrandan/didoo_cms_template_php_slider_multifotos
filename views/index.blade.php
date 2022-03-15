@@ -110,9 +110,21 @@
     ])
   @endif
 
+  @isset($elements['download_catalog'])
+    @include('sections.download_catalog',[
+      'download_catalog' => $elements['download_catalog']
+    ])
+  @endisset
+
   @isset($elements['testimonial'])
     @include('sections.testimonial',[
       'testimonial' => $elements['testimonial']
+    ])
+  @endisset
+
+  @isset($elements['video_depoiments'])
+    @include('sections.video_depoiments',[
+      'video_depoiments' => $elements['video_depoiments']
     ])
   @endisset
 
@@ -137,18 +149,6 @@
   @isset($elements['faq'])
     @include('sections.faq',[
       'faq' => $elements['faq']
-    ])
-  @endisset
-  
-  @isset($elements['download_catalog'])
-    @include('sections.download_catalog',[
-      'download_catalog' => $elements['download_catalog']
-    ])
-  @endisset
-
-  @isset($elements['video_depoiments'])
-    @include('sections.video_depoiments',[
-      'video_depoiments' => $elements['video_depoiments']
     ])
   @endisset
 
