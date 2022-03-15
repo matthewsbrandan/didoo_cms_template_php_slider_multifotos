@@ -19,14 +19,6 @@
           {{ $product_list->button->color ? 'color: '.$product_list->button->color.';' : '' }}
         "
       >{{ $product_list->button->text }}</a>
-      <button
-        type="button"
-        class="btn btn-primary btn-uppercase"
-        style="
-          {{ $product_list->button_schedule->background ? 'background: '.$product_list->button_schedule->background.';' : '' }}
-          {{ $product_list->button_schedule->color ? 'color: '.$product_list->button_schedule->color.';' : '' }}
-        "
-      >{{ $product_list->button_schedule->text }}</button>
     </div>
   </div>
 </section>

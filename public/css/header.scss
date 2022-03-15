@@ -63,7 +63,7 @@ body > main{ margin-top: 4.1rem !important; }
   }
 
   @media (max-width: 800px){
-    .show{ bottom: 0; }
+    &.show{ bottom: 0; }
     .nav{
       .toggle-menu{ display: inherit; }
       

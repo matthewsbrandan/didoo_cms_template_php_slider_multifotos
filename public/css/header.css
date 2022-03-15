@@ -86,7 +86,7 @@ body > main {
 }
 
 @media (max-width: 800px) {
-  #main-header .show {
+  #main-header.show {
     bottom: 0;
   }
   #main-header .nav .toggle-menu {

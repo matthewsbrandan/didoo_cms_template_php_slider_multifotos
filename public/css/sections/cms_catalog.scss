@@ -11,15 +11,19 @@
     #container-products{
       display: flex;
       overflow-x: auto;
+      margin: auto;
+      width: fit-content;
+      max-width: 100%;      
 
       .content-product{
         text-align: center;
+        width: 20rem;
 
         img{
           width: 20rem;
           height: 20rem;
           object-fit: cover;
-          box-shadow: 0 0 20px #0021;
+          box-shadow: 0 0 20px #00002205;
           margin: .2rem .2rem 1.2rem;
           border-radius: .2rem;
         }
@@ -39,11 +43,13 @@
         opacity: .7;
         text-align: center;
         width: 100%;
+        padding-left: 2rem;
+        padding-right: 2rem;
         height: 14rem;
         display: flex;
         align-items: center;
         justify-content: center;
-        background: #0002;
+        background: #0021;
       }
     }
 

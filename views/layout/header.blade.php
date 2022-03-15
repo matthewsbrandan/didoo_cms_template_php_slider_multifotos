@@ -45,7 +45,7 @@
       $('#main-header .horizontal-list li').removeClass('active');
       if(target) target.addClass('active');
   
-      $('#main-header .toggle-menu').click();
+      if($('#main-header').hasClass('show')) $('#main-header .toggle-menu').click();
     }
   </script>
 </header>

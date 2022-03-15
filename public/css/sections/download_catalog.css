@@ -62,9 +62,6 @@
     -ms-grid-columns: 1fr;
         grid-template-columns: 1fr;
   }
-  #download_catalog > img {
-    display: none;
-  }
   #download_catalog .content {
     -webkit-box-pack: center;
         -ms-flex-pack: center;

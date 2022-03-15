@@ -64,6 +64,26 @@
 
     @media (max-width: 800px){
       grid-template-columns: 1fr;
+
+      > div{
+        align-items: center;
+        text-align: center;
+
+        .group-icons{ justify-content: center; }
+      }
     }
+  }
+  .button-whatsapp{
+    background: #34af23;
+    border-radius: 50%;
+    width: 2.5rem;
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    bottom: 3.5rem;
+    right: 1.5rem;
+    z-index: 998;
   }
 }

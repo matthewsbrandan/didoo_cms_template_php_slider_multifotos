@@ -7,14 +7,6 @@
       <img src="{{ $footer->logo }}" alt="logo" class="logo"/>
       <hr/>
       <p>{{ $footer->address }}</p>
-      @isset($footer->whatsapp)
-        <!-- LINK PARA CONVERSA NO WHATSAPP -->
-        <a href="https://wa.me/{{ $footer->whatsapp }}" target="_blank">
-          @include('utils.icons.whatsapp',['icons' => (object)[
-            'color' => 'currentColor'
-          ]])
-        </a>
-      @endisset
     </div>
     <div>
       <strong>ACESSO RÁPIDO</strong>
@@ -107,4 +99,12 @@
       </div>
     @endif
   </div>
+  @isset($footer->whatsapp)
+    <!-- LINK PARA CONVERSA NO WHATSAPP -->
+    <a href="https://wa.me/{{ numberWhatsappFormat($footer->whatsapp) }}" target="_blank" class="button-whatsapp">
+      @include('utils.icons.whatsapp',['icons' => (object)[
+        'color' => 'currentColor'
+      ]])
+    </a>
+  @endisset
 </section>

@@ -22,6 +22,9 @@
     .container-depoiments{
       display: flex;
       overflow-x: auto;
+      margin: auto;
+      width: fit-content;
+      max-width: 100%;
 
       .container-depoiment-item{
         background: #0021;

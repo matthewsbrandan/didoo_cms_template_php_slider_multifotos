@@ -45,3 +45,16 @@
     })];
     return $frac_url;
   }
+  function numberWhatsappFormat($phone){
+    $phone = str_replace(' ','',
+      str_replace('-','',
+        str_replace('(','',
+          str_replace(')','',
+            str_replace('+','',$phone)
+          )
+        )
+      )
+    );
+    if(strlen($phone) <= 11) $phone = "55" . $phone;
+    return $phone;
+  }

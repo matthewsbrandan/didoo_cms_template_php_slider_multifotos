@@ -4,12 +4,18 @@
 @isset($elements['who_we_are'])
   <li><a href="#sobre" onclick="toggleActiveMainMenu($(this).parent())">Sobre</a></li>
 @endisset
-@isset($elements['cms_catalog'])
+@if(
+    isset($elements['cms_catalog']) && 
+    isset($elements['cms_catalog']->api_url) &&
+    isset($elements['cms_catalog']->origin)
+)
   <li><a href="#produtos" onclick="toggleActiveMainMenu($(this).parent())">Produtos</a></li>
+@endif
+@isset($elements['cms_gallerys'])
+  <li>
+    <a href="#galeria" onclick="toggleActiveMainMenu($(this).parent())">Galeria</a>
+  </li>
 @endisset
-<li>
-  <a href="#galeria" onclick="toggleActiveMainMenu($(this).parent())">Galeria</a>
-</li>
 <li>
   <a href="{{ route('blog.feed.index') }}" onclick="toggleActiveMainMenu($(this).parent())">Blog</a>
 </li>

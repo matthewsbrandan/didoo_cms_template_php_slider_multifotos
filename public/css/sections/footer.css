@@ -78,5 +78,36 @@
     -ms-grid-columns: 1fr;
         grid-template-columns: 1fr;
   }
+  #footer .content > div {
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    text-align: center;
+  }
+  #footer .content > div .group-icons {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+}
+
+#footer .button-whatsapp {
+  background: #34af23;
+  border-radius: 50%;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: fixed;
+  bottom: 3.5rem;
+  right: 1.5rem;
+  z-index: 998;
 }
 /*# sourceMappingURL=footer.css.map */

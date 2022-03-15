@@ -34,7 +34,7 @@ class HomeController extends Controller{
 
     // EXCEPTIONS
     $parsedElements = $this->sectionExceptions($parsedElements);
-    
+
     return view('index',[
       'page_config' => $page_config,
       'elements' => $parsedElements,

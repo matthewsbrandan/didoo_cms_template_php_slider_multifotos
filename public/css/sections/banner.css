@@ -1,5 +1,6 @@
 #banner {
   background-size: cover;
+  background-position-x: center;
   min-height: calc(100vh - 4.1rem);
   padding: 3rem 2rem;
   display: -webkit-box;
