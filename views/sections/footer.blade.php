@@ -99,6 +99,10 @@
       </div>
     @endif
   </div>
+  <div class="developed-by">
+    Criado com<br/>
+    Didoo
+  </div>
   @isset($footer->whatsapp)
     <!-- LINK PARA CONVERSA NO WHATSAPP -->
     <a href="https://wa.me/{{ numberWhatsappFormat($footer->whatsapp) }}" target="_blank" class="button-whatsapp">

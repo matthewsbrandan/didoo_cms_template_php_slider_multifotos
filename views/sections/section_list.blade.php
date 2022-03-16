@@ -8,7 +8,9 @@
         <ul style="{{ $section_list->text_color ? 'color: '.$section_list->text_color.';' : '' }}">
           @foreach($section_list->items as $item)
             <li>
-              <p style="{{ $section_list->text_color ? 'color: '.$section_list->text_color.';' : '' }}">{{ $item->item }}</p>
+              <p style="{{ $section_list->text_color ? 'color: '.$section_list->text_color.';' : '' }}">
+                {{ $item->item }}
+              </p>
             </li>
           @endforeach
         </ul>

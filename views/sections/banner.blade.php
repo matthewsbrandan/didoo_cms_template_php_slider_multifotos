@@ -14,13 +14,14 @@
     <p class="texto description" style="
       {{ $banner->description->color ? 'color: '.$banner->description->color.';' : '' }}
     ">{!! $banner->description->text !!}</p>
-    <button
+    <a
       class="botao btn btn-primary btn-uppercase"
+      href="{{ $banner->button->link }}"
       style="
         {{ $banner->button->background ? 'background: '.$banner->button->background.';' : '' }}
         {{ $banner->button->color ? 'color: '.$banner->button->color.';' : '' }}
       "
-    >{{ $banner->button->text }}</button>
+    >{{ $banner->button->text }}</a>
   </div>
   <div class="overlay" style="background: {{ $banner->overlay }}"></div>
 </section>

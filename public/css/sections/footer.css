@@ -91,6 +91,16 @@
   }
 }
 
+#footer .developed-by {
+  text-align: center;
+  margin: auto;
+  padding: 0 0 2rem;
+}
+
+#footer .developed-by img {
+  margin: auto;
+}
+
 #footer .button-whatsapp {
   background: #34af23;
   border-radius: 50%;
@@ -106,8 +116,8 @@
       -ms-flex-pack: center;
           justify-content: center;
   position: fixed;
-  bottom: 3.5rem;
-  right: 1.5rem;
+  bottom: 1.5rem;
+  left: 1.5rem;
   z-index: 998;
 }
 /*# sourceMappingURL=footer.css.map */

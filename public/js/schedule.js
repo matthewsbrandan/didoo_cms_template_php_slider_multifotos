@@ -23,16 +23,10 @@ async function handleShedule(event){
   if(whatsapp) dataSendMessage['phone'] = whatsapp;
   if(date){
     let date_broken = date.split('-');
-    if(date_broken.length === 3){
-      let date = new Date(
-        Number(date_broken[0]), 
-        Number(date_broken[1]), 
-        Number(date_broken[2])
-      );
-      let date_formatted = new Intl.DateTimeFormat('pt-BR').format(date);
-      outhers = { date: date_formatted };
-      outhersMessage = `${date_formatted} `;
-    }
+    date = date_broken.reverse().join('/');
+    
+    outhers = { date };
+    outhersMessage = `${date} `;
   }
   if(hour){
     if(outhers) outhers['hour'] = hour;

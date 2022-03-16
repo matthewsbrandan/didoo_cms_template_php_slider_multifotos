@@ -57,6 +57,12 @@
           padding-inline-start: 1.2rem;
 }
 
+#section_list .content > div ul li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
 #section_list .content > div ul li p {
   margin: .2rem 0;
   display: inline-block;
@@ -64,14 +70,14 @@
 
 #section_list .content > div ul li::before {
   content: "\2022";
+  display: inline-block;
   color: inherit;
   font-weight: bold;
-  display: inline-block;
-  width: 1em;
-  margin-left: -1em;
   font-size: 1.5rem;
   line-height: 1rem;
-  vertical-align: -4px;
+  width: 1em;
+  margin-left: -1em;
+  margin-top: .35rem;
 }
 
 #section_list .content > div .btn {
@@ -93,8 +99,14 @@
         -ms-flex-direction: column-reverse;
             flex-direction: column-reverse;
   }
-  #section_list .content h2 {
+  #section_list .content > div {
+    padding: 2rem 0;
+  }
+  #section_list .content > div h2 {
     text-align: center;
+  }
+  #section_list .content > div .btn {
+    margin: auto;
   }
 }
 /*# sourceMappingURL=section_list.css.map */
