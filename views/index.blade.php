@@ -1,6 +1,7 @@
 @extends('layout.app')
 @section('head')
   <link href="{{ asset('css/header.css') }}" rel="stylesheet"/>
+  <link href="{{ asset('css/cookies.css') }}" rel="stylesheet"/>
   <link href="{{ asset('css/sections/banner.css') }}" rel="stylesheet"/>
   @isset($elements['new_section'])
     <link href="{{ asset('css/sections/new_section.css') }}" rel="stylesheet"/>
@@ -157,6 +158,7 @@
   ])
 @endsection
 @section('scripts')
+  @include('layout.cookies')
   @if(isset($elements['jivochat']) && $elements['jivochat']->widget)
     <script src="//code-sa1.jivosite.com/widget/{{ $elements['jivochat']->widget }}" async></script>
   @endif
