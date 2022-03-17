@@ -46,6 +46,12 @@
   @isset($elements['download_catalog'])
     <link href="{{ asset('css/sections/download_catalog.css') }}" rel="stylesheet"/>
   @endisset
+  @if(
+    isset($elements['cms_blog']) && 
+    isset($elements['cms_blog']->take)
+  )
+    <link href="{{ asset('css/sections/cms_blog.css') }}" rel="stylesheet"/>
+  @endif
   @isset($elements['video_depoiments'])
     <link href="{{ asset('css/sections/video_depoiments.css') }}" rel="stylesheet"/>
   @endisset
@@ -116,6 +122,15 @@
       'download_catalog' => $elements['download_catalog']
     ])
   @endisset
+
+  @if(
+    isset($elements['cms_blog']) && 
+    isset($elements['cms_blog']->take)
+  )
+    @include('sections.cms_blog',[
+      'cms_blog' => $elements['cms_blog']
+    ])
+  @endif
 
   @isset($elements['testimonial'])
     @include('sections.testimonial',[
@@ -188,6 +203,21 @@
       };
     </script>
     <script src="{{ asset('js/cms_catalog.js') }}"></script>
+  @endif
+  @if(
+    isset($elements['cms_blog']) &&
+    isset($elements['cms_blog']->take)
+  )
+    <script>
+      // INITIALIZATION
+      const cms_blog = {
+        url: `{{ route('blog.feed.more') }}`,
+        take: `{{ $elements['cms_blog']->take }}`,
+        token: `{{ $cms_page_token }}`
+      };
+    </script>
+    <script src="{{ asset('js/cms_blog.js') }}"></script>
+    <!-- post/feed/more -->
   @endif
   @if(
     isset($elements['cms_gallery']) &&

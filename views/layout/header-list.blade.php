@@ -16,9 +16,14 @@
     <a href="#galeria" onclick="toggleActiveMainMenu($(this).parent())">Galeria</a>
   </li>
 @endisset
-<li>
-  <a href="{{ route('blog.feed.index') }}" onclick="toggleActiveMainMenu($(this).parent())">Blog</a>
-</li>
+@if(
+  isset($elements['cms_blog']) && 
+  isset($elements['cms_blog']->take)
+)
+  <li>
+    <a href="#blog" onclick="toggleActiveMainMenu($(this).parent())">Blog</a>
+  </li>
+@endif
 <li>
   <a href="#contato" onclick="toggleActiveMainMenu($(this).parent())">Contato</a>
 </li>

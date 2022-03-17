@@ -1,0 +1,95 @@
+#cms_blog .content {
+  padding: 2rem 2rem 4rem;
+}
+
+#cms_blog .content h2 {
+  text-transform: uppercase;
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+#cms_blog .content #container-blog {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  min-height: 15rem;
+  overflow-x: auto;
+  padding-bottom: .4rem;
+  margin: auto;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  max-width: 100%;
+}
+
+#cms_blog .content #container-blog .content-post {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: .4rem;
+}
+
+#cms_blog .content #container-blog .content-post img {
+  width: 15rem;
+  min-width: 15rem;
+  height: 15rem;
+  min-height: 15rem;
+  -webkit-box-shadow: 0 0 20px #0021;
+          box-shadow: 0 0 20px #0021;
+  border-radius: 0.4rem;
+  -o-object-fit: cover;
+     object-fit: cover;
+  margin: .4rem;
+}
+
+#cms_blog .content #container-blog .content-post > div {
+  max-height: 10.5rem;
+  overflow-y: auto;
+}
+
+#cms_blog .content #container-blog .content-post > div > a time {
+  display: block;
+  font-size: .7rem;
+  opacity: .7;
+  font-weight: 300;
+  padding: .3rem 0;
+}
+
+#cms_blog .content #container-blog .content-post > div > p {
+  margin: .25rem 0;
+}
+
+#cms_blog .content .text-loading {
+  opacity: .7;
+  text-align: center;
+  width: 100%;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  height: 15rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background: #0002;
+}
+
+#cms_blog .content .btn {
+  min-width: 12rem;
+  max-width: 100%;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  font-size: 1rem;
+  margin: 1rem auto;
+}
+/*# sourceMappingURL=cms_blog.css.map */
