@@ -3,11 +3,11 @@
   id="banner"
 >
   <div class="content">
-    @if($banner->hero)
-      <div>
+    <div>
+      @if($banner->hero)
         <img src="{{ $banner->hero }}" alt="hero"/>
-      </div>
-    @endif
+      @endif
+    </div>
     <div>
       <hgroup>
         <h1 class="titulo" style="
