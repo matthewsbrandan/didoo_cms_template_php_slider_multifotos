@@ -213,7 +213,8 @@
       const cms_blog = {
         url: `{{ route('blog.feed.more') }}`,
         take: `{{ $elements['cms_blog']->take }}`,
-        token: `{{ $cms_page_token }}`
+        token: `{{ $cms_page_token }}`,
+        show: `{!! route('blog.feed.show',['slug' => '']) !!}`
       };
     </script>
     <script src="{{ asset('js/cms_blog.js') }}"></script>

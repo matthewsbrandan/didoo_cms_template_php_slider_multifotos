@@ -37,7 +37,7 @@ function renderBlog(post){
     <div class="content-post">
       <img src="${post.image}" alt="${post.title}"/>
       <div>
-        <a href="{{ route('blog.feed.show',['slug' => '']) }}${post.slug}" target="_blank">
+        <a href="${cms_blog.show}${post.slug}" target="_blank">
           <strong>${post.title}</strong>
           <time>${post.date_formatted}</time>
         </a>
