@@ -95,10 +95,12 @@
   text-align: center;
   margin: auto;
   padding: 0 0 2rem;
+  display: block;
 }
 
 #footer .developed-by img {
   margin: auto;
+  width: 6rem;
 }
 
 #footer .button-whatsapp {

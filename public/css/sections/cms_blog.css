@@ -32,6 +32,7 @@
       -ms-flex-direction: column;
           flex-direction: column;
   padding: .4rem;
+  width: calc(15rem + 1.6rem);
 }
 
 #cms_blog .content #container-blog .content-post img {

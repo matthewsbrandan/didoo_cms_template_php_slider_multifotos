@@ -78,8 +78,9 @@
     text-align: center;
     margin: auto;
     padding: 0 0 2rem;
+    display: block;
 
-    img{ margin: auto; }
+    img{ margin: auto; width: 6rem; }
   }
 
   .button-whatsapp{

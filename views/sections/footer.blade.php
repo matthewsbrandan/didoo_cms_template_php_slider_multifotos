@@ -99,10 +99,9 @@
       </div>
     @endif
   </div>
-  <div class="developed-by">
-    Criado com<br/>
-    Didoo
-  </div>
+  <a class="developed-by" href="https://didoo.com.br" target="_blank">
+    <img src="{{ asset('images/done-with.png') }}" alt="Feito com Didoo"/>
+  </a>
   @isset($footer->whatsapp)
     <!-- LINK PARA CONVERSA NO WHATSAPP -->
     <a href="https://wa.me/{{ numberWhatsappFormat($footer->whatsapp) }}" target="_blank" class="button-whatsapp">

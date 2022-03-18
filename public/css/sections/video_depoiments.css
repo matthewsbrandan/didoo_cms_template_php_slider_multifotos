@@ -5,6 +5,7 @@
 #video_depoiments .content h2 {
   text-transform: uppercase;
   font-size: 2rem;
+  line-height: 2.6rem;
   margin: 0;
   text-align: center;
 }
