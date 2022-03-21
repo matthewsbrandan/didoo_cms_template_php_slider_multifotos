@@ -9,7 +9,38 @@
   margin-bottom: 1rem;
 }
 
-#cms_blog .content #container-blog {
+#cms_blog .content .wrapper-blog {
+  position: relative;
+}
+
+#cms_blog .content .wrapper-blog:not(.blog-filled) > button {
+  display: none;
+}
+
+#cms_blog .content .wrapper-blog > button {
+  position: absolute;
+  margin: auto 1.2rem;
+  top: 0;
+  bottom: 0;
+  padding: 0 0 .4rem;
+}
+
+#cms_blog .content .wrapper-blog > button img {
+  width: 3rem;
+  height: 3rem;
+  background: #fff;
+  border-radius: 50%;
+}
+
+#cms_blog .content .wrapper-blog > button.btn-left {
+  left: 0;
+}
+
+#cms_blog .content .wrapper-blog > button.btn-right {
+  right: 0;
+}
+
+#cms_blog .content .wrapper-blog #container-blog {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -23,7 +54,12 @@
   max-width: 100%;
 }
 
-#cms_blog .content #container-blog .content-post {
+#cms_blog .content .wrapper-blog #container-blog::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+#cms_blog .content .wrapper-blog #container-blog .content-post {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -35,7 +71,7 @@
   width: calc(15rem + 1.6rem);
 }
 
-#cms_blog .content #container-blog .content-post img {
+#cms_blog .content .wrapper-blog #container-blog .content-post img {
   width: 15rem;
   min-width: 15rem;
   height: 15rem;
@@ -48,12 +84,12 @@
   margin: .4rem;
 }
 
-#cms_blog .content #container-blog .content-post > div {
+#cms_blog .content .wrapper-blog #container-blog .content-post > div {
   max-height: 10.5rem;
   overflow-y: auto;
 }
 
-#cms_blog .content #container-blog .content-post > div > a time {
+#cms_blog .content .wrapper-blog #container-blog .content-post > div > a time {
   display: block;
   font-size: .7rem;
   opacity: .7;
@@ -61,11 +97,11 @@
   padding: .3rem 0;
 }
 
-#cms_blog .content #container-blog .content-post > div > p {
+#cms_blog .content .wrapper-blog #container-blog .content-post > div > p {
   margin: .25rem 0;
 }
 
-#cms_blog .content .text-loading {
+#cms_blog .content .wrapper-blog .text-loading {
   opacity: .7;
   text-align: center;
   width: 100%;
@@ -84,7 +120,7 @@
   background: #0002;
 }
 
-#cms_blog .content .btn {
+#cms_blog .content .group-buttons .btn {
   min-width: 12rem;
   max-width: 100%;
   width: -webkit-fit-content;

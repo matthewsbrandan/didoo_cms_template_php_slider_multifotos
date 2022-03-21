@@ -187,6 +187,23 @@
       else target.html(icons.minus);
       target.toggleClass('icon-minus icon-plus');
     }
+    function handleScrollNextOrPrevItem(next, id, widthContent){
+      let container = getById(id);
+      let maxWidth = container.scrollWidth;
+
+      let newPositionScroll = 0;
+      if(next){
+        newPositionScroll = container.scrollLeft + widthContent;
+      
+        if(newPositionScroll > maxWidth) container.scrollLeft = maxWidth;
+        else container.scrollLeft = newPositionScroll;
+      }else{
+        newPositionScroll = container.scrollLeft - widthContent;
+      
+        if(newPositionScroll < 0) container.scrollLeft = 0;
+        else container.scrollLeft = newPositionScroll;
+      }
+    }
   </script>
   @if(
     isset($elements['cms_catalog']) && 

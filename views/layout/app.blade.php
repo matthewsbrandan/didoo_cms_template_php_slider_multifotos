@@ -27,6 +27,9 @@
     @yield('content')
   </main>
   <script type="text/javascript" src="{{ asset('js/jquery.min.js') }}"></script>
+  <script>
+    function getById(id){ return document.getElementById(id); }
+  </script>
   @include('utils.modalMessage')
   @yield('scripts')
 </body>

@@ -1,4 +1,5 @@
 function loadBlog(){
+  $('#container-blog').parent().removeClass('blog-filled');
   let url = cms_blog.url;
   
   $.ajax({
@@ -20,11 +21,14 @@ function loadBlog(){
       if(blog.length === 0) $('#container-blog').html(`
         <p class="text-loading">Nenhum post encontrado!</p>
       `);
-      else blog.forEach(post => {
-        $('#container-blog').append(
-          renderBlog(post)
-        );
-      });
+      else{
+        $('#container-blog').parent().addClass('blog-filled');
+        blog.forEach(post => {
+          $('#container-blog').append(
+            renderBlog(post)
+          );
+        });
+      }
     }
   }).fail(err => {
     $('#container-blog').html(`

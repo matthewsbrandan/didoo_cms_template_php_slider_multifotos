@@ -1,22 +1,28 @@
 function loadGallery(){
+  $('#container-gallery').parent().removeClass('gallery-filled');
   let url = cms_gallery.url;
   $.ajax({
     url,
-    headers: {"access-token": cms_gallery.token},
+    headers: {
+      "access-token": cms_gallery.token
+    },
     method: "GET"
   }).done(data => {
     if(data.result){
-      $('#container-gallery').html('');
+      $('#container-gallery').html('').removeClass;
 
       let images = data.response.images;
       if(images.length === 0) $('#container-gallery').html(`
         <p class="text-loading">Nenhuma imagem encontrada!</p>
       `);
-      else images.forEach(image => {
-        $('#container-gallery').append(
-          renderImageFromGallery(image)
-        );
-      });
+      else{
+        $('#container-gallery').parent().addClass('gallery-filled');
+        images.forEach(image => {
+          $('#container-gallery').append(
+            renderImageFromGallery(image)
+          );
+        });
+      } 
     }
   }).fail(err => {
     $('#container-products').html(`

@@ -1,4 +1,5 @@
 function loadCatalog(){
+  $('#container-products').parent().removeClass('products-filled');
   let url = `${cms_catalog.api_url}/${cms_catalog.take}`;
   $.ajax({
     url,
@@ -25,11 +26,14 @@ function loadCatalog(){
       if(products.length === 0) $('#container-products').html(`
         <p class="text-loading">Nenhum produto encontrado!</p>
       `);
-      else products.forEach(product => {
-        $('#container-products').append(
-          renderProduct(product)
-        );
-      });
+      else{
+        $('#container-products').parent().addClass('products-filled');
+        products.forEach(product => {
+          $('#container-products').append(
+            renderProduct(product)
+          );
+        });
+      }
     }
   }).fail(err => {
     $('#container-products').html(`

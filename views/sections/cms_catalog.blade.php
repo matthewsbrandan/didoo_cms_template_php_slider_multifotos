@@ -12,9 +12,24 @@
         {{ $cms_catalog->highlight_color ? 'color: '.$cms_catalog->highlight_color.';' : '' }}
       }
     </style>
-    
-    <div id="container-products">
-      <p class="text-loading texto">Carregando Produtos...</p>
+    <div class="wrapper-products">
+      <div id="container-products">
+        <p class="text-loading texto">Carregando Produtos...</p>
+      </div>
+      <button
+        type="button"
+        class="btn btn-left"
+        onclick="handleScrollNextOrPrevItem(false, 'container-products', (20) * 16)"
+      >
+        <img src="{{ asset('images/arrow-left.png') }}" alt="Seta para esquerda"/>
+      </button>
+      <button
+        type="button"
+        class="btn btn-right"
+        onclick="handleScrollNextOrPrevItem(true, 'container-products', (20) * 16)"
+      >
+        <img src="{{ asset('images/arrow-right.png') }}" alt="Seta para direita"/>
+      </button>
     </div>
 
     <a
