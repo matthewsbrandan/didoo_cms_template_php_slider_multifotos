@@ -4,7 +4,8 @@ function loadGallery(){
   $.ajax({
     url,
     headers: {
-      "access-token": cms_gallery.token
+      "access-token": cms_gallery.token,
+      "take": cms_gallery.take
     },
     method: "GET"
   }).done(data => {
