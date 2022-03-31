@@ -7,18 +7,16 @@
       </div>
       <button
         type="button"
-        class="btn btn-left"
+        class="btn btn-left botao"
+        style="{{ innerStyle('color', $cms_blog->button->color).' '.innerStyle('background', $cms_blog->button->background) }}"
         onclick="handleScrollNextOrPrevItem(false, 'container-blog', (15 + 1.6 + .4) * 16)"
-      >
-        <img src="{{ asset('images/arrow-left.png') }}" alt="Seta para esquerda"/>
-      </button>
+      >@include('utils.icons.chevron_left')</button>
       <button
         type="button"
-        class="btn btn-right"
+        class="btn btn-right botao"
+        style="{{ innerStyle('color', $cms_blog->button->color).' '.innerStyle('background', $cms_blog->button->background) }}"
         onclick="handleScrollNextOrPrevItem(true, 'container-blog', (15 + 1.6 + .4) * 16)"
-      >
-        <img src="{{ asset('images/arrow-right.png') }}" alt="Seta para direita"/>
-      </button>
+      >@include('utils.icons.chevron_right')</button>
     </div>
     <div class="group-buttons">
       <a

@@ -12,18 +12,16 @@
       </div>
       <button
         type="button"
-        class="btn btn-left"
+        class="btn btn-left botao"
+        style="{{ innerStyle('color', $cms_gallery->button->color, '#fff').' '.innerStyle('background', $cms_gallery->button->background, '#5e72e4') }}"
         onclick="handleScrollNextOrPrevItem(false, 'container-gallery', (15 + (2 * .4)) * 16)"
-      >
-        <img src="{{ asset('images/arrow-left.png') }}" alt="Seta para esquerda"/>
-      </button>
+      >@include('utils.icons.chevron_left')</button>
       <button
         type="button"
-        class="btn btn-right"
+        class="btn btn-right botao"
+        style="{{ innerStyle('color', $cms_gallery->button->color, '#fff').' '.innerStyle('background', $cms_gallery->button->background, '#5e72e4') }}"
         onclick="handleScrollNextOrPrevItem(true, 'container-gallery', (15 + (2 * .4)) * 16)"
-      >
-        <img src="{{ asset('images/arrow-right.png') }}" alt="Seta para direita"/>
-      </button>
+      >@include('utils.icons.chevron_right')</button>
     </div>
   </div>
 </section>

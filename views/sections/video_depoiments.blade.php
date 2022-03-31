@@ -10,9 +10,12 @@
               class="container-depoiment-item"
               style="{{ innerStyle('background-image', $depoiment->wallpaper, null, "url('".$depoiment->wallpaper."')") }}"
             >
-              <button type="button" class="btn" onclick="$(this).hide('slow').next().attr('src','{{ $depoiment->link }}').show('slow');">
-                <img src="{{ asset('images/seta2.png') }}" alt="play"/>
-              </button>
+              <button
+                type="button"
+                class="btn botao"
+                style="{{ innerStyle('background', $video_depoiments->button->color).' '.innerStyle('color', $video_depoiments->button->background) }}"
+                onclick="$(this).hide('slow').next().attr('src','{{ $depoiment->link }}').show('slow');"
+              >@include('utils.icons.play')</button>
               <iframe
                 src=""
                 style="display: none;"
@@ -26,18 +29,16 @@
       </div>
       <button
         type="button"
-        class="btn btn-left"
+        class="btn btn-left botao"
+        style="{{ innerStyle('color', $video_depoiments->button->color).' '.innerStyle('background', $video_depoiments->button->background) }}"
         onclick="handleScrollNextOrPrevItem(false, 'container-depoiments', (15 + (2 * .6)) * 16)"
-      >
-        <img src="{{ asset('images/arrow-left.png') }}" alt="Seta para esquerda"/>
-      </button>
+      >@include('utils.icons.chevron_left')</button>
       <button
         type="button"
-        class="btn btn-right"
+        class="btn btn-right botao"
+        style="{{ innerStyle('color', $video_depoiments->button->color).' '.innerStyle('background', $video_depoiments->button->background) }}"
         onclick="handleScrollNextOrPrevItem(true, 'container-depoiments', (15 + (2 * .6)) * 16)"
-      >
-        <img src="{{ asset('images/arrow-right.png') }}" alt="Seta para direita"/>
-      </button>
+      >@include('utils.icons.chevron_right')</button>
     </div>
     <a
       href="{{ $video_depoiments->button->link }}"

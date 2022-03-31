@@ -37,6 +37,12 @@
   border-radius: 50%;
 }
 
+#cms_gallery .content .wrapper-gallery > button.btn-left, #cms_gallery .content .wrapper-gallery > button.btn-right {
+  width: 3rem;
+  height: 3rem;
+  padding-top: .4rem;
+}
+
 #cms_gallery .content .wrapper-gallery > button.btn-left {
   left: 0;
 }

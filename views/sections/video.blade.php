@@ -2,9 +2,12 @@
   id="video"
   style="{{ innerStyle('background-image', $video->wallpaper, null, "url('".$video->wallpaper."')") }}"
 >
-  <button type="button" class="btn" onclick="$(this).hide('slow').next().attr('src','{{ $video->src }}').show('slow');">
-    <img src="{{ asset('images/seta2.png') }}" alt="play"/>
-  </button>
+  <button
+    type="button"
+    class="btn botao"
+    onclick="$(this).hide('slow').next().attr('src','{{ $video->src }}').show('slow');"
+    style="{{ innerStyle('background', $video->button->background, '#ffff').' '.innerStyle('color', $video->button->color, '#5e72e4') }}"
+  >@include('utils.icons.play')</button>
   <iframe
     src=""
     style="display: none;"

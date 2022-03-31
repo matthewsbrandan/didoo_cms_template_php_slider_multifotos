@@ -32,6 +32,12 @@
   border-radius: 50%;
 }
 
+#cms_blog .content .wrapper-blog > button.btn-left, #cms_blog .content .wrapper-blog > button.btn-right {
+  width: 3rem;
+  height: 3rem;
+  padding-top: .4rem;
+}
+
 #cms_blog .content .wrapper-blog > button.btn-left {
   left: 0;
 }

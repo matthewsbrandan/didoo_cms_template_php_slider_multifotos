@@ -28,7 +28,9 @@
   background: #000000;
 }
 
-#video .btn img {
-  width: 4rem;
+#video .btn {
+  width: 3.5rem;
+  height: 3.5rem;
+  padding: 0 0 0 .1rem;
 }
 /*# sourceMappingURL=video.css.map */
