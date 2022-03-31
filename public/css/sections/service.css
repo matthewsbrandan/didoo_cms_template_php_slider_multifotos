@@ -91,6 +91,7 @@
   font-size: 1.2rem;
   text-transform: uppercase;
   margin: 0 0 .4rem;
+  text-align: center;
 }
 
 #service .content .container-services .service p {
