@@ -26,10 +26,19 @@
       <div id="contato">
         <strong>FALE CONOSCO</strong>
         @isset($footer->whatsapp)
-          <a href="tel: {{ $footer->whatsapp }}" target="_blank">{{ $footer->whatsapp }}</a>
+          <a href="tel: {{ $footer->whatsapp }}" target="_blank"><b>Whatsapp:</b> {{ $footer->whatsapp }}</a>
+        @endisset
+        @isset($footer->phone_fix)
+          <a href="tel: {{ $footer->phone_fix }}" target="_blank"><b>Telefone:</b> {{ $footer->phone_fix }}</a>
+        @endisset
+        @isset($footer->phone_cel)
+          <a href="tel: {{ $footer->phone_cel }}" target="_blank"><b>Celular:</b> {{ $footer->phone_cel }}</a>
         @endisset
         @isset($footer->email)
-          <a href="mailto:{{ $footer->email }}" target="_blank">{{ $footer->email }}</a>
+          <a href="mailto:{{ $footer->email }}" target="_blank"><b>Email:</b> {{ $footer->email }}</a>
+        @endisset
+        @isset($footer->email_2)
+          <a href="mailto:{{ $footer->email_2 }}" target="_blank"><b>Email 2:</b> {{ $footer->email_2 }}</a>
         @endisset
         <div class="group-icons">
           @isset($footer->facebook)

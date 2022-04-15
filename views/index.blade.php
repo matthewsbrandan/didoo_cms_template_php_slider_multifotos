@@ -2,7 +2,10 @@
 @section('head')
   <link href="{{ asset('css/header.css') }}" rel="stylesheet"/>
   <link href="{{ asset('css/cookies.css') }}" rel="stylesheet"/>
-  <link href="{{ asset('css/sections/banner.css') }}" rel="stylesheet"/>
+  @if($elements['banner']->model->model_type == 'carousel')
+    <link rel="stylesheet" type="text/css" href="{{ asset('js/slick-1.8.1/slick/slick.css') }}"/>
+  @endif
+  <link href="{{ asset('css/sections/banner/'.$elements['banner']->model->model_type.'.css') }}" rel="stylesheet"/>
   @isset($elements['new_section'])
     <link href="{{ asset('css/sections/new_section.css') }}" rel="stylesheet"/>
   @endisset
@@ -56,7 +59,6 @@
     <link href="{{ asset('css/sections/video_depoiments.css') }}" rel="stylesheet"/>
   @endisset
   <link href="{{ asset('css/sections/footer.css') }}" rel="stylesheet"/>
-
   @if(isset($elements['code']) && $elements['code']->head) {!! $elements['code']->head !!} @endif
 @endsection
 @section('content')
@@ -67,8 +69,9 @@
     ]
   ])
 
-  @include('sections.banner',[
-    'banner' => $elements['banner']
+  @include('sections.banner.index',[
+    'banner_variations' => $elements['banner'],
+    'variation' => $elements['banner']->model->model_type
   ])
 
   @isset($elements['new_section'])
@@ -174,6 +177,21 @@
 @endsection
 @section('scripts')
   @include('layout.cookies')
+  @if($elements['banner']->model->model_type == 'carousel')
+    <script type="text/javascript" src="{{ asset('js/slick-1.8.1/slick/slick.min.js') }}"></script>
+    <script>
+      $('.carousel').slick({
+        fade: true,
+        arrows: false,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 2500,
+      });
+    </script>
+  @endif
   @if(isset($elements['jivochat']) && $elements['jivochat']->widget)
     <script src="//code-sa1.jivosite.com/widget/{{ $elements['jivochat']->widget }}" async></script>
   @endif

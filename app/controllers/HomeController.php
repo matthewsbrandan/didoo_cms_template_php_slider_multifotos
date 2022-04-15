@@ -5,7 +5,6 @@ include_once __DIR__."/Controller.php";
 class HomeController extends Controller{
   public function index(){
     [$data, $err] = $this->cms->get("page/data/".$this->theme_slug);
-
     if(!$data || !$data->result || $err) return view('error-404');
 
     $page_config = $data->response->datas[0];
@@ -25,7 +24,6 @@ class HomeController extends Controller{
       }
       $parsedElements[$element->class_name] = $data;
     }
-    
     // REQUIRED SECTIONS
     if(!$parsedElements['banner']) return view('error-500',[
       'page_config' => $page_config,
@@ -75,6 +73,20 @@ class HomeController extends Controller{
         if(is_string($service->button) && 
           $jsonParsed = json_decode($service->button)
         ) $service->button = $jsonParsed;
+      }
+    }
+    if(isset($elements['banner']) && $elements['banner']->model){
+      foreach($elements['banner']->model as $key => &$item){
+        if(is_string($item) && 
+          $jsonParsed = json_decode($item)
+        ) $item = $jsonParsed;
+        if(!is_string($item) && (is_array($item) || is_object($item))){
+          foreach($item as &$subItem){
+            if(is_string($subItem) && 
+              $jsonParsed = json_decode($subItem)
+            ) $subItem = $jsonParsed;
+          }
+        }
       }
     }
     return $elements;
