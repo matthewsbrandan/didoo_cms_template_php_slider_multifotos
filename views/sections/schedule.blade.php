@@ -1,4 +1,6 @@
-<section id="schedule">
+<section id="schedule" style="
+  {{ innerStyle('background-image', $schedule->image, null, "url('". $schedule->image . "')") }}
+">
   <div class="content" id="agendar">
     <h2 class="titulo">{{ $schedule->title }}</h2>
     <p class="subtitulo">{{ $schedule->subtitle }}</p>
@@ -31,4 +33,7 @@
       >Enviar</button>
     </form>
   </div>
+  @if(isset($schedule->overlay) && $schedule->overlay)
+    <div class="overlay" style="background: {{ $schedule->overlay }}"></div>
+  @endif
 </section>

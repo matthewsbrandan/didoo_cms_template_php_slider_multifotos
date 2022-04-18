@@ -1,4 +1,6 @@
-<section id="service">
+<section id="service" style="
+  {{ innerStyle('background-image', $service->image, null, "url('". $service->image . "')") }}
+">
   <div class="content" id="servicos">
     <h2 class="titulo">{{ $service->title }}</h2>
     <p class="subtitulo subtitle">{{ $service->subtitle }}</p>
@@ -21,4 +23,7 @@
       @endforeach
     </div>
   </div>
+  @if(isset($service->overlay) && $service->overlay)
+    <div class="overlay" style="background: {{ $service->overlay }}"></div>
+  @endif
 </section>

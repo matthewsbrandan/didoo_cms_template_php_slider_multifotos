@@ -1,4 +1,6 @@
-<section id="who_we_are">
+<section id="who_we_are" style="
+  {{ innerStyle('background-image', $who_we_are->background, null, "url('". $who_we_are->background . "')") }}
+">  
   <div class="content" id="sobre">
     <img src="{{ $who_we_are->image }}" alt="{{ $who_we_are->title }}"/>
     <div>
@@ -17,4 +19,7 @@
       >{{ $who_we_are->button->text }}</a>
     </div>
   </div>
+  @if(isset($who_we_are->overlay) && $who_we_are->overlay)
+    <div class="overlay" style="background: {{ $who_we_are->overlay }}"></div>
+  @endif
 </section>

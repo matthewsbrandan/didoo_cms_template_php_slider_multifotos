@@ -1,3 +1,8 @@
+#cms_gallery {
+  background-size: cover;
+  background-position-x: center;
+}
+
 #cms_gallery .content {
   padding: 2rem 2rem 4rem;
 }

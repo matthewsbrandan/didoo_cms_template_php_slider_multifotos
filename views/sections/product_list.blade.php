@@ -1,4 +1,7 @@
-<section id="product_list" style="background: {{ $product_list->background }}">
+<section id="product_list" style="
+  {{ isset($product_list->image) && $product_list->image ? '' : 'background: ' . $product_list->background . ';' }}
+  {{ innerStyle('background-image', $product_list->image, null, "url('". $product_list->image . "')") }}
+">
   <div class="content">
     <div class="container-items">
       @foreach($product_list->items as $item)
@@ -21,4 +24,7 @@
       >{{ $product_list->button->text }}</a>
     </div>
   </div>
+  @if(isset($product_list->overlay) && $product_list->overlay)
+    <div class="overlay" style="background: {{ $product_list->overlay }}"></div>
+  @endif
 </section>

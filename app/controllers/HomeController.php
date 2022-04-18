@@ -4,7 +4,7 @@ include_once __DIR__."/Controller.php";
 
 class HomeController extends Controller{
   public function index(){
-    [$data, $err] = $this->cms->get("page/data/".$this->theme_slug);
+    [$data, $err] = $this->cms->get("page/data/".$this->theme_slug);    
     if(!$data || !$data->result || $err) return view('error-404');
 
     $page_config = $data->response->datas[0];

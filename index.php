@@ -33,7 +33,6 @@
     $app_url = $app_url . "/" . $cms_page_slug;
     array_shift($frac_url);
     $uri = "/".implode('/',$frac_url);
-
     $data = $cms->getPageToken($cms_page_slug);
     if(!$data->result){
       echo view('error-500',[

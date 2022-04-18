@@ -1,4 +1,6 @@
-<section id="video_depoiments">
+<section id="video_depoiments" style="
+  {{ innerStyle('background-image', $video_depoiments->image, null, "url('". $video_depoiments->image . "')") }}
+">
   <div class="content">
     <h2 class="titulo">{{ $video_depoiments->title }}</h2>
     <p class="subtitulo">{{ $video_depoiments->substitle }}</p>
@@ -50,4 +52,7 @@
       "
     >{{ $video_depoiments->button->text }}</a>
   </div>
+  @if(isset($video_depoiments->overlay) && $video_depoiments->overlay)
+    <div class="overlay" style="background: {{ $video_depoiments->overlay }}"></div>
+  @endif
 </section>

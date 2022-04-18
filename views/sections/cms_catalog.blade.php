@@ -1,4 +1,6 @@
-<section id="cms_catalog">
+<section id="cms_catalog" style="
+  {{ innerStyle('background-image', $cms_catalog->image, null, "url('". $cms_catalog->image . "')") }}
+">
   <div class="content" id="produtos">
     <h2
       class="titulo"
@@ -42,4 +44,7 @@
       "
     >{{ $cms_catalog->button->text }}</a>
   </div>
+  @if(isset($cms_catalog->overlay) && $cms_catalog->overlay)
+    <div class="overlay" style="background: {{ $cms_catalog->overlay }}"></div>
+  @endif
 </section>

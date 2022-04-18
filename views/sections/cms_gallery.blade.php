@@ -1,6 +1,11 @@
-<section id="cms_gallery"
-  style="{{ innerStyle('background', $cms_gallery->background) }}"
->
+<section id="cms_gallery" style="
+  {{
+    isset($cms_gallery->image) && $cms_gallery->image ? 
+    innerStyle('background-image', $cms_gallery->image, null, "url('". $cms_gallery->image . "')") :
+    innerStyle('background', $cms_gallery->background) 
+  }}
+
+">
   <div class="content" id="galeria" style="
     {{ innerStyle('color', $cms_gallery->text_color) }}
   ">
@@ -24,4 +29,7 @@
       >@include('utils.icons.chevron_right')</button>
     </div>
   </div>
+  @if(isset($cms_gallery->overlay) && $cms_gallery->overlay)
+    <div class="overlay" style="background: {{ $cms_gallery->overlay }}"></div>
+  @endif
 </section>
