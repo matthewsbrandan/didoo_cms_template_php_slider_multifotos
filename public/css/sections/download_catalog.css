@@ -4,6 +4,7 @@
   -ms-grid-columns: auto calc(25rem + 4rem);
       grid-template-columns: auto calc(25rem + 4rem);
   min-height: 100vh;
+  position: relative;
 }
 
 #download_catalog > img {

@@ -69,3 +69,14 @@
 
     return $phone_formatted;
   }
+  function recursiveArrayJsonParsed(&$array){
+    foreach($array as $key => &$item){
+      if(is_string($item) && 
+        $jsonParsed = json_decode($item)
+      ) $item = $jsonParsed;
+
+      if(!is_string($item) && (is_array($item) || is_object($item))){
+        recursiveArrayJsonParsed($item);
+      }
+    }
+  }

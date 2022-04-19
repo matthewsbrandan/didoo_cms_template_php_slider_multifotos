@@ -2,6 +2,7 @@
   display: grid;
   grid-template-columns: auto calc(25rem + 4rem);
   min-height: 100vh;
+  position: relative;
   
   > img{
     object-fit: cover;

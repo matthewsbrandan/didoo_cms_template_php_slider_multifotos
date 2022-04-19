@@ -1,4 +1,5 @@
 #cms_catalog {
+  position: relative;
   background-size: cover;
   background-position-x: center;
 }

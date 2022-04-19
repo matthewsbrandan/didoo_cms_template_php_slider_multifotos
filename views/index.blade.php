@@ -183,7 +183,8 @@
     <script>
       $('.carousel').slick({
         fade: true,
-        arrows: false,
+        arrows: true,
+        dots: true,
         infinite: true,
         speed: 500,
         slidesToShow: 1,
@@ -191,6 +192,10 @@
         autoplay: true,
         autoplaySpeed: 2500,
       });
+
+
+      $('.slick-prev').html(`@include('utils.icons.chevron_left')`);
+      $('.slick-next').html(`@include('utils.icons.chevron_right')`);
     </script>
   @endif
   @if(isset($elements['jivochat']) && $elements['jivochat']->widget)

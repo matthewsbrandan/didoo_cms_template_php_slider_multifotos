@@ -32,7 +32,7 @@ class HomeController extends Controller{
 
     // EXCEPTIONS
     $parsedElements = $this->sectionExceptions($parsedElements);
-
+    
     return view('index',[
       'page_config' => $page_config,
       'elements' => $parsedElements,
@@ -76,18 +76,7 @@ class HomeController extends Controller{
       }
     }
     if(isset($elements['banner']) && $elements['banner']->model){
-      foreach($elements['banner']->model as $key => &$item){
-        if(is_string($item) && 
-          $jsonParsed = json_decode($item)
-        ) $item = $jsonParsed;
-        if(!is_string($item) && (is_array($item) || is_object($item))){
-          foreach($item as &$subItem){
-            if(is_string($subItem) && 
-              $jsonParsed = json_decode($subItem)
-            ) $subItem = $jsonParsed;
-          }
-        }
-      }
+      recursiveArrayJsonParsed($elements['banner']->model);
     }
     return $elements;
   }

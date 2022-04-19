@@ -1,6 +1,7 @@
 #cms_gallery {
   background-size: cover;
   background-position-x: center;
+  position: relative;
 }
 
 #cms_gallery .content {

@@ -1,6 +1,6 @@
 #banner {
   height: auto;
-  max-height: calc(100vh - 4.1rem);
+  min-height: 100vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -11,16 +11,81 @@
   position: relative;
 }
 
-#banner .content {
+#banner .carousel {
+  height: 100vh;
+  overflow-y: auto;
+}
+
+#banner .carousel .slick-arrow {
+  position: absolute;
+  z-index: 99;
+  top: 0;
+  bottom: 0;
+  color: white;
+}
+
+#banner .carousel .slick-arrow.slick-prev {
+  left: .4rem;
+}
+
+#banner .carousel .slick-arrow.slick-next {
+  right: .4rem;
+}
+
+#banner .carousel .slick-dots {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  list-style: none;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 99;
+}
+
+#banner .carousel .slick-dots li {
+  width: .6rem;
+  height: .6rem;
+  border-radius: 50%;
+  background: #99a6;
+  margin: auto .2rem;
+}
+
+#banner .carousel .slick-dots li.slick-active {
+  background: #99a;
+}
+
+#banner .carousel .slick-dots li button {
+  display: none;
+}
+
+#banner .carousel .carousel-item {
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+  margin: auto;
+  background-size: cover;
+  background-position-x: center;
+}
+
+#banner .carousel .carousel-item .slick-track {
+  height: 100%;
+}
+
+#banner .carousel .carousel-item .content {
+  height: 100vh;
   width: 85%;
-  margin: 0 auto;
-  height: calc(100vh - 10vh);
+  margin: auto;
   overflow: hidden;
   z-index: 1;
   position: relative;
 }
 
-#banner .content > div {
+#banner .carousel .carousel-item .content > div {
   width: 100%;
   text-align: center;
   min-height: 100%;
@@ -36,27 +101,20 @@
           justify-content: center;
 }
 
-#banner .content > div hgroup h1 {
+#banner .carousel .carousel-item .content > div h1 {
   font-size: 3.2rem;
   line-height: 3.4rem;
   text-transform: uppercase;
   margin: 0;
 }
 
-#banner .content > div hgroup strong {
-  font-size: 1.1rem;
-  font-weight: normal;
-  margin-top: .6rem;
-  display: block;
-}
-
-#banner .content > div .description {
+#banner .carousel .carousel-item .content > div .description {
   max-width: 28rem;
   line-height: 1.5rem;
   margin: .6rem auto 1.6rem;
 }
 
-#banner .content > div .btn {
+#banner .carousel .carousel-item .content > div .btn {
   font-size: 1rem;
   max-width: 100%;
   width: -webkit-fit-content;
@@ -65,36 +123,7 @@
   margin: 0 auto 2rem;
 }
 
-#banner .carousel {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 0;
-  height: calc(100vh - 4.1rem);
-}
-
-#banner .carousel > div {
-  width: 100%;
-  height: 100%;
-}
-
-#banner .carousel > div .slick-track {
-  height: 100%;
-}
-
-#banner .carousel > div img {
-  width: 100%;
-  height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
-}
-
 @media (min-width: 1000px) {
-  #banner {
-    height: calc(100vh - 4.1rem);
-  }
   #banner .content {
     width: 70%;
   }

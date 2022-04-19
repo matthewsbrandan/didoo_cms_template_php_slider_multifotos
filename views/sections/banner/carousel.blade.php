@@ -1,36 +1,19 @@
 <section id="banner">
-  <div class="content">
-    <div>
-      <hgroup>
-        <h1 class="titulo" style="
-          {{ $banner->title->color ? 'color: '.$banner->title->color.';' : '' }}
-        ">{{ $banner->title->text }}</h1>
-        <strong class="subtitulo" style="
-          {{ $banner->caption->color ? 'color: '.$banner->caption->color.';' : '' }}
-        ">{{ $banner->caption->text }}</strong>
-      </hgroup>
-      <p class="texto description" style="
-        {{ $banner->description->color ? 'color: '.$banner->description->color.';' : '' }}
-      ">{!! $banner->description->text !!}</p>
-      <a
-        class="botao btn btn-primary btn-uppercase"
-        href="{{ $banner->button->link }}"
-        style="
-          {{ $banner->button->background ? 'background: '.$banner->button->background.';' : '' }}
-          {{ $banner->button->color ? 'color: '.$banner->button->color.';' : '' }}
-        "
-      >{{ $banner->button->text }}</a>
-    </div>
-  </div>
   <div class="carousel">
     @foreach($banner->images as $index => $image)
-      <div>
-        <img 
-          src="{{ $image->src }}"
-          alt="imagem {{ $index }}" 
-        />
+      <div class="carousel-item" style="background-image: url('{{ $image->src }}');">
+        <div class="content">
+          <div>
+            <h1 class="titulo" style="
+              {{ $image->title->color ? 'color: '.$image->title->color.';' : '' }}
+            ">{{ $image->title->text }}</h1>
+            <p class="texto description" style="
+              {{ $image->description->color ? 'color: '.$image->description->color.';' : '' }}
+            ">{!! $image->description->text !!}</p>
+          </div>
+        </div>
+        <div class="overlay" style="background: {{ $image->overlay }}"></div>
       </div>
     @endforeach
   </div>
-  <div class="overlay" style="background: {{ $banner->overlay }}"></div>
 </section>

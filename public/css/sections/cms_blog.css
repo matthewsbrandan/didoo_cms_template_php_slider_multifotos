@@ -1,3 +1,7 @@
+#cms_blog {
+  position: relative;
+}
+
 #cms_blog .content {
   padding: 2rem 2rem 4rem;
 }
