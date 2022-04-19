@@ -1,4 +1,6 @@
-<section id="faq">
+<section id="faq" style="
+  {{ innerStyle('background-image', $faq->image, null, "url('". $faq->image . "')") }}
+">
   <div class="content" style="background: {{ $faq->background }}">
     <h2 class="titulo" style="{{ $faq->text_color ? 'color: '.$faq->text_color.';' : '' }}">
       {{ $faq->title }}
@@ -30,4 +32,7 @@
       @endforeach
     </ul>
   </div>
+  @if(isset($faq->overlay) && $faq->overlay)
+    <div class="overlay" style="background: {{ $faq->overlay }}"></div>
+  @endif
 </section>

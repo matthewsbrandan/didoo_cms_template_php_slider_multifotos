@@ -1,4 +1,6 @@
 #faq {
+  background-size: cover;
+  background-position-x: center;
   min-height: 30rem;
   padding: 3rem 2rem;
   display: -webkit-box;

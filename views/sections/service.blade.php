@@ -1,7 +1,9 @@
 <section id="service" style="
   {{ innerStyle('background-image', $service->image, null, "url('". $service->image . "')") }}
 ">
-  <div class="content" id="servicos">
+  <div class="content" id="servicos" style="
+    {{ innerStyle('color', $service->text_color) }}
+  ">
     <h2 class="titulo">{{ $service->title }}</h2>
     <p class="subtitulo subtitle">{{ $service->subtitle }}</p>
     <div class="container-services">

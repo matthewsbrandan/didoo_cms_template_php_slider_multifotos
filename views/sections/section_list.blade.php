@@ -1,4 +1,6 @@
-<section id="section_list">
+<section id="section_list" style="
+  {{ innerStyle('background-image', $section_list->wallpaper, null, "url('". $section_list->wallpaper . "')") }}
+">
   <div class="content" style="background: {{ $section_list->background }}">
     <div>
       <div>
@@ -27,4 +29,7 @@
     </div>
     <img src="{{ $section_list->image }}" alt="{{ $section_list->title }}"/>
   </div>
+  @if(isset($section_list->overlay) && $section_list->overlay)
+    <div class="overlay" style="background: {{ $section_list->overlay }}"></div>
+  @endif
 </section>

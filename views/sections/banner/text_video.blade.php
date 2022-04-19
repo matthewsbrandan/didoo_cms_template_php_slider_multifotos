@@ -1,17 +1,26 @@
-<section id="banner">
+<section id="banner" style="
+  {{ innerStyle('background-image', $banner->image, null, "url('". $banner->image . "')") }}
+">
   <div class="content">
     <div>
-      <hgroup>
-        <h1 class="titulo" style="
-          {{ $banner->title->color ? 'color: '.$banner->title->color.';' : '' }}
-        ">{{ $banner->title->text }}</h1>
-        <strong class="subtitulo" style="
-          {{ $banner->caption->color ? 'color: '.$banner->caption->color.';' : '' }}
-        ">{{ $banner->caption->text }}</strong>
-      </hgroup>
+      <strong class="subtitulo" style="
+        {{ $banner->title->color ? 'color: '.$banner->title->color.';' : '' }}
+      ">{{ $banner->title->text }}</strong>
+      <h1 class="titulo" style="
+        {{ $banner->title_highlight->color ? 'color: '.$banner->title_highlight->color.';' : '' }}
+      ">{{ $banner->title_highlight->text }}</h1>
       <p class="texto description" style="
-        {{ $banner->description->color ? 'color: '.$banner->description->color.';' : '' }}
-      ">{!! $banner->description->text !!}</p>
+        {{ $banner->description_1->color ? 'color: '.$banner->description_1->color.';' : '' }}
+      ">{!! $banner->description_1->text !!}</p>
+      <iframe
+        src="{{ $banner->video }}"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen=""
+      ></iframe>
+      <p class="texto description" style="
+        {{ $banner->description_2->color ? 'color: '.$banner->description_2->color.';' : '' }}
+      ">{!! $banner->description_2->text !!}</p>
       <a
         class="botao btn btn-primary btn-uppercase"
         href="{{ $banner->button->link }}"
@@ -22,16 +31,5 @@
       >{{ $banner->button->text }}</a>
     </div>
   </div>
-  <iframe
-    src="{{ $banner->video }}?autoplay=1&mute=1&loop=1&controls=0"
-    class="bg-video"
-    style="
-      width: 100%;
-      height: 100%;
-    "
-    frameborder="0"
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-    allowfullscreen=""
-  ></iframe>
   <div class="overlay" style="background: {{ $banner->overlay }}"></div>
 </section>

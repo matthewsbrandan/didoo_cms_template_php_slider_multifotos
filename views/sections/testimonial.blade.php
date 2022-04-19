@@ -1,4 +1,6 @@
-<section id="testimonial">
+<section id="testimonial" style="
+  {{ innerStyle('background-image', $testimonial->image, null, "url('". $testimonial->image . "')") }}
+">
   <div class="content" style="background: {{ $testimonial->background }}">
     <div class="container-clients">
       @foreach($testimonial->clients as $client)
@@ -26,4 +28,7 @@
       >{{ $testimonial->button->text }}</a>
     </div>
   </div>
+  @if(isset($testimonial->overlay) && $testimonial->overlay)
+    <div class="overlay" style="background: {{ $testimonial->overlay }}"></div>
+  @endif
 </section>

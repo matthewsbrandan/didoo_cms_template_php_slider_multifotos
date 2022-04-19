@@ -1,4 +1,7 @@
 #text_divider{
+  background-size: cover;
+  background-position-x: center;
+  
   min-height: 30rem;
   padding: 3rem 2rem;
   display: flex;
@@ -31,6 +34,7 @@
       margin: 0 0 2rem;
       text-align: center;
     }
+    
     .btn{
       min-width: 12rem;
       max-width: 100%;

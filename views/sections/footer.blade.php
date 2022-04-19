@@ -1,5 +1,6 @@
 <section id="footer" style="
-  {{ $footer->background ? 'background: '.$footer->background.'; ':'' }}
+  {{ (!isset($footer->image) || !$footer->image) && $footer->background ? 'background: '.$footer->background.'; ':'' }}
+  {{ innerStyle('background-image', $footer->image, null, "url('". $footer->image . "')") }}
   {{ $footer->text_color ? 'color: '.$footer->text_color.'; ':'' }}
 ">
   <div class="content">
@@ -119,4 +120,8 @@
       ]])
     </a>
   @endisset
+
+  @if(isset($footer->overlay) && $footer->overlay)
+    <div class="overlay" style="background: {{ $footer->overlay }}"></div>
+  @endif
 </section>

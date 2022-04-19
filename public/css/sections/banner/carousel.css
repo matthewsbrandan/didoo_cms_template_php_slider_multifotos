@@ -45,6 +45,7 @@
   left: 0;
   right: 0;
   z-index: 99;
+  padding-left: 0;
 }
 
 #banner .carousel .slick-dots li {
@@ -112,6 +113,10 @@
   max-width: 28rem;
   line-height: 1.5rem;
   margin: .6rem auto 1.6rem;
+}
+
+#banner .carousel .carousel-item .content > div .description a {
+  text-decoration: underline;
 }
 
 #banner .carousel .carousel-item .content > div .btn {
