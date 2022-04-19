@@ -1,20 +1,24 @@
 #banner{
+  background-size: cover;
+  background-position-x: center;
   height: auto;
-  max-height: calc(100vh - 4.1rem);
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   position: relative;
 
   .content{
     width: 85%;
-    margin: 0 auto;
-    height: calc(100vh - 10vh);
+    margin: auto;
     overflow: hidden;
     z-index: 1;
     position: relative;
 
     > div {
       width: 100%;
+      max-width: 45rem;
+      margin: 4rem auto 2rem;
+      
       text-align: center;
 
       min-height: 100%;
@@ -24,52 +28,42 @@
       
 
       hgroup{
-        h1{
-          font-size: 3.2rem;
-          line-height: 3.4rem;
-          text-transform: uppercase;
-          margin: 0;
-        }
         strong{
-          font-size: 1.1rem;
-          font-weight: normal;
-          margin-top: .6rem;
           display: block;
+
+          font-size: 1.1rem;
+          font-weight: 700;
+          text-transform: uppercase;
+          letter-spacing: 3px;
+
+          margin: 2rem 1.25rem 0;
+
+          font-family: 'Courier New', monospace !important;
+        }
+
+        h1{
+          font-size: 3.75rem;
+          line-height: 1.1;
+          text-transform: uppercase;
+
+          font-weight: 700;
+          font-family: titillium-Web;
+          margin: 1.25rem 1.25rem 0;
+
+          @media(max-width: 600px){
+            font-size: 10vw;
+          }
         }
       }
   
       .description{
-        max-width: 28rem;
+        max-width: 22rem;
+        width: 343px;
+        margin: 1.25rem auto 1.6rem;
+        
         line-height: 1.5rem;
-        margin: .6rem auto 1.6rem;
-      }
-  
-      .btn{
-        font-size: 1rem;
-        max-width: 100%;
-        width: fit-content;
-        margin: 0 auto 2rem;
-      }
-
-    }
-  }
-
-  @media(min-width: 1000px){
-    height: calc(100vh - 4.1rem);
-    
-    .content{
-      width: 70%;
-  
-      > div {
-        text-align: left;
-
-        .description{
-          margin: .6rem 0 1.6rem;
-        }
-
-        .btn{
-          margin: 0 0 2rem;
-        }
+        font-style: italic;
+        word-wrap: break-word;
       }
     }
   }

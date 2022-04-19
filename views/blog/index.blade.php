@@ -135,7 +135,8 @@
         'logo' => $page_config->icon
       ],
       'header_config' => (object)[
-        'back_to_home' => true
+        'back_to_home' => true,
+        'class_name' => 'showing'
       ]
     ])
     <h1>BLOG FEED</h1>

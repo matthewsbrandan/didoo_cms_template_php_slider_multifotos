@@ -176,6 +176,7 @@
   ])
 @endsection
 @section('scripts')
+  <script src="{{ asset('js/header.js') }}"></script>
   @include('layout.cookies')
   @if($elements['banner']->model->model_type == 'carousel')
     <script type="text/javascript" src="{{ asset('js/slick-1.8.1/slick/slick.min.js') }}"></script>
@@ -274,7 +275,7 @@
     <script>
       // INITIALIZATION
       const schedule = {
-        whatsapp: <?php echo isset($elements['footer']) && $elements['footer']->whatsapp ? $elements['footer']->whatsapp : 'null'; ?>,
+        whatsapp: `<?php echo isset($elements['footer']) && $elements['footer']->whatsapp ? $elements['footer']->whatsapp : 'null'; ?>`,
         page_id: `{{ $page_config->page_id }}`,
         page_owner_id: `{{ $page_config->user_id }}`,
         url: `{{ route('api.contact.send') }}`,

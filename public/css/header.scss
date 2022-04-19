@@ -1,4 +1,4 @@
-body > main{ margin-top: 4.1rem !important; }
+// body > main{ margin-top: 4.1rem !important; }
 #main-header{
   box-shadow: 0 0 20px #0022;
 
@@ -8,6 +8,13 @@ body > main{ margin-top: 4.1rem !important; }
   left: 0;
   right: 0;
 
+  display: none;
+  transition: 2s;
+
+  &.showing,&:hover{
+    display: inherit;
+  }
+
   .nav{
     display: flex;
     justify-content: space-between;
@@ -16,7 +23,7 @@ body > main{ margin-top: 4.1rem !important; }
     margin: auto;
     height: 4.1rem;
     padding: 0 1rem;
-  
+
     .logo img{
       height: 3.2rem;
       border-radius: .4rem;

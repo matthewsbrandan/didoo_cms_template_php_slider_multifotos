@@ -45,8 +45,8 @@
     })];
     return $frac_url;
   }
-  function numberWhatsappFormat($phone){
-    $phone = str_replace(' ','',
+  function numberPhoneRemoveSpacialsChars($phone){
+    return str_replace(' ','',
       str_replace('-','',
         str_replace('(','',
           str_replace(')','',
@@ -55,6 +55,17 @@
         )
       )
     );
+  }
+  function numberWhatsappFormat($phone){
+    $phone = numberPhoneRemoveSpacialsChars($phone);
+
     if(strlen($phone) <= 11) $phone = "55" . $phone;
     return $phone;
+  }
+  function numberPhoneFormat($phone){
+    $phone = numberPhoneRemoveSpacialsChars($phone);
+    $phone_formatted = substr($phone,0, -4) - substr($phone,-4);
+    $phone_formatted = "(".substr($phone_formatted,0, 2).") ".substr($phone_formatted, 2);
+
+    return $phone_formatted;
   }

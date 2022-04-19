@@ -1,5 +1,6 @@
 <header
   id="main-header"
+  class="{{ $header_config->class_name ?? '' }}"
   style="
     {{ $header->background ? 'background: '.$header->background.';':'' }}
   "
