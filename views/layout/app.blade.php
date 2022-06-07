@@ -29,6 +29,21 @@
   <script type="text/javascript" src="{{ asset('js/jquery.min.js') }}"></script>
   <script>
     function getById(id){ return document.getElementById(id); }
+    const IMAGE_DEFAULT = `{{ asset('images/no-image.jpg') }}`;
+    async function is_valid_image(src) {
+      try{
+	      await $.get(src)
+        return true;
+      }catch(e){ return false; }
+    }
+    function handleImageOnerrorInScope(scope){
+      $(`${scope} img`).on('error', function(){
+        if($(this).attr('src') !== IMAGE_DEFAULT){
+          $(this).attr('src',IMAGE_DEFAULT);
+        }
+      });
+    }
+    handleImageOnerrorInScope('');
   </script>
   @include('utils.modalMessage')
   @yield('scripts')

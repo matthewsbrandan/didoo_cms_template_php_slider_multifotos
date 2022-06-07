@@ -5,7 +5,7 @@ function loadCatalog(){
     url,
     headers: {"store-token": cms_catalog.token},
     method: "GET"
-  }).done(data => {
+  }).done((data) => {
     if(data.result){
       $('#container-products').html('');
       let products = data.response.map(product => {
@@ -28,11 +28,12 @@ function loadCatalog(){
       `);
       else{
         $('#container-products').parent().addClass('products-filled');
-        products.forEach(product => {
+        products.forEach((product) => {
           $('#container-products').append(
             renderProduct(product)
           );
         });
+        handleImageOnerrorInScope('#container-products');
       }
     }
   }).fail(err => {

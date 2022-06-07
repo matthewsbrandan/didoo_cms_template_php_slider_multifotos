@@ -4,14 +4,22 @@
   <div class="content" id="servicos" style="
     {{ innerStyle('color', $service->text_color) }}
   ">
-    <h2 class="titulo">{{ $service->title }}</h2>
-    <p class="subtitulo subtitle">{{ $service->subtitle }}</p>
+    <h2 class="titulo" style="
+      {{ innerStyle('font-size', $service->title_length, null, $service->title_length . 'px') }}
+    ">{{ $service->title }}</h2>
+    <p class="subtitulo subtitle" style="
+      {{ innerStyle('font-size', $service->subtitle_length, null, $service->subtitle_length . 'px') }}
+    ">{{ $service->subtitle }}</p>
     <div class="container-services">
       @foreach($service->services as $item)
         <div class="service">
           <img src="{{ $item->image }}" alt="{{ $item->title }}"/>
-          <strong>{{ $item->title }}</strong>
-          <p class="texto">{{ $item->description }}</p>
+          <strong style="
+            {{ innerStyle('font-size', $service->item_title_length, null, $service->item_title_length . 'px') }}
+          ">{{ $item->title }}</strong>
+          <p class="texto" style="
+            {{ innerStyle('font-size', $service->item_description_length, null, $service->item_description_length . 'px') }}
+          ">{{ $item->description }}</p>
           <a
             href="{{ $item->button->link }}"
             class="botao btn btn-primary btn-uppercase"

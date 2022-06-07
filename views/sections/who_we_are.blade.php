@@ -4,10 +4,16 @@
   <div class="content" id="sobre">
     <img src="{{ $who_we_are->image }}" alt="{{ $who_we_are->title }}"/>
     <div>
-      <h2 class="titulo" style="{{ $who_we_are->text_color ? 'color: '.$who_we_are->text_color.';' : '' }}">
+      <h2 class="titulo" style="
+        {{ $who_we_are->text_color ? 'color: '.$who_we_are->text_color.';' : '' }}
+        {{ innerStyle('font-size', $who_we_are->title_length, null, $who_we_are->title_length . 'px') }}
+      ">
        {{ $who_we_are->title }}
       </h2>
-      <p class="texto">{!! $who_we_are->description !!}</p>
+      <p class="texto" style="
+        {{ $who_we_are->text_color ? 'color: '.$who_we_are->text_color.';' : '' }}
+        {{ innerStyle('font-size', $who_we_are->description_length, null, $who_we_are->description_length . 'px') }}
+      ">{!! $who_we_are->description !!}</p>
       <a
         href="{{ $who_we_are->button->link }}"
         target="_blank"

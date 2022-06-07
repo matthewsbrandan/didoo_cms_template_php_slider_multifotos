@@ -2,8 +2,14 @@
   {{ innerStyle('background-image', $video_depoiments->image, null, "url('". $video_depoiments->image . "')") }}
 ">
   <div class="content">
-    <h2 class="titulo">{{ $video_depoiments->title }}</h2>
-    <p class="subtitulo">{{ $video_depoiments->substitle }}</p>
+    <h2 class="titulo" style="
+      {{ innerStyle('font-size', $video_depoiments->title_length, null, $video_depoiments->title_length . 'px') }}
+      {{ innerStyle('color', $video_depoiments->text_color) }}
+    ">{{ $video_depoiments->title }}</h2>
+    <p class="subtitulo" style="
+      {{ innerStyle('font-size', $video_depoiments->subtitle_length, null, $video_depoiments->subtitle_length . 'px') }}
+      {{ innerStyle('color', $video_depoiments->text_color) }}
+    ">{{ $video_depoiments->substitle }}</p>
     <div class="wrapper-depoiments depoiment-filled">
       <div class="container-depoiments" id="container-depoiments">
         @foreach($video_depoiments->depoiments as $depoiment)

@@ -2,8 +2,14 @@
   {{ innerStyle('background-image', $schedule->image, null, "url('". $schedule->image . "')") }}
 ">
   <div class="content" id="agendar">
-    <h2 class="titulo">{{ $schedule->title }}</h2>
-    <p class="subtitulo">{{ $schedule->subtitle }}</p>
+    <h2 class="titulo" style="
+      {{ innerStyle('font-size', $schedule->title_length, null, $schedule->title_length . 'px') }}
+      {{ innerStyle('color', $schedule->text_color) }}
+    ">{{ $schedule->title }}</h2>
+    <p class="subtitulo" style="
+      {{ innerStyle('font-size', $schedule->subtitle_length, null, $schedule->subtitle_length . 'px') }}
+      {{ innerStyle('color', $schedule->text_color) }}
+    ">{{ $schedule->subtitle }}</p>
     <form id="form-schedule">
       <div class="form-control" style="margin-bottom: 1rem; {{ $schedule->border_color ? 'border-color: '.$schedule->border_color.';' : '' }}">
         <input type="text" name="name" id="schedule-name" placeholder="Nome" required/>

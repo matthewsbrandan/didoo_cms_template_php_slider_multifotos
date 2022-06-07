@@ -5,6 +5,7 @@
     switch ($route_name){
       case 'home':            return $app_url; break;
       case 'cms':             return $cms_url; break;
+      case 'links':           return $app_url."/links"; break;
       case 'privacy.policy':  return $app_url."/politica-privacidade"; break;
       #region BLOG
       case 'blog.feed.index': return $app_url."/"."blog"; break;

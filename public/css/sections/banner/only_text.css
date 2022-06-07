@@ -47,6 +47,7 @@
   letter-spacing: 3px;
   margin: 2rem 1.25rem 0;
   font-family: 'Courier New', monospace !important;
+  word-break: break-word;
 }
 
 #banner .content > div hgroup h1 {

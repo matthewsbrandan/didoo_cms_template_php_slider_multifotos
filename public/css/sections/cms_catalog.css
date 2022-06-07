@@ -6,6 +6,8 @@
 
 #cms_catalog .content {
   padding: 2rem 0;
+  position: relative;
+  z-index: 1;
 }
 
 #cms_catalog .content h2 {

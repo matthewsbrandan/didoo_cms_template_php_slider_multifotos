@@ -5,6 +5,9 @@
   
   .content{
     padding: 2rem 0;
+    position: relative;
+    z-index: 1;
+    
     h2{
       text-transform: uppercase;
       font-size: 2rem;

@@ -2,8 +2,14 @@
   <img src="{{ $download_catalog->image }}" alt="capa catalogo"/>
   <div class="content">
     <form id="form-download-catalog">
-      <h2 class="titulo">{{ $download_catalog->title }}</h2>
-      <p class="texto">{{ $download_catalog->subtitle }}</p>
+      <h2 class="titulo" style="
+        {{ innerStyle('font-size', $download_catalog->title_length, null, $download_catalog->title_length . 'px') }}
+      "
+      >{{ $download_catalog->title }}</h2>
+      <p class="texto" style="
+        {{ innerStyle('font-size', $download_catalog->subtitle_length, null, $download_catalog->subtitle_length . 'px') }}
+      "
+      >{{ $download_catalog->subtitle }}</p>
       <div class="form-control" style="{{ $download_catalog->border_color ? 'border-color: '.$download_catalog->border_color.';' : '' }}">
         <input type="text" name="name" id="download_catalog-name" placeholder="Nome" required/>
       </div>

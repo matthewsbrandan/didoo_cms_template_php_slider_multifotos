@@ -4,9 +4,11 @@
   <div class="content">
     <h2 class="titulo" style="
       {{ $new_section->text_color ? 'color: '.$new_section->text_color.';' : '' }}
+      {{ innerStyle('font-size', $new_section->title_length, null, $new_section->title_length . 'px') }}
     ">{{ $new_section->title }}</h2>
     <p class="description texto" style="
       {{ $new_section->text_color ? 'color: '.$new_section->text_color.';' : '' }}
+      {{ innerStyle('font-size', $new_section->description_length, null, $new_section->description_length . 'px') }}
     ">{!! $new_section->description !!}</p>
     <a
       href="{{ $new_section->button->link }}"

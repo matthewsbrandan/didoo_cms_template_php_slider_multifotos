@@ -33,7 +33,7 @@ class CmsService{
     $err = curl_error($curl);
 
     curl_close($curl);
-
+    
     $response = json_decode($response);
     return [$response, $err];
   }

@@ -9,10 +9,14 @@
             <img src="{{ $client->image }}" alt="{{ $client->name }}"/>
             <img src="{{ asset('images/iconedepoimento.png') }}" alt="icone" class="icon"/>
           </div>
-          <strong style="{{ $testimonial->text_color ? 'color: '.$testimonial->text_color.';' : '' }}">
-            {{ $client->name }}, <span>{{ $client->address }}</span>
-          </strong>
-          <p class="texto" style="{{ $testimonial->text_color ? 'color: '.$testimonial->text_color.';' : '' }}">{{ $client->description }}</p>
+          <strong style="
+            {{ $testimonial->text_color ? 'color: '.$testimonial->text_color.';' : '' }}
+            {{ innerStyle('font-size', $testimonial->title_length, null, $testimonial->title_length . 'px') }}
+          ">{{ $client->name }}, <span>{{ $client->address }}</span></strong>
+          <p class="texto" style="
+            {{ $testimonial->text_color ? 'color: '.$testimonial->text_color.';' : '' }}
+            {{ innerStyle('font-size', $testimonial->description_length, null, $testimonial->description_length . 'px') }}
+          ">{{ $client->description }}</p>
         </div>
       @endforeach
     </div>

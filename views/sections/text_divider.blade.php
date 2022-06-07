@@ -2,11 +2,17 @@
   {{ innerStyle('background-image', $text_divider->image, null, "url('". $text_divider->image . "')") }}
 ">
   <div class="content" style="background: {{ $text_divider->background }}">
-    <h2 class="titulo"style="{{ $text_divider->text_color ? 'color: '.$text_divider->text_color.';' : '' }}">
+    <h2 class="titulo"style="
+      {{ $text_divider->text_color ? 'color: '.$text_divider->text_color.';' : '' }}
+      {{ innerStyle('font-size', $text_divider->title_length, null, $text_divider->title_length . 'px') }}
+    ">
     {{ $text_divider->title }}
     </h2>
 
-    <p class="texto" style="{{ $text_divider->text_color ? 'color: '.$text_divider->text_color.';' : '' }}">
+    <p class="texto" style="
+      {{ $text_divider->text_color ? 'color: '.$text_divider->text_color.';' : '' }}
+      {{ innerStyle('font-size', $text_divider->description_length, null, $text_divider->description_length . 'px') }}
+    ">
     {{ $text_divider->description }}
     </p>
 

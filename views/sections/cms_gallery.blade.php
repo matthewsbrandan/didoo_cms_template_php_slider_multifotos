@@ -9,8 +9,12 @@
   <div class="content" id="galeria" style="
     {{ innerStyle('color', $cms_gallery->text_color) }}
   ">
-    <h2>{{ $cms_gallery->title }}</h2>
-    <p>{{ $cms_gallery->subtitle }}</p>
+    <h2 style="
+      {{ innerStyle('font-size', $cms_gallery->title_length, null, $cms_gallery->title_length . 'px') }}
+    ">{{ $cms_gallery->title }}</h2>
+    <p style="
+      {{ innerStyle('font-size', $cms_gallery->subtitle_length, null, $cms_gallery->subtitle_length . 'px') }}
+    ">{{ $cms_gallery->subtitle }}</p>
     <div class="wrapper-gallery">
       <div id="container-gallery">
         <p class="text-loading texto">Carregando Galeria...</p>

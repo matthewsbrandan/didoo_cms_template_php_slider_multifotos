@@ -12,7 +12,11 @@
     display: grid;
     grid-template-columns: auto 15rem 17rem;
 
+    z-index: 1;
+
     > div{
+      z-index: 1;
+
       padding: 1rem .4rem;
       display: flex;
       flex-direction: column;
@@ -80,6 +84,8 @@
   }
 
   .developed-by{
+    position: relative;
+    z-index: 1;
     text-align: center;
     margin: auto;
     padding: 0 0 2rem;

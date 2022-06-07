@@ -7,8 +7,14 @@
       @foreach($product_list->items as $item)
         <div class="item">
           <img src="{{ $item->image }}" alt="{{ $item->title }}"/>
-          <strong style="{{ $product_list->text_color ? 'color: '.$product_list->text_color.';' : '' }}">{{ $item->title }}</strong>
-          <p class="texto" style="{{ $product_list->text_color ? 'color: '.$product_list->text_color.';' : '' }}">{{ $item->description }}</p>
+          <strong style="
+            {{ $product_list->text_color ? 'color: '.$product_list->text_color.';' : '' }}
+            {{ innerStyle('font-size', $product_list->title_length, null, $product_list->title_length . 'px') }}
+          ">{{ $item->title }}</strong>
+          <p class="texto" style="
+            {{ $product_list->text_color ? 'color: '.$product_list->text_color.';' : '' }}
+            {{ innerStyle('font-size', $product_list->description_length, null, $product_list->description_length . 'px') }}
+          ">{{ $item->description }}</p>
         </div>
       @endforeach
     </div>

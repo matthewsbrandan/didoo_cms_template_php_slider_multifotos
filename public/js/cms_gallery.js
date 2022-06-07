@@ -23,10 +23,12 @@ function loadGallery(){
             renderImageFromGallery(image)
           );
         });
+
+        handleImageOnerrorInScope('#container-gallery');
       } 
     }
   }).fail(err => {
-    $('#container-products').html(`
+    $('#container-gallery').html(`
       <p class="text-loading">Houve um erro ao carregar a galeria!</p>
     `);
   });;

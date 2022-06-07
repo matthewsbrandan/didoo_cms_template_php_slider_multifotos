@@ -7,13 +7,23 @@
     <div>
       <img src="{{ $footer->logo }}" alt="logo" class="logo"/>
       <hr/>
-      <p class="texto">{{ $footer->address }}</p>
+      <p class="texto" style="
+        {{ innerStyle('font-size', $footer->description_length, null, $footer->description_length . 'px') }}
+      ">{{ $footer->address }}</p>
     </div>
     <div>
-      <strong>ACESSO RÁPIDO</strong>
+      <strong style="
+        {{ innerStyle('font-size', $footer->title_length, null, $footer->title_length . 'px') }}
+      ">ACESSO RÁPIDO</strong>
       <ul>
-        @include('layout.header-list')
-        <li><a href="{{ route('privacy.policy') }}" target="_blank">Política de Privacidade</a></li>
+        @include('layout.header-list',['header_list_config' => (object)[
+          'style' => innerStyle('font-size', $footer->description_length, null, $footer->description_length . 'px')
+        ]])
+        <li>
+          <a href="{{ route('privacy.policy') }}" target="_blank" style="
+            {{ innerStyle('font-size', $footer->description_length, null, $footer->description_length . 'px') }}
+          ">Política de Privacidade</a>
+        </li>
       </ul>
     </div>
     @if(
@@ -25,21 +35,33 @@
       isset($footer->twitter)
     )
       <div id="contato">
-        <strong>FALE CONOSCO</strong>
+        <strong style="
+          {{ innerStyle('font-size', $footer->title_length, null, $footer->title_length . 'px') }}
+        ">FALE CONOSCO</strong>
         @isset($footer->whatsapp)
-          <a href="tel: {{ $footer->whatsapp }}" target="_blank"><b>Whatsapp:</b> {{ $footer->whatsapp }}</a>
+          <a href="tel: {{ $footer->whatsapp }}" target="_blank" style="
+            {{ innerStyle('font-size', $footer->description_length, null, $footer->description_length . 'px') }}
+          "><b>Whatsapp:</b> {{ $footer->whatsapp }}</a>
         @endisset
         @isset($footer->phone_fix)
-          <a href="tel: {{ $footer->phone_fix }}" target="_blank"><b>Telefone:</b> {{ $footer->phone_fix }}</a>
+          <a href="tel: {{ $footer->phone_fix }}" target="_blank" style="
+            {{ innerStyle('font-size', $footer->description_length, null, $footer->description_length . 'px') }}
+          "><b>Telefone:</b> {{ $footer->phone_fix }}</a>
         @endisset
         @isset($footer->phone_cel)
-          <a href="tel: {{ $footer->phone_cel }}" target="_blank"><b>Celular:</b> {{ $footer->phone_cel }}</a>
+          <a href="tel: {{ $footer->phone_cel }}" target="_blank" style="
+            {{ innerStyle('font-size', $footer->description_length, null, $footer->description_length . 'px') }}
+          "><b>Celular:</b> {{ $footer->phone_cel }}</a>
         @endisset
         @isset($footer->email)
-          <a href="mailto:{{ $footer->email }}" target="_blank"><b>Email:</b> {{ $footer->email }}</a>
+          <a href="mailto:{{ $footer->email }}" target="_blank" style="
+            {{ innerStyle('font-size', $footer->description_length, null, $footer->description_length . 'px') }}
+          "><b>Email:</b> {{ $footer->email }}</a>
         @endisset
         @isset($footer->email_2)
-          <a href="mailto:{{ $footer->email_2 }}" target="_blank"><b>Email 2:</b> {{ $footer->email_2 }}</a>
+          <a href="mailto:{{ $footer->email_2 }}" target="_blank" style="
+            {{ innerStyle('font-size', $footer->description_length, null, $footer->description_length . 'px') }}
+          "><b>Email 2:</b> {{ $footer->email_2 }}</a>
         @endisset
         <div class="group-icons">
           @isset($footer->facebook)
@@ -120,7 +142,6 @@
       ]])
     </a>
   @endisset
-
   @if(isset($footer->overlay) && $footer->overlay)
     <div class="overlay" style="background: {{ $footer->overlay }}"></div>
   @endif

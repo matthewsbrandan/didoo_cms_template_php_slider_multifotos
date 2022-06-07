@@ -29,12 +29,14 @@
         font-size: 4.5rem;
         margin-top: 4rem;
         display: block;
-        line-height: .7;
+        line-height: .95;
+        word-break: break-word;
       }
 
       h1{
         font-size: 4.5rem;
         margin: 0;
+        word-break: break-word;
       }
   
       .description{

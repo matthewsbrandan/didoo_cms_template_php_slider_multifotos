@@ -28,6 +28,7 @@ function loadBlog(){
             renderBlog(post)
           );
         });
+        handleImageOnerrorInScope('#container-blog');
       }
     }
   }).fail(err => {

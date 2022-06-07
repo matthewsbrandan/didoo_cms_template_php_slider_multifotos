@@ -72,6 +72,12 @@
 
         return $controller->policy();
       }
+      if($frac_url[0] == 'links'){
+        include_once __DIR__."/app/controllers/HomeController.php";
+        $controller = new HomeController($cms, $cms_theme_slug);
+
+        return $controller->links();
+      }
     }
 
     return view('error-404');

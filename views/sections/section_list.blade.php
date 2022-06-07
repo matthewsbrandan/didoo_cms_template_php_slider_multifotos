@@ -4,13 +4,19 @@
   <div class="content" style="background: {{ $section_list->background }}">
     <div>
       <div>
-        <h2 class="titulo" style="{{ $section_list->text_color ? 'color: '.$section_list->text_color.';' : '' }}">
+        <h2 class="titulo" style="
+          {{ $section_list->text_color ? 'color: '.$section_list->text_color.';' : '' }}
+          {{ innerStyle('font-size', $section_list->title_length, null, $section_list->title_length . 'px') }}
+        ">
         {{ $section_list->title }}
         </h2>
         <ul style="{{ $section_list->text_color ? 'color: '.$section_list->text_color.';' : '' }}">
           @foreach($section_list->items as $item)
             <li>
-              <p style="{{ $section_list->text_color ? 'color: '.$section_list->text_color.';' : '' }}">
+              <p style="
+                {{ $section_list->text_color ? 'color: '.$section_list->text_color.';' : '' }}
+                {{ innerStyle('font-size', $section_list->item_length, null, $section_list->item_length . 'px') }}
+              ">
                 {{ $item->item }}
               </p>
             </li>

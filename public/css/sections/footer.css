@@ -12,9 +12,11 @@
   display: grid;
   -ms-grid-columns: auto 15rem 17rem;
       grid-template-columns: auto 15rem 17rem;
+  z-index: 1;
 }
 
 #footer .content > div {
+  z-index: 1;
   padding: 1rem .4rem;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -98,6 +100,8 @@
 }
 
 #footer .developed-by {
+  position: relative;
+  z-index: 1;
   text-align: center;
   margin: auto;
   padding: 0 0 2rem;
