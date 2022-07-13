@@ -96,6 +96,56 @@ class HomeController extends Controller{
       'links' => $parsedElements['links']
     ]);
   }
+  public function product($slug = null){
+    if(!$slug) return view('error-404');
+    [$data, $err] = $this->cms->get("page/data-select/".$this->theme_slug."&multi_photos,navbar");
+    if(!$data || !$data->result || $err) return view('error-404');
+
+    $page_config = $data->response->datas[0];
+    $elements = $data->response->elements;
+    
+    $parsedElements = [];
+    foreach($elements as $element){
+      $data = $element->datas ? $element->datas[0] : null;
+      if($data){
+        if($data->active){
+          $data = json_decode($data->data);
+          if($data) foreach($data as &$item){
+            if(is_string($item) && $jsonParsed = json_decode($item)) $item = $jsonParsed;
+          }
+        }
+        else $data = null;
+      }
+      $parsedElements[$element->class_name] = $data;
+    }
+    $parsedElements = $this->sectionExceptions($parsedElements);
+    try{
+      $products = $parsedElements['multi_photos']->services;
+      $product = null;
+      if($slug){
+        foreach($products as $product_item){
+          if($product_item->slug === $slug){
+            $product = $product_item;
+            break;
+          }
+        }
+      }
+      if($product){
+        $page_config->title = $product->title . ' | '. $page_config->title;
+        $page_config->metadescription = $product->description;
+      }
+      return view('product.show',[
+        'page_config' => $page_config,
+        'elements' => $parsedElements,
+        'product' => $product,
+        'slug' => $slug
+      ]);
+    }catch(Exception $e){
+      return view('error-500',[
+        'message' => 'Houve um erro ao carregar o produto/serviço'
+      ]);
+    }
+  }
   protected function sectionExceptions($elements){
     if(isset($elements['service']) && is_array($elements['service']->services)){
       foreach($elements['service']->services as &$service){
@@ -107,6 +157,8 @@ class HomeController extends Controller{
     if(isset($elements['banner']) && $elements['banner']->model){
       recursiveArrayJsonParsed($elements['banner']->model);
     }
+    if(isset($elements['multi_photos'])) recursiveArrayJsonParsed($elements['multi_photos']);
+    
     return $elements;
   }
 }

@@ -40,10 +40,35 @@
     return $blade->make($name, $params);
   }
   function frac_url($url){
+    #region HANDLE QUERY PARAMS
+    $indexStartQueryParams = strpos($url, '?');
+    $hasQueryParams = $indexStartQueryParams !== false;
+    $queryParams = null;
+    if($hasQueryParams){
+      $queryParams = substr($url, $indexStartQueryParams + 1);
+      $url = substr($url, 0, $indexStartQueryParams);
+      if(strlen($queryParams) === 0) $queryParams = null;
+      else{
+        $frac_params = explode('&', $queryParams);
+        $queryParams = [];
+        foreach($frac_params as $param){
+          $divider = strpos($param, '=');
+          if($divider === false) $queryParams[] = $param;
+          else{
+            $key = substr($param, 0, $divider);
+            $value = substr($param, $divider + 1);
+            $queryParams[$key] = $value;
+          }
+        }
+      }
+    }
+    #endregion HANDLE QUERY PARAMS
+
     $frac_url = [...array_filter(explode("/",$url), function($frac){
       return !!$frac;
     })];
-    return $frac_url;
+
+    return [$frac_url, $queryParams];
   }
   function numberPhoneRemoveSpacialsChars($phone){
     return str_replace(' ','',
@@ -79,4 +104,13 @@
         recursiveArrayJsonParsed($item);
       }
     }
+  }
+  function formatMoney($price){
+    $price_formatted = str_replace(',','', $price);
+    $price_formatted = str_replace('.',',', $price_formatted);
+    $arr_price = explode(',', $price_formatted);
+    if(count($arr_price) < 2) $arr_price[] = '00';
+    $arr_price[1] = str_pad($arr_price[1],2,"0",STR_PAD_RIGHT);
+
+    return 'R$ ' . implode(',', $arr_price);
   }

@@ -3,113 +3,87 @@
   background-position-x: center;
   position: relative;
 }
-
 #cms_gallery .content {
   position: relative;
   z-index: 1;
   padding: 2rem 2rem 4rem;
 }
-
 #cms_gallery .content h2 {
   text-transform: uppercase;
   font-size: 2rem;
   text-align: center;
   margin-bottom: 0;
 }
-
 #cms_gallery .content p {
-  margin-top: .4rem;
+  margin-top: 0.4rem;
   text-align: center;
 }
-
 #cms_gallery .content .wrapper-gallery {
   position: relative;
 }
-
 #cms_gallery .content .wrapper-gallery:not(.gallery-filled) > button {
   display: none;
 }
-
 #cms_gallery .content .wrapper-gallery > button {
   position: absolute;
   margin: auto 1.2rem;
   top: 0;
   bottom: 0;
-  padding: 0 0 .4rem;
+  padding: 0 0 0.4rem;
 }
-
 #cms_gallery .content .wrapper-gallery > button img {
   width: 3rem;
   height: 3rem;
   background: #fff;
   border-radius: 50%;
 }
-
 #cms_gallery .content .wrapper-gallery > button.btn-left, #cms_gallery .content .wrapper-gallery > button.btn-right {
   width: 3rem;
   height: 3rem;
-  padding-top: .4rem;
+  padding-top: 0.4rem;
 }
-
 #cms_gallery .content .wrapper-gallery > button.btn-left {
   left: 0;
 }
-
 #cms_gallery .content .wrapper-gallery > button.btn-right {
   right: 0;
 }
-
 #cms_gallery .content .wrapper-gallery #container-gallery {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   min-height: 15rem;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  align-items: center;
   overflow-x: auto;
-  padding-bottom: .4rem;
+  padding-bottom: 0.4rem;
   margin: auto;
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
   max-width: 100%;
 }
-
 #cms_gallery .content .wrapper-gallery #container-gallery::-webkit-scrollbar {
   width: 0;
   height: 0;
 }
-
 #cms_gallery .content .wrapper-gallery #container-gallery img {
   width: 15rem;
   min-width: 15rem;
   height: 15rem;
   min-height: 15rem;
-  -webkit-box-shadow: 0 0 20px #0021;
-          box-shadow: 0 0 20px #0021;
+  box-shadow: 0 0 20px rgba(0, 0, 34, 0.0666666667);
   border-radius: 0.4rem;
   -o-object-fit: cover;
      object-fit: cover;
-  margin: .4rem;
+  margin: 0.4rem;
 }
-
 #cms_gallery .content .wrapper-gallery .text-loading {
-  opacity: .7;
+  opacity: 0.7;
   text-align: center;
   width: 100%;
   padding-left: 2rem;
   padding-right: 2rem;
   height: 15rem;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  background: #0002;
-}
-/*# sourceMappingURL=cms_gallery.css.map */
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.1333333333);
+}/*# sourceMappingURL=cms_gallery.css.map */

@@ -59,7 +59,9 @@
     <div class="container">
       <header>CMS</header>
       <section></section>
-      <button class="closeModal" type="button" onclick="$('#modalMessage').hide();">x</button>
+      <button class="closeModal" type="button" onclick="$('#modalMessage').hide();">
+        @include('utils.icons.close')
+      </button>
     </div>
   </div>
 </div>

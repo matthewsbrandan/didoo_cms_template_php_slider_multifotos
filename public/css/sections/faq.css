@@ -3,75 +3,46 @@
   background-position-x: center;
   min-height: 30rem;
   padding: 3rem 2rem;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
   position: relative;
 }
-
 #faq .content {
   margin: auto;
   width: 100%;
   max-width: 950px;
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
+  flex: 1;
   padding: 4rem 2rem;
-  border-radius: .6rem;
-  display: -webkit-box;
-  display: -ms-flexbox;
+  border-radius: 0.6rem;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   z-index: 1;
 }
-
 #faq .content h2 {
   text-transform: uppercase;
   font-size: 2rem;
   text-align: center;
   margin-top: 0;
 }
-
 #faq .content ul {
   width: 100%;
   text-align: left;
   list-style: none;
 }
-
 #faq .content ul li {
-  padding: .4rem;
+  padding: 0.4rem;
 }
-
 #faq .content ul li strong {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  align-items: center;
   margin-left: -1.5rem;
 }
-
 #faq .content ul li strong .icon-toggler {
   font-size: 0;
 }
-
 #faq .content ul li strong .icon-toggler svg {
-  -webkit-transform: scale(0.65);
-          transform: scale(0.65);
-  opacity: .8;
-}
-/*# sourceMappingURL=faq.css.map */
+  transform: scale(0.65);
+  opacity: 0.8;
+}/*# sourceMappingURL=faq.css.map */

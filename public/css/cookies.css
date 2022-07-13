@@ -7,49 +7,32 @@
   background-color: white;
   z-index: 99999999;
   padding: 1rem;
-  border-radius: .4rem;
-  -webkit-box-shadow: 0 0 20px #0022;
-          box-shadow: 0 0 20px #0022;
+  border-radius: 0.4rem;
+  box-shadow: 0 0 20px rgba(0, 0, 34, 0.1333333333);
 }
-
 #accept-cookies .content {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
 }
-
 #accept-cookies .content .title-card {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  align-items: center;
 }
-
 #accept-cookies .content .title-card strong {
   font-weight: bold;
   font-size: 1.2rem;
   color: var(--primary-500);
 }
-
 #accept-cookies .content .title-card svg {
   margin-left: 10px;
   color: var(--primary-500);
 }
-
 #accept-cookies .content a {
-  font-size: .95rem;
+  font-size: 0.95rem;
   text-decoration: underline;
   color: var(--gray-500);
 }
-
 #accept-cookies .content button {
   margin-top: 1rem;
   font-weight: bold;
-}
-/*# sourceMappingURL=cookies.css.map */
+}/*# sourceMappingURL=cookies.css.map */

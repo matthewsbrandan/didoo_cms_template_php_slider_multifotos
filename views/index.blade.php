@@ -21,6 +21,9 @@
   @isset($elements['service'])
     <link href="{{ asset('css/sections/service.css') }}" rel="stylesheet"/>
   @endisset
+  @isset($elements['multi_photos'])
+    <link href="{{ asset('css/sections/multi_photos.css') }}" rel="stylesheet"/>
+  @endisset
   @isset($elements['text_divider'])
     <link href="{{ asset('css/sections/text_divider.css') }}" rel="stylesheet"/>
   @endisset
@@ -59,6 +62,9 @@
     <link href="{{ asset('css/sections/video_depoiments.css') }}" rel="stylesheet"/>
   @endisset
   <link href="{{ asset('css/sections/footer.css') }}" rel="stylesheet"/>
+  @isset($elements['popup'])
+    <link href="{{ asset('css/sections/popup.css') }}" rel="stylesheet"/>
+  @endisset
   @if(isset($elements['code']) && $elements['code']->head) {!! $elements['code']->head !!} @endif
 @endsection
 @section('content')
@@ -101,6 +107,12 @@
   @isset($elements['service'])
     @include('sections.service',[
       'service' => $elements['service']
+    ])
+  @endisset
+
+  @isset($elements['multi_photos'])
+    @include('sections.multi_photos',[
+      'multi_photos' => $elements['multi_photos']
     ])
   @endisset
 
@@ -176,6 +188,14 @@
   ])
 @endsection
 @section('scripts')
+  @isset($elements['multi_photos'])
+    @include('utils.modalMultiPhotos')
+  @endisset
+  @isset($elements['popup'])
+    @include('setions.popup',[
+      'popup' => $elements['popup']
+    ])
+  @endisset
   <script src="{{ asset('js/header.js') }}"></script>
   @include('layout.cookies')
   @if($elements['banner']->model->model_type == 'carousel')
@@ -206,7 +226,7 @@
       minus: `@include('utils.icons.minus')`,
       plus: `@include('utils.icons.plus')`
     }
-    function toggleIconPlusMinus(target){0
+    function toggleIconPlusMinus(target){
       if(target.hasClass('icon-minus')) target.html(icons.plus);
       else target.html(icons.minus);
       target.toggleClass('icon-minus icon-plus');
@@ -227,6 +247,15 @@
         if(newPositionScroll < 0) container.scrollLeft = 0;
         else container.scrollLeft = newPositionScroll;
       }
+    }
+    function formatMoney(price){
+      let price_formatted = String(price).replace(',','');
+      price_formatted = price_formatted.replace('.',',');
+      let arr_price = price_formatted.split(',');
+      if(arr_price.length < 2) arr_price.push('00');
+      arr_price[1] = arr_price[1].padEnd(2,'0');
+
+      return `R$ ${ arr_price.join(',') }`;
     }
   </script>
   @if(
@@ -280,7 +309,7 @@
     <script>
       // INITIALIZATION
       const schedule = {
-        whatsapp: `<?php echo isset($elements['footer']) && $elements['footer']->whatsapp ? $elements['footer']->whatsapp : 'null'; ?>`,
+        whatsapp: `<?php echo isset($elements['footer']) && $elements['footer']->whatsapp ? numberWhatsappFormat($elements['footer']->whatsapp) : 'null'; ?>`,
         page_id: `{{ $page_config->page_id }}`,
         page_owner_id: `{{ $page_config->user_id }}`,
         url: `{{ route('api.contact.send') }}`,

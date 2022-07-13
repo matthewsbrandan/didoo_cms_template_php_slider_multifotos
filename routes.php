@@ -7,6 +7,7 @@
       case 'cms':             return $cms_url; break;
       case 'links':           return $app_url."/links"; break;
       case 'privacy.policy':  return $app_url."/politica-privacidade"; break;
+      case 'product.show':    return $app_url."/produto"."/".($params['slug'] ?? ''); break;
       #region BLOG
       case 'blog.feed.index': return $app_url."/"."blog"; break;
       case 'blog.feed.show':  return $app_url."/"."blog/".$params['slug']; break;

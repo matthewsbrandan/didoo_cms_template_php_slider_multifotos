@@ -22,7 +22,7 @@
 
   #region HANDLE MODE DYNAMIC SLUG
   if($mode_dynamic_slug){
-    $frac_url = frac_url($uri);
+    [$frac_url] = frac_url($uri);
     if(count($frac_url) == 0){
       echo view('welcome',[
         'cms_url' => $cms_url
@@ -50,7 +50,7 @@
     global $cms;
     global $cms_theme_slug;
 
-    $frac_url = frac_url($url);
+    [$frac_url, $query_params] = frac_url($url);
     
     if(count($frac_url) == 0){
       include_once __DIR__."/app/controllers/HomeController.php";
@@ -77,6 +77,12 @@
         $controller = new HomeController($cms, $cms_theme_slug);
 
         return $controller->links();
+      }
+      if($frac_url[0] == 'produto'){
+        include_once __DIR__."/app/controllers/HomeController.php";
+        $controller = new HomeController($cms, $cms_theme_slug);
+
+        return $controller->product($frac_url[1] ?? null);
       }
     }
 
