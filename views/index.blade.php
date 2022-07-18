@@ -190,6 +190,7 @@
 @section('scripts')
   @isset($elements['multi_photos'])
     @include('utils.modalMultiPhotos')
+    @include('utils.modalSearchBox')
   @endisset
   @isset($elements['popup'])
     @include('sections.popup',[
