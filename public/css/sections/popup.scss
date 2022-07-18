@@ -2,7 +2,7 @@
   display: none;
   z-index: 99999;
 
-  .overlay{
+  > .overlay{
     background: rgba(0,0,20,.6);
     position: fixed;
     top: 0;
@@ -22,16 +22,21 @@
       height: auto;
       max-height: calc(100vh - 2rem);
       overflow-y: auto;
-      padding: 2rem 3rem;
+      padding: 0;
       margin: auto 1rem;
       border-radius: 5px;
       box-shadow: 0 0 60px rgba(0,0,0,.05);
       text-align: center;
-      position: relative;        
-      section{
+      position: relative;
+
+      section{ 
         font-size: 1rem;
         color: #668;
-        margin-top: 1rem;
+
+        img{
+          width: 100%;
+          object-fit: cover;
+        }
       }
       button.closeModal{
         position: absolute;

@@ -192,7 +192,7 @@
     @include('utils.modalMultiPhotos')
   @endisset
   @isset($elements['popup'])
-    @include('setions.popup',[
+    @include('sections.popup',[
       'popup' => $elements['popup']
     ])
   @endisset
