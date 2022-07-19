@@ -1,5 +1,6 @@
 <section id="text_divider" style="
-  {{ innerStyle('background-image', $text_divider->image, null, "url('". $text_divider->image . "')") }}
+  {{ innerStyleIssetAttr('background-image', $text_divider, 'image') }}
+  {{ innerStyleIssetAttr('order', $text_divider, 'order', $default_order) }}
 ">
   <div class="content" style="background: {{ $text_divider->background }}">
     <h2 class="titulo"style="

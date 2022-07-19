@@ -1,5 +1,6 @@
 <section id="testimonial" style="
-  {{ innerStyle('background-image', $testimonial->image, null, "url('". $testimonial->image . "')") }}
+  {{ innerStyleIssetAttr('background-image', $testimonial, 'image') }}
+  {{ innerStyleIssetAttr('order', $testimonial, 'order', $default_order) }}
 ">
   <div class="content" style="background: {{ $testimonial->background }}">
     <div class="container-clients">

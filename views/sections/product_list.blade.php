@@ -1,6 +1,7 @@
 <section id="product_list" style="
   {{ isset($product_list->image) && $product_list->image ? '' : 'background: ' . $product_list->background . ';' }}
-  {{ innerStyle('background-image', $product_list->image, null, "url('". $product_list->image . "')") }}
+  {{ innerStyle('background-image', $product_list->image) }}
+  {{ innerStyleIssetAttr('order', $product_list, 'order', $default_order) }}
 ">
   <div class="content">
     <div class="container-items">

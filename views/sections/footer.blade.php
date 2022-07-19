@@ -1,6 +1,6 @@
 <section id="footer" style="
   {{ (!isset($footer->image) || !$footer->image) && $footer->background ? 'background: '.$footer->background.'; ':'' }}
-  {{ innerStyle('background-image', $footer->image, null, "url('". $footer->image . "')") }}
+  {{ innerStyle('background-image', $footer->image) }}
   {{ $footer->text_color ? 'color: '.$footer->text_color.'; ':'' }}
 ">
   <div class="content">

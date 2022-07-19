@@ -1,7 +1,7 @@
-<section 
-  id="video"
-  style="{{ innerStyle('background-image', $video->wallpaper, null, "url('".$video->wallpaper."')") }}"
->
+<section id="video" style="
+  {{ innerStyle('background-image', $video->wallpaper) }}
+  {{ innerStyleIssetAttr('order', $video, 'order', $default_order) }}
+">
   <button
     type="button"
     class="btn botao"

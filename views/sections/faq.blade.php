@@ -1,5 +1,6 @@
 <section id="faq" style="
-  {{ innerStyle('background-image', $faq->image, null, "url('". $faq->image . "')") }}
+  {{ innerStyleIssetAttr('background-image', $faq, 'image') }}
+  {{ innerStyleIssetAttr('order', $faq, 'order', $default_order) }}
 ">
   <div class="content" style="background: {{ $faq->background }}">
     <h2 class="titulo" style="

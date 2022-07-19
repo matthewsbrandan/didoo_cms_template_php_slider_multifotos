@@ -30,10 +30,32 @@
     if(preg_match( "/\/[a-z]*>/i",$content) != 0) return $content;
     return nl2br($content);
   }
+  function innerStyleIssetAttr($prop, $obj, $attr, $default = null, $valeuFormatted = null){
+    if(is_array($obj)){
+      if(isset($obj[$attr]) && $obj[$attr]) return innerStyle(
+        $prop, $obj[$attr], $default, $valeuFormatted
+      );
+    }else if(isset($obj->$attr) && $obj->$attr) return innerStyle(
+      $prop, $obj->$attr, $default, $valeuFormatted
+    );
+
+    if($default) return innerStyle(
+      $prop, null, $default, $valeuFormatted
+    );
+
+    return "";
+  }
   function innerStyle($prop, $value = null, $default = null, $valeuFormatted = null){
-    if($value) return $valeuFormatted ? "$prop: $valeuFormatted;" : "$prop: $value;";
+    if(isset($value) && $value) return handleStyleValueFormatted(
+      $prop, $value, $valeuFormatted
+    );
     else if($default) return "$prop: $default;";
     return "";
+  }
+  function handleStyleValueFormatted($prop, $value, $valeuFormatted){
+    if($valeuFormatted) return "$prop: $valeuFormatted;";
+    if(in_array($prop,['background-image'])) return "$prop: url('$value');";
+    return "$prop: $value;";
   }
   function view($name, $params = []){
     global $blade;
@@ -113,4 +135,8 @@
     $arr_price[1] = str_pad($arr_price[1],2,"0",STR_PAD_RIGHT);
 
     return 'R$ ' . implode(',', $arr_price);
+  }
+  function handleIncrementOrder(&$order, $existingOrders){
+    do{ $order++; }while(in_array($order, $existingOrders));
+    return $order;
   }

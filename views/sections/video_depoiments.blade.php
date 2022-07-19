@@ -1,5 +1,6 @@
 <section id="video_depoiments" style="
-  {{ innerStyle('background-image', $video_depoiments->image, null, "url('". $video_depoiments->image . "')") }}
+  {{ innerStyle('background-image', $video_depoiments->image) }}
+  {{ innerStyleIssetAttr('order', $video_depoiments, 'order', $default_order) }}
 ">
   <div class="content">
     <h2 class="titulo" style="
@@ -16,7 +17,7 @@
           @if(!in_array($depoiment->link,['#','']))
             <div
               class="container-depoiment-item"
-              style="{{ innerStyle('background-image', $depoiment->wallpaper, null, "url('".$depoiment->wallpaper."')") }}"
+              style="{{ innerStyle('background-image', $depoiment->wallpaper) }}"
             >
               <button
                 type="button"

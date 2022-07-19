@@ -1,5 +1,6 @@
 <section id="multi_photo" style="
-  {{ innerStyle('background-image', $multi_photos->image, null, "url('". $multi_photos->image . "')") }}
+  {{ innerStyle('background-image', $multi_photos->image) }}
+  {{ innerStyleIssetAttr('order', $multi_photos, 'order', $default_order) }}
 ">
   <div class="content" id="multi-fotos">
     <div class="wrapper">

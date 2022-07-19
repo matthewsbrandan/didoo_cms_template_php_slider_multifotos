@@ -1,5 +1,6 @@
 <section id="cms_catalog" style="
-  {{ innerStyle('background-image', $cms_catalog->image, null, "url('". $cms_catalog->image . "')") }}
+  {{ innerStyle('background-image', $cms_catalog->image) }}
+  {{ innerStyleIssetAttr('order', $cms_catalog, 'order', $default_order) }}
 ">
   <div class="content" id="produtos">
     <h2

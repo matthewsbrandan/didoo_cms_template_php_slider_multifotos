@@ -1,5 +1,6 @@
 <section id="new_section" style="
-  {{ innerStyle('background-image', $new_section->image, null, "url('". $new_section->image . "')") }}
+  {{ innerStyle('background-image', $new_section->image) }}
+  {{ innerStyleIssetAttr('order', $new_section, 'order', $default_order) }}
 ">
   <div class="content">
     <h2 class="titulo" style="

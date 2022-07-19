@@ -31,11 +31,13 @@ class HomeController extends Controller{
     ]);
 
     // EXCEPTIONS
-    $parsedElements = $this->sectionExceptions($parsedElements);
-    
+    $parsedElements = $this->sectionExceptions($parsedElements);    
+    $existingOrders = $this->handleExistingOrders($parsedElements);
+
     return view('index',[
       'page_config' => $page_config,
       'elements' => $parsedElements,
+      'existingOrders' => $existingOrders,
       'cms_page_token' => $this->cms->getPageToken()
     ]);
   }
@@ -160,5 +162,30 @@ class HomeController extends Controller{
     if(isset($elements['multi_photos'])) recursiveArrayJsonParsed($elements['multi_photos']);
     
     return $elements;
+  }
+  protected function handleExistingOrders($elements){
+    $existingOrders = [];
+    foreach($elements as $key => $element){
+      if(in_array($key, [
+        'code',
+        'navbar',
+        'banner',
+        'jivochat',
+        'privacity_policy',
+        'footer',
+        'popup',
+        'links'
+      ])) continue;
+
+      if($key == 'section_dynamic' && isset($element->section_dynamic)){
+        foreach($element->section_dynamic as $section){
+          if(isset($section->order) && $section->order) $existingOrders[] = $section->order;
+        }
+        continue;
+      }
+
+      if(isset($element->order) && $element->order) $existingOrders[] = $element->order;
+    }
+    return $existingOrders;
   }
 }

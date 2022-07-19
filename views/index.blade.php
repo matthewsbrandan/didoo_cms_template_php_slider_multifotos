@@ -2,6 +2,7 @@
 @section('head')
   <link href="{{ asset('css/header.css') }}" rel="stylesheet"/>
   <link href="{{ asset('css/cookies.css') }}" rel="stylesheet"/>
+  <style> #flex-order{ display: flex; flex-direction: column; } </style>
   @if($elements['banner']->model->model_type == 'carousel')
     <link rel="stylesheet" type="text/css" href="{{ asset('js/slick-1.8.1/slick/slick.css') }}"/>
   @endif
@@ -65,8 +66,14 @@
   @isset($elements['popup'])
     <link href="{{ asset('css/sections/popup.css') }}" rel="stylesheet"/>
   @endisset
+  @isset($elements['section_dynamic'])
+    <style>
+      <?php foreach($elements['section_dynamic']->section_dynamic as $section){ echo $section->css; } ?>
+    </style>
+  @endisset
   @if(isset($elements['code']) && $elements['code']->head) {!! $elements['code']->head !!} @endif
 @endsection
+
 @section('content')
   @if(isset($elements['code']) && $elements['code']->init_body) {!! $elements['code']->init_body !!} @endif
   @include('layout.header',[
@@ -79,114 +86,142 @@
     'banner_variations' => $elements['banner'],
     'variation' => $elements['banner']->model->model_type
   ])
+  
+  <section id="flex-order">
+    <?php $order = 0; ?>
+    @isset($elements['new_section'])
+      @include('sections.new_section',[
+        'new_section' => $elements['new_section'],
+        'default_order' => handleIncrementOrder($order, $existingOrders)
+      ])
+    @endisset
 
-  @isset($elements['new_section'])
-    @include('sections.new_section',[
-      'new_section' => $elements['new_section']
-    ])
-  @endisset
+    @isset($elements['product_list'])
+      @include('sections.product_list',[
+        'product_list' => $elements['product_list'],
+        'default_order' => handleIncrementOrder($order, $existingOrders)
+      ])
+    @endisset
 
-  @isset($elements['product_list'])
-    @include('sections.product_list',[
-      'product_list' => $elements['product_list']
-    ])
-  @endisset
+    @isset($elements['who_we_are'])
+      @include('sections.who_we_are',[
+        'who_we_are' => $elements['who_we_are'],
+        'default_order' => handleIncrementOrder($order, $existingOrders)
+      ])
+    @endisset
 
-  @isset($elements['who_we_are'])
-    @include('sections.who_we_are',[
-      'who_we_are' => $elements['who_we_are']
-    ])
-  @endisset
+    @isset($elements['section_list'])
+      @include('sections.section_list',[
+        'section_list' => $elements['section_list'],
+        'default_order' => handleIncrementOrder($order, $existingOrders)
+      ])
+    @endisset
 
-  @isset($elements['section_list'])
-    @include('sections.section_list',[
-      'section_list' => $elements['section_list']
-    ])
-  @endisset
+    @isset($elements['service'])
+      @include('sections.service',[
+        'service' => $elements['service'],
+        'default_order' => handleIncrementOrder($order, $existingOrders)
+      ])
+    @endisset
 
-  @isset($elements['service'])
-    @include('sections.service',[
-      'service' => $elements['service']
-    ])
-  @endisset
+    @isset($elements['multi_photos'])
+      @include('sections.multi_photos',[
+        'multi_photos' => $elements['multi_photos'],
+        'default_order' => handleIncrementOrder($order, $existingOrders)
+      ])
+    @endisset
 
-  @isset($elements['multi_photos'])
-    @include('sections.multi_photos',[
-      'multi_photos' => $elements['multi_photos']
-    ])
-  @endisset
+    @isset($elements['text_divider'])
+      @include('sections.text_divider',[
+        'text_divider' => $elements['text_divider'],
+        'default_order' => handleIncrementOrder($order, $existingOrders)
+      ])
+    @endisset
 
-  @isset($elements['text_divider'])
-    @include('sections.text_divider',[
-      'text_divider' => $elements['text_divider']
-    ])
-  @endisset
+    @if(
+      isset($elements['cms_catalog']) && 
+      isset($elements['cms_catalog']->api_url) &&
+      isset($elements['cms_catalog']->origin)
+    )
+      @include('sections.cms_catalog',[
+        'cms_catalog' => $elements['cms_catalog'],
+        'default_order' => handleIncrementOrder($order, $existingOrders)
+      ])
+    @endif
 
-  @if(
-    isset($elements['cms_catalog']) && 
-    isset($elements['cms_catalog']->api_url) &&
-    isset($elements['cms_catalog']->origin)
-  )
-    @include('sections.cms_catalog',[
-      'cms_catalog' => $elements['cms_catalog']
-    ])
-  @endif
+    @isset($elements['download_catalog'])
+      @include('sections.download_catalog',[
+        'download_catalog' => $elements['download_catalog'],
+        'default_order' => handleIncrementOrder($order, $existingOrders)
+      ])
+    @endisset
 
-  @isset($elements['download_catalog'])
-    @include('sections.download_catalog',[
-      'download_catalog' => $elements['download_catalog']
-    ])
-  @endisset
+    @if(
+      isset($elements['cms_blog']) && 
+      isset($elements['cms_blog']->take)
+    )
+      @include('sections.cms_blog',[
+        'cms_blog' => $elements['cms_blog'],
+        'default_order' => handleIncrementOrder($order, $existingOrders)
+      ])
+    @endif
 
-  @if(
-    isset($elements['cms_blog']) && 
-    isset($elements['cms_blog']->take)
-  )
-    @include('sections.cms_blog',[
-      'cms_blog' => $elements['cms_blog']
-    ])
-  @endif
+    @isset($elements['testimonial'])
+      @include('sections.testimonial',[
+        'testimonial' => $elements['testimonial'],
+        'default_order' => handleIncrementOrder($order, $existingOrders)
+      ])
+    @endisset
 
-  @isset($elements['testimonial'])
-    @include('sections.testimonial',[
-      'testimonial' => $elements['testimonial']
-    ])
-  @endisset
+    @isset($elements['video_depoiments'])
+      @include('sections.video_depoiments',[
+        'video_depoiments' => $elements['video_depoiments'],
+        'default_order' => handleIncrementOrder($order, $existingOrders)
+      ])
+    @endisset
 
-  @isset($elements['video_depoiments'])
-    @include('sections.video_depoiments',[
-      'video_depoiments' => $elements['video_depoiments']
-    ])
-  @endisset
+    @isset($elements['cms_gallery'])
+      @include('sections.cms_gallery',[
+        'cms_gallery' => $elements['cms_gallery'],
+        'default_order' => handleIncrementOrder($order, $existingOrders)
+      ])
+    @endisset
 
-  @isset($elements['cms_gallery'])
-    @include('sections.cms_gallery',[
-      'cms_gallery' => $elements['cms_gallery']
-    ])
-  @endisset
+    @isset($elements['video'])
+      @include('sections.video',[
+        'video' => $elements['video'],
+        'default_order' => handleIncrementOrder($order, $existingOrders)
+      ])
+    @endisset
 
-  @isset($elements['video'])
-    @include('sections.video',[
-      'video' => $elements['video']
-    ])
-  @endisset
+    @isset($elements['schedule'])
+      @include('sections.schedule',[
+        'schedule' => $elements['schedule'],
+        'default_order' => handleIncrementOrder($order, $existingOrders)
+      ])
+    @endisset
 
-  @isset($elements['schedule'])
-    @include('sections.schedule',[
-      'schedule' => $elements['schedule']
-    ])
-  @endisset
+    @isset($elements['faq'])
+      @include('sections.faq',[
+        'faq' => $elements['faq'],
+        'default_order' => handleIncrementOrder($order, $existingOrders)
+      ])
+    @endisset
 
-  @isset($elements['faq'])
-    @include('sections.faq',[
-      'faq' => $elements['faq']
-    ])
-  @endisset
+    @isset($elements['section_dynamic'])
+      @foreach($elements['section_dynamic']->section_dynamic as $i => $section)
+        <section id="section_dynamic_{{$i}}"
+          style="{{ innerStyleIssetAttr('order', $section, 'order', $order) }}"
+        >{!! $section->html !!}</section>
+      @endforeach
+    @endisset
+  </section>
 
   @include('sections.footer',[
     'footer' => $elements['footer']
   ])
 @endsection
+
 @section('scripts')
   @isset($elements['multi_photos'])
     @include('utils.modalMultiPhotos')

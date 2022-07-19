@@ -24,7 +24,7 @@
 @endsection
 @section('content')
   <div class="container" style="
-    {{ innerStyle('background-image', $links->background, null, "url('". $links->background . "')") }}
+    {{ innerStyle('background-image', $links->background) }}
   ">
     <div class="content" style="z-index: 1; position: relative;">
       <img src="{{ $links->logo }}" class="image" alt="logo" style="

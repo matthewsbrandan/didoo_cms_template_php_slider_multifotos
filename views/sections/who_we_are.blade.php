@@ -1,5 +1,6 @@
 <section id="who_we_are" style="
-  {{ innerStyle('background-image', $who_we_are->background, null, "url('". $who_we_are->background . "')") }}
+  {{ innerStyle('background-image', $who_we_are->background) }}
+  {{ innerStyleIssetAttr('order', $who_we_are, 'order', $default_order) }}
 ">  
   <div class="content" id="sobre">
     <img src="{{ $who_we_are->image }}" alt="{{ $who_we_are->title }}"/>

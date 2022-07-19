@@ -1,5 +1,5 @@
 <section id="banner" style="
-  {{ innerStyle('background-image', $banner->image, null, "url('". $banner->image . "')") }}
+  {{ innerStyle('background-image', $banner->image) }}
 ">
   <div class="content">
     <div>

@@ -1,4 +1,7 @@
-<section id="cms_blog" style="{{ innerStyle('color', $cms_blog->background) }}">
+<section id="cms_blog" style="
+  {{ innerStyle('color', $cms_blog->background) }}
+  {{ innerStyleIssetAttr('order', $cms_blog, 'order', $default_order) }}
+">
   <div class="content" id="blog">
     <h2 class="titulo" style="{{ innerStyle('color', $cms_blog->text_color) }}">{{ $cms_blog->title }}</h2>
     <div class="wrapper-blog">

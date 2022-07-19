@@ -1,9 +1,10 @@
 <section id="cms_gallery" style="
   {{
     isset($cms_gallery->image) && $cms_gallery->image ? 
-    innerStyle('background-image', $cms_gallery->image, null, "url('". $cms_gallery->image . "')") :
+    innerStyle('background-image', $cms_gallery->image) :
     innerStyle('background', $cms_gallery->background) 
   }}
+  {{ innerStyleIssetAttr('order', $cms_gallery, 'order', $default_order) }}
 
 ">
   <div class="content" id="galeria" style="

@@ -1,5 +1,6 @@
 <section id="section_list" style="
-  {{ innerStyle('background-image', $section_list->wallpaper, null, "url('". $section_list->wallpaper . "')") }}
+  {{ innerStyleIssetAttr('background-image', $section_list, 'wallpaper') }}
+  {{ innerStyleIssetAttr('order', $section_list, 'order', $default_order) }}
 ">
   <div class="content" style="background: {{ $section_list->background }}">
     <div>

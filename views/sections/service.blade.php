@@ -1,5 +1,6 @@
 <section id="service" style="
-  {{ innerStyle('background-image', $service->image, null, "url('". $service->image . "')") }}
+  {{ innerStyle('background-image', $service->image) }}
+  {{ innerStyleIssetAttr('order', $service, 'order', $default_order) }}
 ">
   <div class="content" id="servicos" style="
     {{ innerStyle('color', $service->text_color) }}

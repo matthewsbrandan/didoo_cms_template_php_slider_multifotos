@@ -1,5 +1,6 @@
 <section id="schedule" style="
-  {{ innerStyle('background-image', $schedule->image, null, "url('". $schedule->image . "')") }}
+  {{ innerStyle('background-image', $schedule->image) }}
+  {{ innerStyleIssetAttr('order', $schedule, 'order', $default_order) }}
 ">
   <div class="content" id="agendar">
     <h2 class="titulo" style="

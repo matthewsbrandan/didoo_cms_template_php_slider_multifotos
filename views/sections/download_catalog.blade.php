@@ -1,4 +1,6 @@
-<section id="download_catalog">
+<section id="download_catalog"  style="
+  {{ innerStyleIssetAttr('order', $download_catalog, 'order', $default_order) }}
+">
   <img src="{{ $download_catalog->image }}" alt="capa catalogo"/>
   <div class="content">
     <form id="form-download-catalog">
