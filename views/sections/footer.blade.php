@@ -8,20 +8,20 @@
       <img src="{{ $footer->logo }}" alt="logo" class="logo"/>
       <hr/>
       <p class="texto" style="
-        {{ innerStyle('font-size', $footer->description_length, null, $footer->description_length . 'px') }}
+        {{ innerStyleIssetAttr('font-size', $footer, 'description_length') }}
       ">{{ $footer->address }}</p>
     </div>
     <div>
       <strong style="
-        {{ innerStyle('font-size', $footer->title_length, null, $footer->title_length . 'px') }}
+        {{ innerStyleIssetAttr('font-size', $footer, 'title_length') }}
       ">ACESSO RÁPIDO</strong>
       <ul>
         @include('layout.header-list',['header_list_config' => (object)[
-          'style' => innerStyle('font-size', $footer->description_length, null, $footer->description_length . 'px')
+          'style' => innerStyleIssetAttr('font-size', $footer, 'description_length')
         ]])
         <li>
           <a href="{{ route('privacy.policy') }}" target="_blank" style="
-            {{ innerStyle('font-size', $footer->description_length, null, $footer->description_length . 'px') }}
+            {{ innerStyleIssetAttr('font-size', $footer, 'description_length') }}
           ">Política de Privacidade</a>
         </li>
       </ul>
@@ -36,31 +36,31 @@
     )
       <div id="contato">
         <strong style="
-          {{ innerStyle('font-size', $footer->title_length, null, $footer->title_length . 'px') }}
+          {{ innerStyleIssetAttr('font-size', $footer, 'title_length') }}
         ">FALE CONOSCO</strong>
         @isset($footer->whatsapp)
           <a href="tel: {{ $footer->whatsapp }}" target="_blank" style="
-            {{ innerStyle('font-size', $footer->description_length, null, $footer->description_length . 'px') }}
+            {{ innerStyleIssetAttr('font-size', $footer, 'description_length') }}
           "><b>Whatsapp:</b> {{ $footer->whatsapp }}</a>
         @endisset
         @isset($footer->phone_fix)
           <a href="tel: {{ $footer->phone_fix }}" target="_blank" style="
-            {{ innerStyle('font-size', $footer->description_length, null, $footer->description_length . 'px') }}
+            {{ innerStyleIssetAttr('font-size', $footer, 'description_length') }}
           "><b>Telefone:</b> {{ $footer->phone_fix }}</a>
         @endisset
         @isset($footer->phone_cel)
           <a href="tel: {{ $footer->phone_cel }}" target="_blank" style="
-            {{ innerStyle('font-size', $footer->description_length, null, $footer->description_length . 'px') }}
+            {{ innerStyleIssetAttr('font-size', $footer, 'description_length') }}
           "><b>Celular:</b> {{ $footer->phone_cel }}</a>
         @endisset
         @isset($footer->email)
           <a href="mailto:{{ $footer->email }}" target="_blank" style="
-            {{ innerStyle('font-size', $footer->description_length, null, $footer->description_length . 'px') }}
+            {{ innerStyleIssetAttr('font-size', $footer, 'description_length') }}
           "><b>Email:</b> {{ $footer->email }}</a>
         @endisset
         @isset($footer->email_2)
           <a href="mailto:{{ $footer->email_2 }}" target="_blank" style="
-            {{ innerStyle('font-size', $footer->description_length, null, $footer->description_length . 'px') }}
+            {{ innerStyleIssetAttr('font-size', $footer, 'description_length') }}
           "><b>Email 2:</b> {{ $footer->email_2 }}</a>
         @endisset
         <div class="group-icons">

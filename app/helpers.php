@@ -54,7 +54,12 @@
   }
   function handleStyleValueFormatted($prop, $value, $valeuFormatted){
     if($valeuFormatted) return "$prop: $valeuFormatted;";
-    if(in_array($prop,['background-image'])) return "$prop: url('$value');";
+    if(in_array($prop,['background-image','font-size'])){
+      switch($prop){
+        case 'background-image': return "$prop: url('$value');";
+        case 'font-size': return "$prop: {$value}px";
+      }
+    }
     return "$prop: $value;";
   }
   function view($name, $params = []){

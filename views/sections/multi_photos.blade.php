@@ -5,7 +5,7 @@
   <div class="content" id="multi-fotos">
     <div class="wrapper">
       <h2 class="titulo" style="
-        {{ innerStyle('font-size', $multi_photos->title->length, null, $multi_photos->title->length . 'px') }}
+        {{ innerStyleIssetAttr('font-size', $multi_photos->title, 'length') }}
         {{ innerStyle('color', $multi_photos->title->color) }}
       ">
         {{ $multi_photos->title->text }}
@@ -16,7 +16,7 @@
         >@include('utils.icons.search')</button>
       </h2>
       <p class="subtitulo subtitle" style="
-        {{ innerStyle('font-size', $multi_photos->subtitle->length, null, $multi_photos->subtitle->length . 'px') }}
+        {{ innerStyleIssetAttr('font-size', $multi_photos->subtitle, 'length') }}
         {{ innerStyle('color', $multi_photos->subtitle->color) }}
       ">{{ $multi_photos->subtitle->text }}</p>
     </div>
@@ -44,12 +44,12 @@
               @if(isset($item->slug) && $item->slug) target="_blank" @endif
             >
               <strong style="
-                {{ innerStyle('font-size', $multi_photos->service_title->length, null, $multi_photos->service_title->length . 'px') }}
+                {{ innerStyleIssetAttr('font-size', $multi_photos->service_title, 'length') }}
                 {{ innerStyle('color', $multi_photos->service_title->color) }}
               ">{{ $item->title }}</strong>
             </a>
             <p class="texto" style="
-              {{ innerStyle('font-size', $multi_photos->service_description->length, null, $multi_photos->service_description->length . 'px') }}
+              {{ innerStyleIssetAttr('font-size', $multi_photos->service_description, 'length') }}
               {{ innerStyle('color', $multi_photos->service_description->color) }}
             ">{{ $item->description }}</p>
             <a

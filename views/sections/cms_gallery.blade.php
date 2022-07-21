@@ -11,10 +11,10 @@
     {{ innerStyle('color', $cms_gallery->text_color) }}
   ">
     <h2 style="
-      {{ innerStyle('font-size', $cms_gallery->title_length, null, $cms_gallery->title_length . 'px') }}
+      {{ innerStyleIssetAttr('font-size', $cms_gallery, 'title_length') }}
     ">{{ $cms_gallery->title }}</h2>
     <p style="
-      {{ innerStyle('font-size', $cms_gallery->subtitle_length, null, $cms_gallery->subtitle_length . 'px') }}
+      {{ innerStyleIssetAttr('font-size', $cms_gallery, 'subtitle_length') }}
     ">{{ $cms_gallery->subtitle }}</p>
     <div class="wrapper-gallery">
       <div id="container-gallery">
@@ -23,13 +23,23 @@
       <button
         type="button"
         class="btn btn-left botao"
-        style="{{ innerStyle('color', $cms_gallery->button->color, '#fff').' '.innerStyle('background', $cms_gallery->button->background, '#5e72e4') }}"
+        style="
+          @isset($cms_gallery->button)
+            {{ innerStyleIssetAttr('color', $cms_gallery->button, 'color', '#fff') }}
+            {{ innerStyleIssetAttr('background', $cms_gallery->button, 'background', '#5e72e4') }}
+          @endisset
+        "
         onclick="handleScrollNextOrPrevItem(false, 'container-gallery', (15 + (2 * .4)) * 16)"
       >@include('utils.icons.chevron_left')</button>
       <button
         type="button"
         class="btn btn-right botao"
-        style="{{ innerStyle('color', $cms_gallery->button->color, '#fff').' '.innerStyle('background', $cms_gallery->button->background, '#5e72e4') }}"
+        style="
+          @isset($cms_gallery->button)
+            {{ innerStyle('color', $cms_gallery->button, 'color', '#fff') }}
+            {{ innerStyle('background', $cms_gallery->button, 'background', '#5e72e4') }}
+          @endisset
+        "
         onclick="handleScrollNextOrPrevItem(true, 'container-gallery', (15 + (2 * .4)) * 16)"
       >@include('utils.icons.chevron_right')</button>
     </div>

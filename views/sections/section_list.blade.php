@@ -7,7 +7,7 @@
       <div>
         <h2 class="titulo" style="
           {{ $section_list->text_color ? 'color: '.$section_list->text_color.';' : '' }}
-          {{ innerStyle('font-size', $section_list->title_length, null, $section_list->title_length . 'px') }}
+          {{ innerStyleIssetAttr('font-size', $section_list, 'title_length') }}
         ">
         {{ $section_list->title }}
         </h2>
@@ -16,7 +16,7 @@
             <li>
               <p style="
                 {{ $section_list->text_color ? 'color: '.$section_list->text_color.';' : '' }}
-                {{ innerStyle('font-size', $section_list->item_length, null, $section_list->item_length . 'px') }}
+                {{ innerStyleIssetAttr('font-size', $section_list, 'item_length') }}
               ">
                 {{ $item->item }}
               </p>

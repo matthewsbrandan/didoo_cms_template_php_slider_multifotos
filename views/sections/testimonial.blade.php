@@ -12,11 +12,11 @@
           </div>
           <strong style="
             {{ $testimonial->text_color ? 'color: '.$testimonial->text_color.';' : '' }}
-            {{ innerStyle('font-size', $testimonial->title_length, null, $testimonial->title_length . 'px') }}
+            {{ innerStyleIssetAttr('font-size', $testimonial, 'title_length') }}
           ">{{ $client->name }}, <span>{{ $client->address }}</span></strong>
           <p class="texto" style="
             {{ $testimonial->text_color ? 'color: '.$testimonial->text_color.';' : '' }}
-            {{ innerStyle('font-size', $testimonial->description_length, null, $testimonial->description_length . 'px') }}
+            {{ innerStyleIssetAttr('font-size', $testimonial, 'description_length') }}
           ">{{ $client->description }}</p>
         </div>
       @endforeach

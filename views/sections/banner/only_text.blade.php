@@ -6,16 +6,16 @@
       <hgroup>
         <strong class="subtitulo" style="
           {{ $banner->caption->color ? 'color: '.$banner->caption->color.';' : '' }}
-          {{ innerStyle('font-size', $banner->caption->length, null, $banner->caption->length . 'px') }}
+          {{ innerStyleIssetAttr('font-size', $banner->caption, 'length') }}
         ">{{ $banner->caption->text }}</strong>
         <h1 class="titulo" style="
           {{ $banner->title->color ? 'color: '.$banner->title->color.';' : '' }}
-          {{ innerStyle('font-size', $banner->title->length, null, $banner->title->length . 'px') }}
+          {{ innerStyleIssetAttr('font-size', $banner->title, 'length') }}
         ">{{ $banner->title->text }}</h1>
       </hgroup>
       <p class="texto description" style="
         {{ $banner->description->color ? 'color: '.$banner->description->color.';' : '' }}
-        {{ innerStyle('font-size', $banner->description->length, null, $banner->description->length . 'px') }}
+        {{ innerStyleIssetAttr('font-size', $banner->description, 'length') }}
       ">{!! $banner->description->text !!}</p>
       @isset($banner->button)
         <a

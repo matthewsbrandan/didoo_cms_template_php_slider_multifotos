@@ -6,7 +6,12 @@
     type="button"
     class="btn botao"
     onclick="$(this).hide('slow').next().attr('src','{{ $video->src }}').show('slow');"
-    style="{{ innerStyle('background', $video->button->background, '#ffff').' '.innerStyle('color', $video->button->color, '#5e72e4') }}"
+    style="
+      @isset($video->button)
+        {{ innerStyleIssetAttr('background', $video->button, 'background', '#ffff') }}
+        {{ innerStyleIssetAttr('color', $video->button, 'color', '#5e72e4') }}
+      @endisset
+    "
   >@include('utils.icons.play')</button>
   <iframe
     src=""

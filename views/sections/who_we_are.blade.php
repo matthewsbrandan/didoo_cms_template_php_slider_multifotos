@@ -1,5 +1,5 @@
 <section id="who_we_are" style="
-  {{ innerStyle('background-image', $who_we_are->background) }}
+  {{ innerStyleIssetAttr('background-image', $who_we_are, 'background') }}
   {{ innerStyleIssetAttr('order', $who_we_are, 'order', $default_order) }}
 ">  
   <div class="content" id="sobre">
@@ -7,13 +7,13 @@
     <div>
       <h2 class="titulo" style="
         {{ $who_we_are->text_color ? 'color: '.$who_we_are->text_color.';' : '' }}
-        {{ innerStyle('font-size', $who_we_are->title_length, null, $who_we_are->title_length . 'px') }}
+        {{ innerStyleIssetAttr('font-size', $who_we_are, 'title_length') }}
       ">
        {{ $who_we_are->title }}
       </h2>
       <p class="texto" style="
         {{ $who_we_are->text_color ? 'color: '.$who_we_are->text_color.';' : '' }}
-        {{ innerStyle('font-size', $who_we_are->description_length, null, $who_we_are->description_length . 'px') }}
+        {{ innerStyleIssetAttr('font-size', $who_we_are, 'description_length') }}
       ">{!! $who_we_are->description !!}</p>
       <a
         href="{{ $who_we_are->button->link }}"

@@ -5,15 +5,15 @@
     <div>
       <strong class="subtitulo" style="
         {{ $banner->title->color ? 'color: '.$banner->title->color.';' : '' }}
-        {{ innerStyle('font-size', $banner->title->length, null, $banner->title->length . 'px') }}
+        {{ innerStyleIssetAttr('font-size', $banner->title, 'length') }}
       ">{{ $banner->title->text }}</strong>
       <h1 class="titulo" style="
         {{ $banner->title_highlight->color ? 'color: '.$banner->title_highlight->color.';' : '' }}
-        {{ innerStyle('font-size', $banner->title_highlight->length, null, $banner->title_highlight->length . 'px') }}
+        {{ innerStyleIssetAttr('font-size', $banner->title_highlight, 'length') }}
       ">{{ $banner->title_highlight->text }}</h1>
       <p class="texto description" style="
         {{ $banner->description_1->color ? 'color: '.$banner->description_1->color.';' : '' }}
-        {{ innerStyle('font-size', $banner->description_1->length, null, $banner->description_1->length . 'px') }}
+        {{ innerStyleIssetAttr('font-size', $banner->description_1, 'length') }}
       ">{!! $banner->description_1->text !!}</p>
       <iframe
         src="{{ $banner->video }}"
@@ -23,7 +23,7 @@
       ></iframe>
       <p class="texto description" style="
         {{ $banner->description_2->color ? 'color: '.$banner->description_2->color.';' : '' }}
-        {{ innerStyle('font-size', $banner->description_2->length, null, $banner->description_2->length . 'px') }}
+        {{ innerStyleIssetAttr('font-size', $banner->description_2, 'length') }}
       ">{!! $banner->description_2->text !!}</p>
       <a
         class="botao btn btn-primary btn-uppercase"

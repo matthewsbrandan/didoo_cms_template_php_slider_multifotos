@@ -5,7 +5,7 @@
   <div class="content" style="background: {{ $faq->background }}">
     <h2 class="titulo" style="
       {{ $faq->text_color ? 'color: '.$faq->text_color.';' : '' }}
-      {{ innerStyle('font-size', $faq->title_length, null, $faq->title_length . 'px') }}
+      {{ innerStyleIssetAttr('font-size', $faq, 'title_length') }}
     ">
       {{ $faq->title }}
     </h2>
@@ -17,7 +17,7 @@
     <ul>
       @foreach($faq->questions as $i => $question)
         <li style="
-          {{ innerStyle('font-size', $faq->description_length, null, $faq->description_length . 'px') }}
+          {{ innerStyleIssetAttr('font-size', $faq, 'description_length') }}
         ">
           <strong 
             onclick="$(this).next().toggle('slow'); toggleIconPlusMinus($(this).children('.icon-toggler'))"

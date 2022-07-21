@@ -1,15 +1,15 @@
 <section id="video_depoiments" style="
-  {{ innerStyle('background-image', $video_depoiments->image) }}
+  {{ innerStyleIssetAttr('background-image', $video_depoiments, 'image') }}
   {{ innerStyleIssetAttr('order', $video_depoiments, 'order', $default_order) }}
 ">
   <div class="content">
     <h2 class="titulo" style="
-      {{ innerStyle('font-size', $video_depoiments->title_length, null, $video_depoiments->title_length . 'px') }}
-      {{ innerStyle('color', $video_depoiments->text_color) }}
+      {{ innerStyleIssetAttr('font-size', $video_depoiments, 'title_length') }}
+      {{ innerStyleIssetAttr('color', $video_depoiments, 'text_color') }}
     ">{{ $video_depoiments->title }}</h2>
     <p class="subtitulo" style="
-      {{ innerStyle('font-size', $video_depoiments->subtitle_length, null, $video_depoiments->subtitle_length . 'px') }}
-      {{ innerStyle('color', $video_depoiments->text_color) }}
+      {{ innerStyleIssetAttr('font-size', $video_depoiments, 'subtitle_length') }}
+      {{ innerStyleIssetAttr('color', $video_depoiments, 'text_color') }}
     ">{{ $video_depoiments->substitle }}</p>
     <div class="wrapper-depoiments depoiment-filled">
       <div class="container-depoiments" id="container-depoiments">

@@ -6,11 +6,11 @@
           <div>
             <h1 class="titulo" style="
               {{ $image->title->color ? 'color: '.$image->title->color.';' : '' }}
-              {{ innerStyle('font-size', $banner->title_length, null, $banner->title_length . 'px') }}
+              {{ innerStyleIssetAttr('font-size', $banner, 'title_length') }}
             ">{{ $image->title->text }}</h1>
             <p class="texto description" style="
               {{ $image->description->color ? 'color: '.$image->description->color.';' : '' }}
-              {{ innerStyle('font-size', $banner->description_length, null, $banner->description_length . 'px') }}
+              {{ innerStyleIssetAttr('font-size', $banner, 'description_length') }}
             ">{!! $image->description->text !!}</p>
             @isset($image->button)
               <a

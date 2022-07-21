@@ -4,11 +4,11 @@
 ">
   <div class="content" id="agendar">
     <h2 class="titulo" style="
-      {{ innerStyle('font-size', $schedule->title_length, null, $schedule->title_length . 'px') }}
+      {{ innerStyleIssetAttr('font-size', $schedule, 'title_length') }}
       {{ innerStyle('color', $schedule->text_color) }}
     ">{{ $schedule->title }}</h2>
     <p class="subtitulo" style="
-      {{ innerStyle('font-size', $schedule->subtitle_length, null, $schedule->subtitle_length . 'px') }}
+      {{ innerStyleIssetAttr('font-size', $schedule, 'subtitle_length') }}
       {{ innerStyle('color', $schedule->text_color) }}
     ">{{ $schedule->subtitle }}</p>
     <form id="form-schedule">

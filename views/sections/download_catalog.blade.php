@@ -5,11 +5,11 @@
   <div class="content">
     <form id="form-download-catalog">
       <h2 class="titulo" style="
-        {{ innerStyle('font-size', $download_catalog->title_length, null, $download_catalog->title_length . 'px') }}
+        {{ innerStyleIssetAttr('font-size', $download_catalog,'title_length') }}
       "
       >{{ $download_catalog->title }}</h2>
       <p class="texto" style="
-        {{ innerStyle('font-size', $download_catalog->subtitle_length, null, $download_catalog->subtitle_length . 'px') }}
+        {{ innerStyleIssetAttr('font-size', $download_catalog,'subtitle_length') }}
       "
       >{{ $download_catalog->subtitle }}</p>
       <div class="form-control" style="{{ $download_catalog->border_color ? 'border-color: '.$download_catalog->border_color.';' : '' }}">

@@ -1,25 +1,25 @@
 <section id="service" style="
-  {{ innerStyle('background-image', $service->image) }}
+  {{ innerStyleIssetAttr('background-image', $service, 'image') }}
   {{ innerStyleIssetAttr('order', $service, 'order', $default_order) }}
 ">
   <div class="content" id="servicos" style="
     {{ innerStyle('color', $service->text_color) }}
   ">
     <h2 class="titulo" style="
-      {{ innerStyle('font-size', $service->title_length, null, $service->title_length . 'px') }}
+      {{ innerStyleIssetAttr('font-size', $service, 'title_length') }}
     ">{{ $service->title }}</h2>
     <p class="subtitulo subtitle" style="
-      {{ innerStyle('font-size', $service->subtitle_length, null, $service->subtitle_length . 'px') }}
+      {{ innerStyleIssetAttr('font-size', $service, 'subtitle_length') }}
     ">{{ $service->subtitle }}</p>
     <div class="container-services">
       @foreach($service->services as $item)
         <div class="service">
           <img src="{{ $item->image }}" alt="{{ $item->title }}"/>
           <strong style="
-            {{ innerStyle('font-size', $service->item_title_length, null, $service->item_title_length . 'px') }}
+            {{ innerStyleIssetAttr('font-size', $service, 'item_title_length') }}
           ">{{ $item->title }}</strong>
           <p class="texto" style="
-            {{ innerStyle('font-size', $service->item_description_length, null, $service->item_description_length . 'px') }}
+            {{ innerStyleIssetAttr('font-size', $service, 'item_description_length') }}
           ">{{ $item->description }}</p>
           <a
             href="{{ $item->button->link }}"

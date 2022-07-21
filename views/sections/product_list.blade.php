@@ -1,6 +1,6 @@
 <section id="product_list" style="
   {{ isset($product_list->image) && $product_list->image ? '' : 'background: ' . $product_list->background . ';' }}
-  {{ innerStyle('background-image', $product_list->image) }}
+  {{ innerStyleIssetAttr('background-image', $product_list, 'image') }}
   {{ innerStyleIssetAttr('order', $product_list, 'order', $default_order) }}
 ">
   <div class="content">
@@ -10,11 +10,11 @@
           <img src="{{ $item->image }}" alt="{{ $item->title }}"/>
           <strong style="
             {{ $product_list->text_color ? 'color: '.$product_list->text_color.';' : '' }}
-            {{ innerStyle('font-size', $product_list->title_length, null, $product_list->title_length . 'px') }}
+            {{ innerStyleIssetAttr('font-size', $product_list, 'title_length') }}
           ">{{ $item->title }}</strong>
           <p class="texto" style="
             {{ $product_list->text_color ? 'color: '.$product_list->text_color.';' : '' }}
-            {{ innerStyle('font-size', $product_list->description_length, null, $product_list->description_length . 'px') }}
+            {{ innerStyleIssetAttr('font-size', $product_list, 'description_length') }}
           ">{{ $item->description }}</p>
         </div>
       @endforeach
