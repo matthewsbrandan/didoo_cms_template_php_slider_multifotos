@@ -1,6 +1,8 @@
 function loadGallery(){
   $('#container-gallery').parent().removeClass('gallery-filled');
   let isMosaic = $('#container-gallery').parent().hasClass('mosaic-gallery');
+  let isNetflix = $('#container-gallery').parent().hasClass('netflix-gallery');
+  
   let url = cms_gallery.url;
   $.ajax({
     url,
@@ -24,6 +26,14 @@ function loadGallery(){
             if(i % 6 === 0){
               $('#container-gallery').append('<div class="row"></div>');
             }
+            $('#container-gallery').children().last().append(
+              renderImageFromGallery(image)
+            );
+          } if(isNetflix){
+            if(i === 0 || i === Math.ceil(images.length / 2)){
+              $('#container-gallery').append('<div class="row"></div>');
+            }
+            
             $('#container-gallery').children().last().append(
               renderImageFromGallery(image)
             );
