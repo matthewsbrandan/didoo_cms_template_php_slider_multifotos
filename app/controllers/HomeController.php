@@ -156,7 +156,7 @@ class HomeController extends Controller{
         ) $service->button = $jsonParsed;
       }
     }
-    if(isset($elements['banner']) && $elements['banner']->model){
+    if(isset($elements['banner']) && isset($elements['banner']->model)){
       recursiveArrayJsonParsed($elements['banner']->model);
     }
     if(isset($elements['multi_photos'])) recursiveArrayJsonParsed($elements['multi_photos']);

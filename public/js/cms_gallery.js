@@ -1,5 +1,6 @@
 function loadGallery(){
   $('#container-gallery').parent().removeClass('gallery-filled');
+  let isMosaic = $('#container-gallery').parent().hasClass('mosaic-gallery');
   let url = cms_gallery.url;
   $.ajax({
     url,
@@ -10,7 +11,7 @@ function loadGallery(){
     method: "GET"
   }).done(data => {
     if(data.result){
-      $('#container-gallery').html('').removeClass;
+      $('#container-gallery').html('');
 
       let images = data.response.images;
       if(images.length === 0) $('#container-gallery').html(`
@@ -18,8 +19,15 @@ function loadGallery(){
       `);
       else{
         $('#container-gallery').parent().addClass('gallery-filled');
-        images.forEach(image => {
-          $('#container-gallery').append(
+        images.forEach((image, i) => {
+          if(isMosaic){
+            if(i % 6 === 0){
+              $('#container-gallery').append('<div class="row"></div>');
+            }
+            $('#container-gallery').children().last().append(
+              renderImageFromGallery(image)
+            );
+          } else $('#container-gallery').append(
             renderImageFromGallery(image)
           );
         });

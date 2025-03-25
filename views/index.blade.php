@@ -181,7 +181,7 @@
     @endisset
 
     @isset($elements['cms_gallery'])
-      @include('sections.cms_gallery',[
+      @include('sections.cms_gallery.index',[
         'cms_gallery' => $elements['cms_gallery'],
         'default_order' => handleIncrementOrder($order, $existingOrders)
       ])
@@ -269,6 +269,19 @@
     }
     function handleScrollNextOrPrevItem(next, id, widthContent){
       let container = getById(id);
+      if(id === 'container-gallery'){
+        if($('#container-gallery').parent().hasClass('mosaic-gallery')){
+          const row = container.querySelector('.row')
+  
+          if (row) {
+            const largura = row.getBoundingClientRect().width;
+            widthContent = largura + 16;
+          } else {
+            console.log('[element-of-gallery-not-found]')
+            widthContent = 600 + 16;
+          }
+        }
+      }
       let maxWidth = container.scrollWidth;
 
       let newPositionScroll = 0;
