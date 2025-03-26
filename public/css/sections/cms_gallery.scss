@@ -51,14 +51,16 @@
         &.btn-right{ right: 0; }
       }
       &.carousel-gallery #container-gallery{
-        display: flex;
         min-height: 15rem;
-        align-items: center;
         overflow-x: auto;
         padding-bottom: .4rem;
         margin: auto;
-        width: fit-content;
-        max-width: 100%;
+
+        > div {
+          display: flex;
+          width: fit-content;
+          max-width: 100%;
+        }
   
         &::-webkit-scrollbar{
           width: 0;

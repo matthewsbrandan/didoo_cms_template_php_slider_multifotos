@@ -49,12 +49,13 @@
   right: 0;
 }
 #cms_gallery .content .wrapper-gallery.carousel-gallery #container-gallery {
-  display: flex;
   min-height: 15rem;
-  align-items: center;
   overflow-x: auto;
   padding-bottom: 0.4rem;
   margin: auto;
+}
+#cms_gallery .content .wrapper-gallery.carousel-gallery #container-gallery > div {
+  display: flex;
   width: -moz-fit-content;
   width: fit-content;
   max-width: 100%;

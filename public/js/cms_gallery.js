@@ -24,16 +24,12 @@ function loadGallery(){
         $('#container-gallery').parent().addClass('gallery-filled');
         images.forEach((image, i) => {
           if(mode === 'mosaic'){
-            if((
-              rows === 1 && i === 0
-            ) || (
-              rows !== 1 && i % (rows * 3) === 0
-            )) $('#container-gallery').append('<div class="row"></div>');
+            if(i % (rows * 3) === 0) $('#container-gallery').append('<div class="row"></div>');
             
             $('#container-gallery').children().last().append(
               renderImageFromGallery(image)
             );
-          }else if(mode === 'netflix'){
+          }else{
             if((
               rows === 1 && i === 0
             ) || (
@@ -49,9 +45,7 @@ function loadGallery(){
             $('#container-gallery').children().last().append(
               renderImageFromGallery(image)
             );
-          } else $('#container-gallery').append(
-            renderImageFromGallery(image)
-          );
+          }
         });
 
         handleImageOnerrorInScope('#container-gallery');
