@@ -47,6 +47,11 @@
       >@include('utils.icons.chevron_right')</button>
     </div>
   </div>
+  <div id="modal-zoom-gallery-image" onclick="closeZoomImage()" style="display: none;">
+    <span class="close">&times;</span>
+    <img class="modal-content" id="modal-zoom-img">
+  </div>
+  
   @if(isset($cms_gallery->overlay) && $cms_gallery->overlay)
     <div class="overlay" style="background: {{ $cms_gallery->overlay }}"></div>
   @endif

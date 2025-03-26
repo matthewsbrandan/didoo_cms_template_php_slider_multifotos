@@ -48,6 +48,13 @@
 #cms_gallery .content .wrapper-gallery > button.btn-right {
   right: 0;
 }
+#cms_gallery .content .wrapper-gallery #container-gallery img {
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+#cms_gallery .content .wrapper-gallery #container-gallery img:hover {
+  transform: scale(1.1);
+}
 #cms_gallery .content .wrapper-gallery.carousel-gallery #container-gallery {
   min-height: 15rem;
   overflow-x: auto;
@@ -173,4 +180,43 @@
   align-items: center;
   justify-content: center;
   background: rgba(0, 0, 0, 0.1333333333);
+}
+#cms_gallery .gallery {
+  display: flex;
+  gap: 10px;
+}
+#cms_gallery .gallery .gallery-item {
+  width: 150px;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+#cms_gallery .gallery .gallery-item:hover {
+  transform: scale(1.1);
+}
+#cms_gallery #modal-zoom-gallery-image {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#cms_gallery #modal-zoom-gallery-image .modal-content {
+  max-width: 90%;
+  max-height: 90%;
+  transition: transform 0.2s ease-in-out;
+  cursor: grab;
+}
+#cms_gallery #modal-zoom-gallery-image .close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 40px;
+  color: white;
+  cursor: pointer;
 }/*# sourceMappingURL=cms_gallery.css.map */
