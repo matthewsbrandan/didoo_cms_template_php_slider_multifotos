@@ -16,7 +16,10 @@
     <p style="
       {{ innerStyleIssetAttr('font-size', $cms_gallery, 'subtitle_length') }}
     ">{{ $cms_gallery->subtitle }}</p>
-    <div class="wrapper-gallery {{ (!isset($cms_gallery->mode) || $cms_gallery->mode === 'Carrossel de Imagens') ? 'carousel-gallery' : ($cms_gallery->mode === 'Padrão Mosaico' ?  'mosaic-gallery' : 'netflix-gallery') }}">
+    <div
+      class="wrapper-gallery {{ (!isset($cms_gallery->mode) || $cms_gallery->mode === 'Carrossel de Imagens') ? 'carousel-gallery' : ($cms_gallery->mode === 'Padrão Mosaico' ?  'mosaic-gallery' : 'netflix-gallery') }}"
+      data-rows="{{ $cms_gallery->rows ?? '1'}}"
+    >
       <div id="container-gallery">
         <p class="text-loading texto">Carregando Galeria...</p>
       </div>

@@ -1,12 +1,13 @@
 function loadGallery(){
   $('#container-gallery').parent().removeClass('gallery-filled');
-  let isMosaic = $('#container-gallery').parent().hasClass('mosaic-gallery');
-  let isNetflix = $('#container-gallery').parent().hasClass('netflix-gallery');
-  
+  let wrapper = $('#container-gallery').parent();
+
+  let mode = wrapper.hasClass('mosaic-gallery') ? 'mosaic' : wrapper.hasClass('netflix-gallery') ? 'netflix' : 'carousel';
+  let rows = Number(wrapper[0].dataset.rows);
+
   let url = cms_gallery.url;
   $.ajax({
-    url,
-    headers: {
+    url, headers: {
       "access-token": cms_gallery.token,
       "take": cms_gallery.take
     },
@@ -22,17 +23,28 @@ function loadGallery(){
       else{
         $('#container-gallery').parent().addClass('gallery-filled');
         images.forEach((image, i) => {
-          if(isMosaic){
-            if(i % 6 === 0){
-              $('#container-gallery').append('<div class="row"></div>');
-            }
+          if(mode === 'mosaic'){
+            if((
+              rows === 1 && i === 0
+            ) || (
+              rows !== 1 && i % (rows * 3) === 0
+            )) $('#container-gallery').append('<div class="row"></div>');
+            
             $('#container-gallery').children().last().append(
               renderImageFromGallery(image)
             );
-          } if(isNetflix){
-            if(i === 0 || i === Math.ceil(images.length / 2)){
-              $('#container-gallery').append('<div class="row"></div>');
-            }
+          }else if(mode === 'netflix'){
+            if((
+              rows === 1 && i === 0
+            ) || (
+              rows !== 1 && (
+                i === 0 || (
+                  i === Math.ceil(images.length / rows)
+                ) || (
+                  rows === 3 && i === (Math.ceil(images.length / rows) * 2)
+                )
+              )
+            )) $('#container-gallery').append('<div class="row"></div>');
             
             $('#container-gallery').children().last().append(
               renderImageFromGallery(image)

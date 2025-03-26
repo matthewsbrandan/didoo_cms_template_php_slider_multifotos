@@ -153,17 +153,19 @@
         img{
           width: 15rem;
           min-width: 15rem;
-          height: 24rem;
-          min-height: 24rem;
+          height: 14rem;
+          min-height: 14rem;          
           box-shadow: 0 0 20px #0021;
           border-radius: 0.4rem;
           object-fit: cover;
           margin: .4rem;
         }
 
-        > div:nth-child(2n) .gallery-image{
-          height: 14rem;
-          min-height: 14rem;
+        > div:first-child .gallery-image{
+          height: 24rem;
+          min-height: 24rem;
+        }
+        > div:last-child .gallery-image{
           border-bottom-left-radius: 0;
           border-bottom-right-radius: 0;
         }

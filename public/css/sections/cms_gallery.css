@@ -145,17 +145,19 @@
 #cms_gallery .content .wrapper-gallery.netflix-gallery #container-gallery img {
   width: 15rem;
   min-width: 15rem;
-  height: 24rem;
-  min-height: 24rem;
+  height: 14rem;
+  min-height: 14rem;
   box-shadow: 0 0 20px rgba(0, 0, 34, 0.0666666667);
   border-radius: 0.4rem;
   -o-object-fit: cover;
      object-fit: cover;
   margin: 0.4rem;
 }
-#cms_gallery .content .wrapper-gallery.netflix-gallery #container-gallery > div:nth-child(2n) .gallery-image {
-  height: 14rem;
-  min-height: 14rem;
+#cms_gallery .content .wrapper-gallery.netflix-gallery #container-gallery > div:first-child .gallery-image {
+  height: 24rem;
+  min-height: 24rem;
+}
+#cms_gallery .content .wrapper-gallery.netflix-gallery #container-gallery > div:last-child .gallery-image {
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
 }
