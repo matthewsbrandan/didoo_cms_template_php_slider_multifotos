@@ -223,15 +223,47 @@
       max-height: 90%;
       transition: transform 0.2s ease-in-out;
       cursor: grab;
+
+    }
+
+    > button {
+      position: absolute;
+      margin: auto 1.2rem;
+      top: 0;
+      bottom: 0;
+      padding: 0 0 .4rem;
+      color: white;
+      
+      img{
+        width: 3rem;
+        height: 3rem;
+
+        background: #fff;
+        border-radius: 50%;
+      }
+
+      &.btn-left, &.btn-right{
+        width: 3rem;
+        height: 3rem;
+        padding-top: .4rem;
+      }
+      &.btn-left{ left: 0; }
+      &.btn-right{ right: 0; }
     }
   
     .close {
       position: absolute;
       top: 20px;
-      right: 30px;
-      font-size: 40px;
+      right: auto;
+      left: auto;
+      font-size: 30px;
       color: white;
       cursor: pointer;
+      text-align: center;
+      background: #0016;
+      padding: 1px 10px;
+      border-radius: 50%;
+      z-index: 999;
     }
   }
 }

@@ -1,3 +1,4 @@
+const gallery_control = { len: 0 };
 function loadGallery(){
   $('#container-gallery').parent().removeClass('gallery-filled');
   let wrapper = $('#container-gallery').parent();
@@ -17,6 +18,7 @@ function loadGallery(){
       $('#container-gallery').html('');
 
       let images = data.response.images;
+      gallery_control.len = images.length;
       if(images.length === 0) $('#container-gallery').html(`
         <p class="text-loading">Nenhuma imagem encontrada!</p>
       `);
@@ -27,7 +29,7 @@ function loadGallery(){
             if(i % (rows * 3) === 0) $('#container-gallery').append('<div class="row"></div>');
             
             $('#container-gallery').children().last().append(
-              renderImageFromGallery(image)
+              renderImageFromGallery(image, i)
             );
           }else{
             if((
@@ -43,7 +45,7 @@ function loadGallery(){
             )) $('#container-gallery').append('<div class="row"></div>');
             
             $('#container-gallery').children().last().append(
-              renderImageFromGallery(image)
+              renderImageFromGallery(image, i)
             );
           }
         });
@@ -57,14 +59,13 @@ function loadGallery(){
     `);
   });;
 }
-function renderImageFromGallery(image){
+function renderImageFromGallery(image, index){
   return `
-    <img src="${image.name}" alt="${image.alt}" class="gallery-image" onclick="openZoomImage(this)"/>
+    <img src="${image.name}" alt="${image.alt}" data-index="${index}" class="gallery-image" onclick="openZoomImage(this,${index})"/>
   `;
 }
 
 //#region HANDLE ZOOM
-
 let interactionZoomImage = {
   scale: 1,
   isDragging: false,
@@ -76,9 +77,10 @@ let interactionZoomImage = {
   modalImg: document.getElementById("modal-zoom-img")
 }
 
-function openZoomImage(img){
+function openZoomImage(img, index){
   interactionZoomImage.modal.style.display = "flex";
   interactionZoomImage.modalImg.src = img.src;
+  interactionZoomImage.modalImg.dataset.index = index;
   interactionZoomImage.scale = 1;
   interactionZoomImage.offsetX = 0;
   interactionZoomImage.offsetY = 0;
@@ -96,6 +98,31 @@ function closeZoomImageOnEsc(event) {
   }
 }
 
+document.querySelector('#modal-zoom-gallery-image .btn-left').addEventListener("click", function(event) { 
+  event.stopPropagation();
+
+  let index = interactionZoomImage.modalImg.dataset.index === '0' ? (
+    gallery_control.len - 1
+  ) : Number(interactionZoomImage.modalImg.dataset.index) - 1;
+  
+  const el = document.querySelector(`#container-gallery .gallery-image[data-index="${index}"]`)
+
+  if(el) el.click();
+  else console.log(`[element-not-found] #container-gallery .gallery-image[data-index="${index}"]`);
+});
+document.querySelector('#modal-zoom-gallery-image .btn-right').addEventListener("click", function(event) {
+  event.stopPropagation();
+
+  let index = interactionZoomImage.modalImg.dataset.index === String(
+    gallery_control.len - 1
+  ) ? 0 : Number(interactionZoomImage.modalImg.dataset.index) + 1;
+
+  const el = document.querySelector(`#container-gallery .gallery-image[data-index="${index}"]`)
+
+  if(el) el.click();
+  else console.log(`[element-not-found] #container-gallery .gallery-image[data-index="${index}"]`);
+});
+
 interactionZoomImage.modalImg.addEventListener("click", function(event) {
   event.stopPropagation();
 });
@@ -110,7 +137,6 @@ interactionZoomImage.modalImg.addEventListener("wheel", function(event) {
 
   this.style.transform = `scale(${interactionZoomImage.scale}) translate(${interactionZoomImage.offsetX}px, ${interactionZoomImage.offsetY}px)`;
 });
-
 interactionZoomImage.modalImg.addEventListener("mousedown", (event) => {
   if (interactionZoomImage.scale > 1) { // Só arrasta se estiver ampliado
     interactionZoomImage.isDragging = true;
@@ -119,7 +145,6 @@ interactionZoomImage.modalImg.addEventListener("mousedown", (event) => {
     interactionZoomImage.modalImg.style.cursor = "grabbing";
   }
 });
-
 // Movimentação ao arrastar
 interactionZoomImage.modal.addEventListener("mousemove", (event) => {
   if (interactionZoomImage.isDragging) {
@@ -128,13 +153,11 @@ interactionZoomImage.modal.addEventListener("mousemove", (event) => {
     interactionZoomImage.modalImg.style.transform = `scale(${interactionZoomImage.scale}) translate(${interactionZoomImage.offsetX}px, ${interactionZoomImage.offsetY}px)`;
   }
 });
-
 // Parar o arrasto
 interactionZoomImage.modal.addEventListener("mouseup", () => {
   interactionZoomImage.isDragging = false;
   interactionZoomImage.modalImg.style.cursor = "grab";
 });
-
 // Também para o arrasto ao sair do modal
 interactionZoomImage.modal.addEventListener("mouseleave", () => {
   interactionZoomImage.isDragging = false;
