@@ -201,6 +201,13 @@
       ])
     @endisset
 
+    @isset($elements['google_reviews'])
+      @include('sections.google_reviews',[
+        'google_reviews' => $elements['google_reviews'],
+        'default_order' => handleIncrementOrder($order, $existingOrders)
+      ])
+    @endisset
+    
     @isset($elements['faq'])
       @include('sections.faq',[
         'faq' => $elements['faq'],
