@@ -21,7 +21,6 @@
 #video_depoiments .content > .btn {
   min-width: 12rem;
   max-width: 100%;
-  width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
   font-size: 1rem;
@@ -61,7 +60,6 @@
   display: flex;
   overflow-x: auto;
   margin: auto;
-  width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
   max-width: 100%;
