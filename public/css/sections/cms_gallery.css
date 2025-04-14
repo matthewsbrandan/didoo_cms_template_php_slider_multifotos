@@ -58,6 +58,7 @@
 #cms_gallery .content .wrapper-gallery.carousel-gallery #container-gallery {
   width: -moz-fit-content;
   width: fit-content;
+  max-width: calc(100vw - 4rem);
   min-height: 15rem;
   overflow-x: auto;
   padding-bottom: 0.4rem;
@@ -139,6 +140,7 @@
 #cms_gallery .content .wrapper-gallery.netflix-gallery #container-gallery {
   width: -moz-fit-content;
   width: fit-content;
+  max-width: calc(100vw - 4rem);
   min-height: 15rem;
   overflow-x: auto;
   padding-bottom: 0.4rem;

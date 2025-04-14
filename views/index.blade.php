@@ -62,6 +62,9 @@
   @isset($elements['video_depoiments'])
     <link href="{{ asset('css/sections/video_depoiments.css') }}" rel="stylesheet"/>
   @endisset
+  @isset($elements['google_reviews'])
+    <link href="{{ asset('css/sections/google_reviews.css') }}" rel="stylesheet"/>
+  @endisset
   <link href="{{ asset('css/sections/footer.css') }}" rel="stylesheet"/>
   @isset($elements['popup'])
     <link href="{{ asset('css/sections/popup.css') }}" rel="stylesheet"/>
@@ -201,6 +204,13 @@
       ])
     @endisset
 
+    @isset($elements['google_reviews'])
+      @include('sections.google_reviews.index',[
+        'google_reviews' => $elements['google_reviews'],
+        'default_order' => handleIncrementOrder($order, $existingOrders)
+      ])
+    @endisset
+    
     @isset($elements['faq'])
       @include('sections.faq',[
         'faq' => $elements['faq'],

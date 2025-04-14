@@ -156,6 +156,24 @@ class HomeController extends Controller{
         ) $service->button = $jsonParsed;
       }
     }
+    if(isset($elements['google_reviews']) && is_array($elements['google_reviews']->reviews)){
+      foreach($elements['google_reviews']->reviews as &$reviews){
+        if(isset($reviews->author) && 
+          is_string($reviews->author) && 
+          $jsonParsed = json_decode($reviews->author)
+        ) $reviews->author = $jsonParsed;
+
+        if(isset($reviews->date) && 
+          is_string($reviews->date) && 
+          $jsonParsed = json_decode($reviews->date)
+        ) $reviews->date = $jsonParsed;
+        
+        if(isset($reviews->description) && 
+          is_string($reviews->description) && 
+          $jsonParsed = json_decode($reviews->description)
+        ) $reviews->description = $jsonParsed;
+      }
+    }
     if(isset($elements['banner']) && isset($elements['banner']->model)){
       recursiveArrayJsonParsed($elements['banner']->model);
     }
