@@ -36,11 +36,11 @@
             @endforeach
           </div>
         @else
-          @foreach($google_reviews->reviews as $review)
-            <div>
+          <div>
+            @foreach($google_reviews->reviews as $review)
               @include('sections.google_reviews.partials.card')
-            </div>
-          @endforeach
+            @endforeach
+          </div>
         @endif
       </div>
       <button

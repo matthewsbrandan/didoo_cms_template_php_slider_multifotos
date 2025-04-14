@@ -92,6 +92,7 @@
   margin-bottom: 0.5rem;
 }
 #google_reviews .content .reviews .card .header .avatar {
+  height: 3rem;
   width: 3rem;
   border-radius: 50%;
   -o-object-fit: cover;

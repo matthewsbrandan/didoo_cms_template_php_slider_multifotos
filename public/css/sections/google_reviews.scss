@@ -3,9 +3,6 @@
   background-position-x: center;
   position: relative;
   
-
-  
-
   .content{
     position: relative;
     z-index: 1;
@@ -15,8 +12,6 @@
     max-width: 100%;
 
     padding: 2rem 0;
-
-    
 
     h2{
       padding: 0 2rem;
@@ -95,6 +90,7 @@
           margin-bottom: .5rem;
 
           .avatar{
+            height: 3rem;
             width: 3rem;
             border-radius: 50%;
             object-fit: cover;
