@@ -42,6 +42,6 @@
         </a>
       @endforeach
     </div>
-    <div class="overlay" style="background: {{ $links->overlay }};"></div>
+    <div class="overlay" style="background: {{ $links->overlay }}; position: fixed;"></div>
   </div>
 @endsection
