@@ -134,6 +134,14 @@
       ])
     @endisset
 
+    @isset($elements['internal_products'])
+      @include('sections.products',[
+        'products' => $elements['internal_products'],
+        'default_order' => handleIncrementOrder($order, $existingOrders),
+        'internal' => true
+      ])
+    @endisset
+
     @isset($elements['text_divider'])
       @include('sections.text_divider',[
         'text_divider' => $elements['text_divider'],

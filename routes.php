@@ -3,15 +3,16 @@
     global $app_url;
     global $cms_url;
     switch ($route_name){
-      case 'home':            return $app_url; break;
-      case 'cms':             return $cms_url; break;
-      case 'links':           return $app_url."/links"; break;
-      case 'privacy.policy':  return $app_url."/politica-privacidade"; break;
-      case 'product.show':    return $app_url."/produto"."/".($params['slug'] ?? ''); break;
+      case 'home':                  return $app_url;                                             break;
+      case 'cms':                   return $cms_url;                                             break;
+      case 'links':                 return $app_url."/links";                                    break;
+      case 'privacy.policy':        return $app_url."/politica-privacidade";                     break;
+      case 'product.show':          return $app_url."/produto"."/".($params['slug'] ?? '');      break;
+      case 'internal_product.show': return $app_url."/produto-interno/".($params['slug'] ?? ''); break;
       #region BLOG
-      case 'blog.feed.index': return $app_url."/"."blog"; break;
-      case 'blog.feed.show':  return $app_url."/"."blog/".$params['slug']; break;
-      case 'blog.feed.more':  return $cms_url."api/post/feed/".($params['skip'] ?? ''); break;
+      case 'blog.feed.index':       return $app_url."/"."blog";                                  break;
+      case 'blog.feed.show':        return $app_url."/"."blog/".$params['slug'];                 break;
+      case 'blog.feed.more':        return $cms_url."api/post/feed/".($params['skip'] ?? '');    break;
       #endregion BLOG
       #region API ROUTES
       case 'api.comment.show':
@@ -47,9 +48,9 @@
         break;
       case 'api.comment.store':  return $cms_url."api/post/comment/store"; break;
 
-      case 'api.postlead.like':  return $cms_url."api/post-lead/like"; break;
-      case 'api.postlead.store': return $cms_url."api/post-lead/store"; break;
-      case 'api.postlead.login': return $cms_url."api/post-lead/login";  break;
+      case 'api.postlead.like':  return $cms_url."api/post-lead/like";     break;
+      case 'api.postlead.store': return $cms_url."api/post-lead/store";    break;
+      case 'api.postlead.login': return $cms_url."api/post-lead/login";    break;
 
       case 'api.gallery.show':
         $parsedParams = [$params['slug']];
@@ -58,7 +59,7 @@
         return $cms_url."api/gallery/show/".implode('/', $parsedParams);
         break;
 
-      case 'api.contact.send': return $cms_url."api/contact/send"; break;
+      case 'api.contact.send':   return $cms_url."api/contact/send";       break;
       #endregion API ROUTES
     }
     throw new Error("Route $route_name don't exists");
